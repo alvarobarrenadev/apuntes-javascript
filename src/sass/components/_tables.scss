@@ -99,7 +99,7 @@
 .code-snippet {
   background: #1a1b26;
   border-radius: 12px;
-  padding: 18px 22px;
+  padding: 14px 18px;
   margin: 14px 0;
   overflow-x: auto;
   max-width: 100%;
@@ -113,7 +113,7 @@
     font-size: 0.88rem;
     color: #a9b1d6;
     line-height: 1.7;
-    white-space: pre;
+    white-space: pre; // Revertir a pre para escritorio por defecto
   }
 }
 

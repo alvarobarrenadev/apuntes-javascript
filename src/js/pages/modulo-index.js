@@ -4,9 +4,13 @@
 import '@/sass/main.scss';
 import { initTheme } from '../modules/theme.js';
 import { getModulo, getClasesDelModulo } from '../data/index.js';
+import { initFooter } from '../modules/footer.js';
 
 // Inicializar tema
 initTheme();
+
+// Inicializar footer
+initFooter();
 
 // Leer configuración desde el HTML
 const main = document.querySelector('main');

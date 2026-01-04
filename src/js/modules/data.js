@@ -1,5 +1,8 @@
 // MODULES DATA
 
+// Obtenemos el base URL de Vite (funciona en dev y producción)
+const BASE = import.meta.env.BASE_URL;
+
 /**
  * Datos de los módulos de JavaScript
  * Cada módulo contiene: título, descripción, icono y cantidad de lecciones
@@ -10,7 +13,7 @@ export const modulesData = [
     desc: "Fundamentos, variables, tipos de datos y operadores esenciales.",
     icon: "fa-bolt",
     count: 3,
-    link: "/src/pages/modulo-1/"
+    link: `${BASE}src/pages/modulo-1/`
   },
   {
     title: "Funciones",

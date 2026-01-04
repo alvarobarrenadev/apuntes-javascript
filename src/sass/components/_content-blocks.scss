@@ -268,7 +268,7 @@
 // DECLARATION GRID (var, let, const)
 .declaration-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
   margin-bottom: 24px;
 }
@@ -288,24 +288,36 @@
   &.warning {
     border-color: rgba(245, 158, 11, 0.4);
 
-    .declaration-badge code {
-      color: #f59e0b;
+    .declaration-badge {
+
+      i,
+      code {
+        color: #f59e0b;
+      }
     }
   }
 
   &.success {
     border-color: rgba(34, 197, 94, 0.4);
 
-    .declaration-badge code {
-      color: #22c55e;
+    .declaration-badge {
+
+      i,
+      code {
+        color: #22c55e;
+      }
     }
   }
 
   &.primary {
     border-color: rgba(139, 92, 246, 0.4);
 
-    .declaration-badge code {
-      color: var(--accent-primary);
+    .declaration-badge {
+
+      i,
+      code {
+        color: var(--accent-primary);
+      }
     }
   }
 
@@ -450,7 +462,7 @@
 // EXAMPLES GRID
 .examples-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
   margin-bottom: 20px;
 }
@@ -501,7 +513,7 @@
 
 .comparison-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
   margin-bottom: 16px;
 }
