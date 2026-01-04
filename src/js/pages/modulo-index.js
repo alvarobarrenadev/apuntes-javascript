@@ -51,6 +51,8 @@ function renderClassCards(moduloId) {
  * Genera una descripción breve de la clase basada en sus temas
  */
 function getClaseDescripcion(clase) {
-  const temasNombres = clase.temas.slice(0, 3).map(t => t.titulo);
-  return temasNombres.join(', ') + (clase.temas.length > 3 ? '...' : '');
+  if (clase.descripcion) return clase.descripcion;
+  
+  const temasNombres = clase.temas.slice(0, 4).map(t => t.titulo);
+  return temasNombres.join(', ') + (clase.temas.length > 4 ? '...' : '');
 }

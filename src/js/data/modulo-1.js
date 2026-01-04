@@ -8,6 +8,7 @@ export const modulo1Data = {
     {
       id: 1,
       titulo: "Introducción a JavaScript",
+      descripcion: "Descubre qué es JavaScript, sus características únicas, cómo ejecutarlo y la historia de ECMAScript.",
       temas: [
         {
           titulo: "¿Qué es JavaScript?",
@@ -132,6 +133,7 @@ export const modulo1Data = {
     {
       id: 2,
       titulo: "Variables y Tipos de Datos",
+      descripcion: "Aprende a declarar variables con let y const, y domina los tipos primitivos (string, number, boolean...).",
       temas: [
         {
           titulo: "¿Qué es una variable?",
@@ -242,6 +244,7 @@ export const modulo1Data = {
     {
       id: 3,
       titulo: "Operadores en JavaScript",
+      descripcion: "Domina los operadores aritméticos, lógicos, de comparación y el operador ternario.",
       temas: [
         {
           titulo: "Operadores Aritméticos",
