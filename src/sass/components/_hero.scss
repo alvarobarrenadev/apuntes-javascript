@@ -1,0 +1,48 @@
+// HERO SECTION
+.hero-section {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  padding: 40px 0;
+
+  // Glow effect detrás del título
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: var(--accent-primary);
+    filter: blur(150px);
+    opacity: 0.15;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+// HERO TEXT
+.hero-text {
+  h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text-main) 20%, var(--text-muted) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+}

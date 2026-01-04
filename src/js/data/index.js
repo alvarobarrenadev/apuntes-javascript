@@ -1,0 +1,46 @@
+// REGISTRO CENTRALIZADO DE MÓDULOS
+// Importa todos los módulos de datos y los exporta en un solo objeto
+
+import { modulo1Data } from './modulo-1.js';
+
+/**
+ * Objeto que contiene todos los módulos del curso
+ * La clave es el ID del módulo (1, 2, 3...)
+ */
+export const modulos = {
+  1: modulo1Data,
+  // Futuros módulos:
+  // 2: modulo2Data,
+  // 3: modulo3Data,
+};
+
+/**
+ * Obtiene los datos de un módulo por su ID
+ * @param {number} moduloId - ID del módulo
+ * @returns {Object|null} Datos del módulo o null si no existe
+ */
+export function getModulo(moduloId) {
+  return modulos[moduloId] || null;
+}
+
+/**
+ * Obtiene los datos de una clase específica
+ * @param {number} moduloId - ID del módulo
+ * @param {number} claseId - ID de la clase
+ * @returns {Object|null} Datos de la clase o null si no existe
+ */
+export function getClase(moduloId, claseId) {
+  const modulo = getModulo(moduloId);
+  if (!modulo) return null;
+  return modulo.clases.find(c => c.id === claseId) || null;
+}
+
+/**
+ * Obtiene todas las clases de un módulo
+ * @param {number} moduloId - ID del módulo  
+ * @returns {Array} Array de clases o array vacío
+ */
+export function getClasesDelModulo(moduloId) {
+  const modulo = getModulo(moduloId);
+  return modulo ? modulo.clases : [];
+}

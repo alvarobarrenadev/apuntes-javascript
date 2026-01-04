@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Apuntes de JavaScript</title>
+    <!-- Fuentes Modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="brand-logo">JS</div>
+        <span>Apuntes JS Álvaro</span>
+      </div>
+
+      <!-- Toggle Tema -->
+      <button class="btn-icon" id="themeToggle" title="Cambiar Tema">
+        <i id="sunIcon" class="fa-solid fa-sun hidden"></i>
+        <i id="moonIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <main>
+      <div class="hero-section">
+        <div class="hero-text">
+          <h1>Apuntes de JavaScript</h1>
+          <p>Mi ruta de aprendizaje personal. Notas y conceptos organizados del curso de ConquerBlocks.</p>
+        </div>
+      </div>
+
+      <div class="modules-grid" id="modulesGrid">
+        <!-- Se rellena con JS -->
+      </div>
+    </main>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1: Introducción a JavaScript - Apuntes JS</title>
+    <meta name="description"
+      content="Qué es JavaScript, características del lenguaje, cómo ejecutarlo y el uso de la consola.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">
+        <div class="brand-logo">JS</div>
+        <span>Apuntes JS Álvaro</span>
+      </a>
+      <button class="btn-icon" id="themeToggle" title="Cambiar Tema">
+        <i id="sunIcon" class="fa-solid fa-sun hidden"></i>
+        <i id="moonIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <main class="lesson-page" data-modulo="1" data-clase="1">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="/"><i class="fa-solid fa-house"></i> Inicio</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="/src/pages/modulo-1/">Conceptos Básicos</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Clase 1</span>
+      </nav>
+
+      <!-- Lesson Content -->
+      <div class="lesson-container" id="lessonContainer">
+        <!-- Se genera con JS -->
+      </div>
+
+      <!-- Navigation -->
+      <nav class="lesson-nav">
+        <span class="lesson-nav-prev disabled">
+          <i class="fa-solid fa-arrow-left"></i>
+          Anterior
+        </span>
+        <a href="clase-2.html" class="lesson-nav-next">
+          Siguiente
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </nav>
+    </main>
+
+    <script type="module" src="/src/js/pages/clase.js"></script>
+  </body>
+</html>

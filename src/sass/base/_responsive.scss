@@ -1,0 +1,267 @@
+// RESPONSIVE STYLES
+@media (max-width: 768px) {
+
+  // Hero adjustments
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+
+  // Grid adjustments
+  .modules-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  // Header adjustments
+  header {
+    padding: 0 20px;
+  }
+
+  // LESSON PAGE
+  .lesson-page {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 90px;
+  }
+
+  .module-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 20px;
+  }
+
+  .module-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+    margin: 0 auto;
+  }
+
+  .module-info h1 {
+    font-size: 2rem;
+  }
+
+  .module-info p {
+    font-size: 1rem;
+  }
+
+  // Quick nav
+  .quick-nav {
+    padding: 12px 14px;
+  }
+
+  .quick-nav-item {
+    padding: 8px 14px;
+  }
+
+  .quick-nav-title {
+    display: none;
+  }
+
+  // Class cards
+  .class-card-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .class-number {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+  }
+
+  .class-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .class-meta {
+    justify-content: center;
+  }
+
+  .class-content {
+    padding: 24px;
+  }
+
+  .tema-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+
+    h3 {
+      font-size: 1.2rem;
+      width: 100%;
+    }
+  }
+
+  .tema-number {
+    margin: 0 auto;
+  }
+
+  .tema-intro {
+    text-align: center;
+  }
+
+  // Grids
+  .features-grid,
+  .declaration-grid,
+  .types-grid,
+  .unary-operators,
+  .logic-operators,
+  .console-grid,
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Method items
+  .method-item {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  // Position items
+  .position-item {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  // Tables
+  .table-container {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 24px;
+    border-radius: 0;
+    border: none !important;
+    overflow-x: visible;
+    background: none !important; // Fondo fuera de las cards
+    box-shadow: none !important;
+  }
+
+  .data-table {
+    display: block;
+    background: none !important; // Fondo fuera de las cards
+
+    thead {
+      display: none;
+    }
+
+    tbody,
+    tr {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 16px;
+      padding: 20px !important;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      &.highlight-row {
+        background: rgba(245, 158, 11, 0.05);
+        border-color: rgba(245, 158, 11, 0.3) !important;
+      }
+    }
+
+    td {
+      display: block;
+      width: 100% !important;
+      padding: 10px 0 !important;
+      text-align: left !important;
+      border: none !important;
+      position: relative;
+
+      &::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+        opacity: 0.8;
+      }
+
+      .operator-symbol {
+        margin: 0;
+      }
+
+      code {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Truth tables (keep as tables if small, or stack if preferred)
+  // For now, let's keep them as tables but make them more compact
+  .truth-table {
+    font-size: 0.8rem;
+
+    th,
+    td {
+      padding: 8px 4px !important;
+    }
+  }
+
+  // Info Box & Alerts
+  .info-box {
+    padding: 20px 16px;
+
+    .info-box-header {
+      justify-content: flex-start;
+    }
+  }
+
+  .check-list li {
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+    gap: 10px;
+
+    i {
+      margin-top: 4px;
+    }
+  }
+
+  .alert {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 12px;
+    padding: 16px;
+
+    i {
+      margin-top: 2px;
+    }
+  }
+
+  // Code snippets
+  .code-snippet {
+    padding: 16px;
+    overflow-x: hidden; // Eliminar scroll
+
+    code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.8rem;
+    }
+  }
+
+  // Syntax highlight
+  .syntax-highlight {
+    padding: 18px 20px;
+
+    code {
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  }
+}

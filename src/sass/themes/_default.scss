@@ -1,0 +1,45 @@
+// DEFAULT THEME - DARK MODE
+:root {
+    --bg-body: #0f1117;
+    --bg-card: #1e2029;
+    --bg-hover: #2a2d38;
+
+    --border-subtle: #2d313a;
+
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+
+    // Accent Colors
+    --accent-primary: #8b5cf6; // Violet
+    --accent-glow: rgba(139, 92, 246, 0.25);
+    --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+
+    // Layout
+    --header-height: 80px;
+
+    // Shadows
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+
+    // Grid background
+    --grid-color: rgba(255, 255, 255, 0.03);
+}
+
+// LIGHT THEME
+[data-theme="light"] {
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f5f9;
+
+    --border-subtle: #e2e8f0;
+
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+
+    --accent-primary: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.15);
+
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    --grid-color: rgba(0, 0, 0, 0.03);
+}

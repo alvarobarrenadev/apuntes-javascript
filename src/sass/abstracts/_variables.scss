@@ -1,0 +1,32 @@
+// VARIABLES
+
+// Breakpoints
+$bp-mobile: 48rem;           // 768px ÷ 16 = 48rem
+$bp-tablet: 48rem;           // 768px ÷ 16 = 48rem
+$bp-tablet-horizontal: 64rem; // 1024px ÷ 16 = 64rem
+$bp-desktop: 75rem;          // 1200px ÷ 16 = 75rem
+$bp-desktop-xl: 90rem;       // 1440px ÷ 16 = 90rem
+
+// Fonts
+$primary-font: 'Inter', sans-serif;
+$secondary-font: 'JetBrains Mono', monospace;
+
+// Layout
+$header-height: 80px;
+$max-content-width: 1400px;
+
+// Card settings
+$card-border-radius: 20px;
+$card-padding: 36px;
+$card-min-height: 240px;
+
+// Icon settings
+$icon-size-sm: 40px;
+$icon-size-md: 56px;
+$icon-border-radius: 10px;
+$icon-border-radius-lg: 16px;
+
+// Grid settings
+$grid-gap: 32px;
+$grid-min-column: 360px;
+$grid-background-size: 40px;
