@@ -1,4 +1,4 @@
-import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";function r(i,a){const s=document.getElementById("lessonContainer");if(!s)return;const o=n(i,a);if(!o){s.innerHTML='<p class="error">Clase no encontrada</p>';return}s.innerHTML=`
+import{i as t,a as n}from"./footer-BX3CdCEA.js";import{a as r}from"./index-un5PFoUZ.js";function p(i,a){const s=document.getElementById("lessonContainer");if(!s)return;const o=r(i,a);if(!o){s.innerHTML='<p class="error">Clase no encontrada</p>';return}s.innerHTML=`
     <article class="class-card">
       <div class="class-card-header">
         <div class="class-number">${o.id}</div>
@@ -8,10 +8,10 @@ import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";
       </div>
       
       <div class="class-content">
-        ${o.temas.map((l,c)=>p(l,c)).join("")}
+        ${o.temas.map((l,c)=>v(l,c)).join("")}
       </div>
     </article>
-  `}function p(i,a){return`
+  `}function v(i,a){return`
     <section class="tema-block">
       <div class="tema-header">
         <span class="tema-number">${a+1}</span>
@@ -20,9 +20,9 @@ import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";
       
       <p class="tema-intro">${i.contenido}</p>
       
-      ${v(i)}
+      ${$(i)}
     </section>
-  `}function v(i){let a="";return i.puntosClave&&(a+=`
+  `}function $(i){let a="";return i.puntosClave&&(a+=`
       <div class="info-box puntos-clave">
         <div class="info-box-header">
           <i class="fa-solid fa-key"></i>
@@ -143,7 +143,7 @@ import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";
           </tbody>
         </table>
       </div>
-    `),i.operadores&&(a+=$(i)),i.ejemplos&&i.titulo.includes("Ternario")&&(a+=`
+    `),i.operadores&&(a+=h(i)),i.ejemplos&&i.titulo.includes("Ternario")&&(a+=`
       <div class="syntax-highlight">
         <code>${i.sintaxis}</code>
       </div>
@@ -273,7 +273,7 @@ import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";
         <pre class="code-snippet large"><code>${e(i.ejemploFuncion.codigo)}</code></pre>
         <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${i.ejemploFuncion.explicacion}</p>
       </div>
-    `),a}function $(i){const a=i.operadores;return a[0].simbolo&&!a[0].variantes&&!a[0].tablaVerdad?`
+    `),a}function h(i){const a=i.operadores;return a[0].simbolo&&!a[0].variantes&&!a[0].tablaVerdad?`
       <div class="table-container">
         <table class="data-table operators-table">
           <thead>
@@ -355,4 +355,4 @@ import{i as t}from"./theme-BuTP1Vkp.js";import{a as n}from"./index-un5PFoUZ.js";
           </div>
         `).join("")}
       </div>
-    `:""}function e(i){const a=document.createElement("div");return a.textContent=i,a.innerHTML}t();const d=document.querySelector("main"),h=parseInt(d?.dataset.modulo||"1",10),b=parseInt(d?.dataset.clase||"1",10);r(h,b);
+    `:""}function e(i){const a=document.createElement("div");return a.textContent=i,a.innerHTML}t();n();const d=document.querySelector("main"),b=parseInt(d?.dataset.modulo||"1",10),f=parseInt(d?.dataset.clase||"1",10);p(b,f);
