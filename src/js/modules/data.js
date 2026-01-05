@@ -65,6 +65,7 @@ export const modulesData = [
   {
     title: "Fetch API",
     desc: "Consumo de APIs REST, métodos HTTP y manejo de errores.",
-    icon: "fa-globe"
+    icon: "fa-globe",
+    link: `${BASE}src/pages/modulo-10/`
   }
 ];

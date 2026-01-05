@@ -74,6 +74,13 @@ export default defineConfig(({ command }) => ({
         modulo9: resolve(__dirname, "src/pages/modulo-9/index.html"),
         modulo9clase37: resolve(__dirname, "src/pages/modulo-9/clase-37.html"),
         modulo9clase38: resolve(__dirname, "src/pages/modulo-9/clase-38.html"),
+
+        // Módulo 10: Fetch
+        modulo10: resolve(__dirname, "src/pages/modulo-10/index.html"),
+        modulo10clase39: resolve(__dirname, "src/pages/modulo-10/clase-39.html"),
+        modulo10clase40: resolve(__dirname, "src/pages/modulo-10/clase-40.html"),
+        modulo10clase41: resolve(__dirname, "src/pages/modulo-10/clase-41.html"),
+        modulo10clase42: resolve(__dirname, "src/pages/modulo-10/clase-42.html"),
     },
     },
   },
