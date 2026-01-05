@@ -37,8 +37,13 @@
       border-bottom: 1px solid var(--border-subtle);
       transition: background 0.2s;
 
+      // Zebra striping para mejor legibilidad
+      &:nth-child(even) {
+        background: rgba(139, 92, 246, 0.02);
+      }
+
       &:hover {
-        background: rgba(139, 92, 246, 0.04);
+        background: rgba(139, 92, 246, 0.06);
       }
 
       &:last-child {

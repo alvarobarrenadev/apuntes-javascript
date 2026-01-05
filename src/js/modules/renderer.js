@@ -244,8 +244,8 @@ function renderTemaContent(tema) {
     `;
   }
 
-  // Comparación nullish
-  if (tema.comparacion) {
+  // Comparación nullish (solo cuando es un array)
+  if (tema.comparacion && Array.isArray(tema.comparacion)) {
     html += `
       <div class="syntax-highlight">
         <code>${tema.sintaxis}</code>
@@ -282,6 +282,15 @@ function renderTemaContent(tema) {
   // Nota general
   if (tema.nota && !tema.ejemplos && !tema.comparacion) {
     html += `<div class="alert info"><i class="fa-solid fa-circle-info"></i> ${tema.nota}</div>`;
+  }
+
+  // Sintaxis simple (string)
+  if (tema.sintaxis && typeof tema.sintaxis === 'string' && !tema.equivalencia) {
+    html += `
+      <div class="syntax-box">
+        <code class="syntax-code">${escapeHtml(tema.sintaxis)}</code>
+      </div>
+    `;
   }
 
   // Ejemplo de código simple
@@ -403,6 +412,668 @@ function renderTemaContent(tema) {
         <h4 class="function-example-title"><i class="fa-solid fa-code"></i> ${tema.ejemploFuncion.descripcion}</h4>
         <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploFuncion.codigo)}</code></pre>
         <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploFuncion.explicacion}</p>
+      </div>
+    `;
+  }
+
+  // =====================
+  // MÓDULO 2: FUNCIONES
+  // =====================
+
+  // Estructura de una función
+  if (tema.estructuraFuncion) {
+    html += `
+      <div class="structure-section">
+        <div class="structure-parts">
+          ${tema.estructuraFuncion.partes.map((p, i) => `
+            <div class="structure-part">
+              <span class="part-number">${i + 1}</span>
+              <div class="part-content">
+                <strong>${p.nombre}</strong>
+                <p>${p.descripcion}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.estructuraFuncion.codigo)}</code></pre>
+      </div>
+    `;
+  }
+
+  // Ejemplos de invocación
+  if (tema.ejemplosInvocacion) {
+    html += `
+      <div class="examples-grid">
+        ${tema.ejemplosInvocacion.map(e => `
+          <div class="example-card">
+            <h5>${e.titulo}</h5>
+            <pre class="code-snippet"><code>${escapeHtml(e.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Tipos de retorno
+  if (tema.tiposRetorno) {
+    html += `
+      <div class="return-types-grid">
+        ${tema.tiposRetorno.map(t => `
+          <div class="return-type-card">
+            <h5>${t.tipo}</h5>
+            <p>${t.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(t.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Conceptos de parámetros
+  if (tema.conceptosParametros) {
+    html += `
+      <div class="concepts-list">
+        ${tema.conceptosParametros.map(c => `
+          <div class="concept-card">
+            <h5><i class="fa-solid fa-lightbulb"></i> ${c.nombre}</h5>
+            <p>${c.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(c.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Paso de parámetros (valor vs referencia)
+  if (tema.pasoParametros) {
+    html += `
+      <div class="pass-params-grid">
+        ${tema.pasoParametros.map(p => `
+          <div class="pass-param-card ${p.color || ''}">
+            <div class="pass-param-header">
+              <h5>${p.tipo}</h5>
+              <span class="applies-to">${p.aplicaA}</span>
+            </div>
+            <p>${p.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(p.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Tipos de declaración de funciones
+  if (tema.tiposDeclaracion) {
+    html += `
+      <div class="declaration-types-grid">
+        ${tema.tiposDeclaracion.map(t => `
+          <div class="declaration-type-card ${t.destacado ? 'destacado' : ''}">
+            <div class="declaration-header">
+              <i class="fa-solid ${t.icono || 'fa-code'}"></i>
+              <h5>${t.nombre}</h5>
+            </div>
+            <p>${t.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(t.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Ejemplo de callback
+  if (tema.ejemploCallback) {
+    html += `
+      <div class="callback-example">
+        <h5><i class="fa-solid fa-share"></i> ${tema.ejemploCallback.descripcion}</h5>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploCallback.codigo)}</code></pre>
+        <p class="callback-explanation"><i class="fa-solid fa-info-circle"></i> ${tema.ejemploCallback.explicacion}</p>
+      </div>
+    `;
+  }
+
+  // Caso de uso (callbacks, etc)
+  if (tema.casoDeUso) {
+    html += `
+      <div class="use-case">
+        <h5><i class="fa-solid fa-flask"></i> ${tema.casoDeUso.titulo}</h5>
+        <pre class="code-snippet"><code>${escapeHtml(tema.casoDeUso.codigo)}</code></pre>
+      </div>
+    `;
+  }
+
+  // Sintaxis IIFE
+  if (tema.sintaxisIIFE) {
+    html += `
+      <div class="iife-section">
+        <div class="syntax-highlight">
+          <code>${tema.sintaxisIIFE.estructura}</code>
+        </div>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.sintaxisIIFE.codigo)}</code></pre>
+        <div class="iife-uses">
+          <h5><i class="fa-solid fa-check-circle"></i> Usos comunes:</h5>
+          <ul class="check-list">
+            ${tema.sintaxisIIFE.usos.map(u => `<li><i class="fa-solid fa-check"></i> ${u}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  // Funciones anidadas
+  if (tema.funcionesAnidadas) {
+    html += `
+      <div class="nested-functions">
+        <pre class="code-snippet large"><code>${escapeHtml(tema.funcionesAnidadas.codigo)}</code></pre>
+        ${tema.funcionesAnidadas.nota ? `<div class="alert info"><i class="fa-solid fa-info-circle"></i> ${tema.funcionesAnidadas.nota}</div>` : ''}
+      </div>
+    `;
+  }
+
+  // Retorno de función
+  if (tema.retornoFuncion) {
+    html += `
+      <div class="return-function">
+        <h5><i class="fa-solid fa-reply"></i> ${tema.retornoFuncion.titulo}</h5>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.retornoFuncion.codigo)}</code></pre>
+        <p class="return-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.retornoFuncion.explicacion}</p>
+      </div>
+    `;
+  }
+
+  // Qué son closures
+  if (tema.queSonClosures) {
+    html += `
+      <div class="closures-intro">
+        <p class="closures-definition">${tema.queSonClosures.definicion}</p>
+        <div class="closures-importance">
+          <h5><i class="fa-solid fa-star"></i> ¿Por qué son importantes?</h5>
+          <ul class="check-list">
+            ${tema.queSonClosures.porQueImportan.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  // Ejemplo de closure
+  if (tema.ejemploClosure) {
+    html += `
+      <div class="closure-example">
+        <h5><i class="fa-solid fa-lock"></i> ${tema.ejemploClosure.titulo}</h5>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploClosure.codigo)}</code></pre>
+        <p class="closure-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploClosure.explicacion}</p>
+        ${tema.ejemploClosure.puntosClave ? `
+          <div class="closure-points">
+            <ul class="check-list">
+              ${tema.ejemploClosure.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  // =====================
+  // CLASE 5: STRINGS, NUMBERS, CONTROL DE FLUJO
+  // =====================
+
+  // Formas de crear (strings)
+  if (tema.formasCrear) {
+    html += `
+      <div class="creation-methods">
+        ${tema.formasCrear.map(f => `
+          <div class="creation-card ${f.destacado ? 'destacado' : ''}">
+            <h5>${f.tipo}</h5>
+            <pre class="code-snippet"><code>${escapeHtml(f.ejemplo)}</code></pre>
+            <p>${f.descripcion}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Comparación (antes/después)
+  if (tema.comparacion && tema.comparacion.antes) {
+    html += `
+      <div class="comparison-before-after">
+        <h5>${tema.comparacion.titulo}</h5>
+        <div class="comparison-columns">
+          <div class="comparison-col before">
+            <span class="comparison-label">❌ Antes</span>
+            <pre class="code-snippet"><code>${escapeHtml(tema.comparacion.antes)}</code></pre>
+          </div>
+          <div class="comparison-col after">
+            <span class="comparison-label">✓ Después</span>
+            <pre class="code-snippet"><code>${escapeHtml(tema.comparacion.despues)}</code></pre>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Métodos de String
+  if (tema.metodosString) {
+    html += `
+      <div class="table-container">
+        <table class="data-table methods-table">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Descripción</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.metodosString.map(m => `
+              <tr>
+                <td data-label="Método"><code>${m.metodo}</code></td>
+                <td data-label="Descripción">${m.descripcion}</td>
+                <td data-label="Ejemplo"><code>${escapeHtml(m.ejemplo)}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Valores especiales (Number)
+  if (tema.valoresEspeciales) {
+    html += `
+      <div class="special-values">
+        ${tema.valoresEspeciales.map(v => `
+          <div class="special-value-card">
+            <code>${v.valor}</code>
+            <p>${v.descripcion}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Métodos de Number
+  if (tema.metodosNumber) {
+    html += `
+      <div class="table-container">
+        <table class="data-table methods-table">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Descripción</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.metodosNumber.map(m => `
+              <tr>
+                <td data-label="Método"><code>${m.metodo}</code></td>
+                <td data-label="Descripción">${m.descripcion}</td>
+                <td data-label="Ejemplo"><code>${escapeHtml(m.ejemplo)}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Estructura de condicional
+  if (tema.estructuraCondicional) {
+    html += `
+      <div class="conditional-structure">
+        <pre class="code-snippet large"><code>${escapeHtml(tema.estructuraCondicional.sintaxis)}</code></pre>
+        <div class="conditional-example">
+          <h5><i class="fa-solid fa-code"></i> Ejemplo práctico:</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.estructuraCondicional.ejemplo)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Estructura de Switch
+  if (tema.estructuraSwitch) {
+    html += `
+      <div class="switch-structure">
+        <pre class="code-snippet large"><code>${escapeHtml(tema.estructuraSwitch.sintaxis)}</code></pre>
+        <div class="switch-example">
+          <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.estructuraSwitch.ejemplo)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Estructura de While
+  if (tema.estructuraWhile) {
+    html += `
+      <div class="loop-structure">
+        <pre class="code-snippet"><code>${escapeHtml(tema.estructuraWhile.sintaxis)}</code></pre>
+        <div class="loop-example">
+          <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.estructuraWhile.ejemplo)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Estructura de Do-While
+  if (tema.estructuraDoWhile) {
+    html += `
+      <div class="loop-structure">
+        <pre class="code-snippet"><code>${escapeHtml(tema.estructuraDoWhile.sintaxis)}</code></pre>
+        <div class="loop-example">
+          <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.estructuraDoWhile.ejemplo)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Estructura de For
+  if (tema.estructuraFor) {
+    html += `
+      <div class="for-structure">
+        <pre class="code-snippet"><code>${escapeHtml(tema.estructuraFor.sintaxis)}</code></pre>
+        <div class="for-example">
+          <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.estructuraFor.ejemplo)}</code></pre>
+        </div>
+        ${tema.estructuraFor.explicacion ? `
+          <div class="for-explanation">
+            <ul>
+              ${tema.estructuraFor.explicacion.map(e => `<li>${e}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  // =====================
+  // CLASE 6: SCOPE, HOISTING, CLOSURES
+  // =====================
+
+  // Definición de Scope
+  if (tema.definicionScope) {
+    html += `
+      <div class="scope-definition">
+        <p class="scope-desc">${tema.definicionScope.descripcion}</p>
+        <div class="scope-rules">
+          <h5><i class="fa-solid fa-list-check"></i> Reglas importantes:</h5>
+          <ul class="check-list">
+            ${tema.definicionScope.reglas.map(r => `<li><i class="fa-solid fa-check"></i> ${r}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  // Tipos de Scope
+  if (tema.tiposScope) {
+    html += `
+      <div class="scope-types-grid">
+        ${tema.tiposScope.map(s => `
+          <div class="scope-type-card ${s.color || ''}">
+            <div class="scope-header">
+              <i class="fa-solid ${s.icono}"></i>
+              <h5>${s.tipo}</h5>
+            </div>
+            <p>${s.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(s.ejemplo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Ejemplo de cadena de scope
+  if (tema.ejemploCadena) {
+    html += `
+      <div class="scope-chain-example">
+        <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploCadena.codigo)}</code></pre>
+        <p class="scope-chain-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploCadena.explicacion}</p>
+      </div>
+    `;
+  }
+
+  // Ejemplo de Hoisting
+  if (tema.ejemploHoisting) {
+    html += `
+      <div class="hoisting-example">
+        <p class="hoisting-question"><i class="fa-solid fa-question-circle"></i> ${tema.ejemploHoisting.pregunta}</p>
+        <pre class="code-snippet"><code>${escapeHtml(tema.ejemploHoisting.codigo)}</code></pre>
+        <div class="hoisting-answer">
+          <span class="answer-label">Respuesta:</span>
+          <code class="answer-value">${tema.ejemploHoisting.respuesta}</code>
+        </div>
+        <p class="hoisting-explanation">${tema.ejemploHoisting.explicacion}</p>
+      </div>
+    `;
+  }
+
+  // Tabla de Hoisting
+  if (tema.tablaHoisting) {
+    html += `
+      <div class="table-container">
+        <table class="data-table hoisting-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Hoisting</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.tablaHoisting.map(h => `
+              <tr>
+                <td data-label="Elemento"><code>${h.elemento}</code></td>
+                <td data-label="Hoisting">${h.hoisting}</td>
+                <td data-label="Resultado">${h.resultado}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Ejemplos de funciones (hoisting)
+  if (tema.ejemploFunciones) {
+    html += `
+      <div class="hoisting-functions">
+        <div class="hoisting-func-card success">
+          <h5><i class="fa-solid fa-check-circle"></i> Función Declarativa (con hoisting)</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.ejemploFunciones.funcionDeclarativa)}</code></pre>
+        </div>
+        <div class="hoisting-func-card error">
+          <h5><i class="fa-solid fa-times-circle"></i> Expresión de Función (sin hoisting)</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.ejemploFunciones.funcionExpresion)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Tabla comparativa (var vs let vs const)
+  if (tema.tablaComparativa) {
+    html += `
+      <div class="table-container">
+        <table class="data-table comparison-table-vars">
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th><code>var</code></th>
+              <th><code>let</code></th>
+              <th><code>const</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.tablaComparativa.map(c => `
+              <tr>
+                <td data-label="Característica">${c.caracteristica}</td>
+                <td data-label="var">${c.var}</td>
+                <td data-label="let">${c.let}</td>
+                <td data-label="const">${c.const}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+      ${tema.recomendacion ? `<div class="alert success"><i class="fa-solid fa-lightbulb"></i> <strong>Recomendación:</strong> ${tema.recomendacion}</div>` : ''}
+    `;
+  }
+
+  // Requisitos (para closures, etc)
+  if (tema.requisitos) {
+    html += `
+      <div class="requirements-list">
+        <h5><i class="fa-solid fa-list-ol"></i> Requisitos para crear un closure:</h5>
+        <ol class="numbered-list">
+          ${tema.requisitos.map(r => `<li>${r}</li>`).join('')}
+        </ol>
+      </div>
+    `;
+  }
+
+  // Usos de closures
+  if (tema.usosClosures) {
+    html += `
+      <div class="closures-uses-grid">
+        ${tema.usosClosures.map(u => `
+          <div class="closure-use-card">
+            <h5><i class="fa-solid fa-cube"></i> ${u.uso}</h5>
+            <p>${u.descripcion}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // =====================
+  // CLASE 7: EJERCICIOS PRÁCTICOS
+  // =====================
+
+  // Técnicas de validación
+  if (tema.tecnicasValidacion) {
+    html += `
+      <div class="validation-techniques">
+        <div class="technique-card">
+          <h5><i class="fa-solid fa-keyboard"></i> Pedir datos con prompt</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.tecnicasValidacion.prompt)}</code></pre>
+        </div>
+        <div class="technique-card">
+          <h5><i class="fa-solid fa-shield-halved"></i> Validar entrada</h5>
+          <pre class="code-snippet"><code>${escapeHtml(tema.tecnicasValidacion.validacion)}</code></pre>
+        </div>
+      </div>
+    `;
+  }
+
+  // Solución de ejercicio
+  if (tema.solucion) {
+    html += `
+      <div class="exercise-solution">
+        <h5><i class="fa-solid fa-code"></i> Solución:</h5>
+        <pre class="code-snippet large"><code>${escapeHtml(tema.solucion.codigo)}</code></pre>
+      </div>
+    `;
+  }
+
+  // Formas de concatenación (Clase 5)
+  if (tema.formasConcatenacion) {
+    html += `
+      <div class="concatenation-methods">
+        ${tema.formasConcatenacion.map(f => `
+          <div class="concat-card">
+            <h5><i class="fa-solid fa-link"></i> ${f.metodo}</h5>
+            <p>${f.descripcion}</p>
+            <pre class="code-snippet"><code>${escapeHtml(f.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Caracteres de escape (Clase 5)
+  if (tema.caracteresEscape) {
+    html += `
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Carácter</th>
+              <th>Descripción</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.caracteresEscape.map(c => `
+              <tr>
+                <td data-label="Carácter"><code>${escapeHtml(c.caracter)}</code></td>
+                <td data-label="Descripción">${c.descripcion}</td>
+                <td data-label="Ejemplo"><code>${escapeHtml(c.ejemplo)}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Formas de crear número (Clase 5)
+  if (tema.formasCrearNumero) {
+    html += `
+      <div class="creation-methods">
+        ${tema.formasCrearNumero.map(f => `
+          <div class="creation-card">
+            <h5>${f.forma}</h5>
+            <code>${escapeHtml(f.ejemplo)}</code>
+            <p>${f.descripcion}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Constantes de Number (Clase 5)
+  if (tema.constantesNumber) {
+    html += `
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Constante</th>
+              <th>Descripción</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tema.constantesNumber.map(c => `
+              <tr>
+                <td data-label="Constante"><code>${escapeHtml(c.constante)}</code></td>
+                <td data-label="Descripción">${c.descripcion}</td>
+                <td data-label="Valor"><code>${c.valor}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Objeto window (Clase 6)
+  if (tema.objetoWindow) {
+    html += `
+      <div class="window-object-section">
+        <pre class="code-snippet large"><code>${escapeHtml(tema.objetoWindow.codigo)}</code></pre>
+        <div class="info-box puntos-clave">
+          <div class="info-box-header">
+            <i class="fa-solid fa-key"></i>
+            <span>Puntos Clave</span>
+          </div>
+          <ul class="check-list">
+            ${tema.objetoWindow.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+          </ul>
+        </div>
       </div>
     `;
   }

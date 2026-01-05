@@ -264,4 +264,33 @@
       word-break: break-word;
     }
   }
+
+  // Module 2 specific responsive adjustments
+  .return-types-grid,
+  .pass-params-grid,
+  .scope-types-grid,
+  .declaration-types-grid,
+  .hoisting-functions,
+  .closures-uses-grid,
+  .validation-techniques {
+    grid-template-columns: 1fr;
+  }
+
+  .creation-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .structure-part {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scope-header,
+  .declaration-header {
+    justify-content: center;
+  }
 }

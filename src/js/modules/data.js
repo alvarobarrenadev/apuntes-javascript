@@ -19,7 +19,8 @@ export const modulesData = [
     title: "Funciones",
     desc: "Control de flujo, scope, closures y funciones flecha.",
     icon: "fa-code",
-    count: 4
+    count: 4,
+    link: `${BASE}src/pages/modulo-2/`
   },
   {
     title: "Arrays y Objetos",
