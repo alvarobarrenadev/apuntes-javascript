@@ -616,3 +616,76 @@
     line-height: 1.7;
   }
 }
+
+// CODE COLLECTION (Ejercicios y Ejemplos Múltiples)
+.code-collection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.code-block-item {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  h5 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+
+    i {
+      color: var(--accent-primary);
+      background: rgba(139, 92, 246, 0.1);
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .code-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .code-snippet {
+    margin: 0; // Reset margin if needed specifically here or handle via child margin-bottom
+  }
+
+  // Si tiene explicación después del código
+  .code-snippet+.code-explanation {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .code-explanation {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    i {
+      color: var(--accent-primary);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+  }
+}

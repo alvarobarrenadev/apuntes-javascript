@@ -1,202 +1,142 @@
-# Apuntes JavaScript
+# Apuntes JavaScript - ConquerBlocks
 
-Aplicación web de apuntes del curso de JavaScript de ConquerBlocks. Incluye notas organizadas por módulos, temas y clases con ejemplos de código interactivos.
+> **Autor:** Álvaro Barrena Revilla
+> **Curso:** Máster de Desarrollo Web Full Stack (ConquerBlocks)
 
-## Inicio rápido
+![JavaScript ConquerBlocks](https://img.shields.io/badge/JavaScript-ES6%2B-yellow?style=for-the-badge&logo=javascript&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-Styles-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+
+Aplicación web progresiva de apuntes interactivos para el módulo de JavaScript. Diseñada para ser una referencia rápida, visual y práctica de los conceptos aprendidos, organizados por módulos y clases.
+
+---
+
+## Características
+
+- **Contenido Organizado:** Estructura modular clara (Módulos > Temas > Clases).
+- **Diseño Moderno:** Interfaz limpia con tipografía cuidada (Inter & JetBrains Mono) y diseño responsive.
+- **Modo Oscuro/Claro:** Tema adaptable a la preferencia del sistema o controlable por el usuario.
+- **Rendimiento (Vite):** Cargas instantáneas y navegación fluida.
+- **Código Interactivo:** Bloques de código con resaltado de sintaxis y ejemplos prácticos.
+- **Responsive First:** Optimizado para móviles, tablets y escritorio.
+
+---
+
+## Contenido del Curso
+
+Actualmente el proyecto abarca los siguientes módulos:
+
+- **Módulo 1:** Fundamentos de JavaScript
+- **Módulo 2:** Funciones y control de flujo
+- **Módulo 3:** Estructuras de datos
+- **Módulo 4:** Lógica de programación
+- **Módulo 5:** JavaScript Moderno (ES6+)
+- **Módulo 6:** Manipulación del DOM (Selectores, Creación de elementos, Atributos, Eventos...)
+
+> *Nota: El contenido se actualiza y expande continuamente conforme avanza el curso.*
+
+---
+
+## Tecnologías Utilizadas
+
+Este proyecto está construido con un stack moderno y ligero, sin dependencias innecesarias:
+
+- **Core:** HTML5 Semántico, JavaScript (ES Modules).
+- **Estilos:** SASS (SCSS) con arquitectura 7-1, Variables CSS para temas dinámicos.
+- **Build Tool:** Vite (rápido y eficiente).
+- **Iconos:** Font Awesome 6.
+- **Fuentes:** Google Fonts (Inter para UI, JetBrains Mono para código).
+
+---
+
+## Inicio Rápido
+
+Para ejecutar este proyecto en tu máquina local:
+
+### 1. Prerrequisitos
+- Node.js (v18 o superior recomendado)
+- npm
+
+### 2. Instalación
 
 ```bash
+# Clonar el repositorio (si aplica)
+# git clone ...
+
 # Instalar dependencias
 npm install
+```
 
-# Iniciar servidor de desarrollo
+### 3. Desarrollo
+
+Arranca el servidor local con recarga en caliente (HMR):
+
+```bash
 npm run dev
-
-# Construir para producción
-npm run build
-
-# Previsualizar build
-npm run preview
-
-# Desplegar en GitHub Pages
-npm run deploy
 ```
+Abre tu navegador en `http://localhost:5173` (o el puerto que indique la consola).
 
-## Estructura del proyecto
+### 4. Producción
 
-```
-apuntes-javascript/
-├── index.html              # Página principal
-├── vite.config.js          # Configuración de Vite
-├── src/
-│   ├── js/                 # Lógica JavaScript
-│   │   ├── data/           # Datos de contenido por módulo
-│   │   ├── modules/        # Utilidades (theme, renderer)
-│   │   └── pages/          # Controladores de páginas
-│   ├── pages/              # Páginas HTML por módulo
-│   └── sass/               # Estilos SASS (arquitectura 7-1)
-└── transcripciones-1/      # Transcripciones de clases (referencia)
-```
-
----
-
-## Estructura JavaScript
-
-```
-src/js/
-├── main.js              # Entry point global
-├── data/
-│   ├── index.js         # Registro centralizado de módulos
-│   ├── modulo-1.js      # Datos del Módulo 1: Fundamentos
-│   └── modulo-2.js      # Datos del Módulo 2: Funciones
-├── modules/
-│   ├── theme.js         # Lógica del tema claro/oscuro
-│   └── renderer.js      # Renderizador unificado de clases
-└── pages/
-    ├── clase.js         # Controlador único para TODAS las clases
-    └── modulo-index.js  # Controlador único para TODOS los índices
-```
-
-### Sistema basado en atributos HTML
-
-En lugar de crear un archivo JS por cada clase, usamos **atributos data-** en el HTML:
-
-```html
-<!-- Página de clase -->
-<main class="lesson-page" data-modulo="1" data-clase="3">
-  ...
-</main>
-<script type="module" src="/src/js/pages/clase.js"></script>
-
-<!-- Página de índice de módulo -->
-<main class="module-page" data-modulo="1">
-  ...
-</main>
-<script type="module" src="/src/js/pages/modulo-index.js"></script>
-```
-
-El archivo `clase.js` lee estos atributos y renderiza el contenido correspondiente.
-
----
-
-## Añadir contenido nuevo
-
-### Añadir una nueva clase
-
-Para añadir la **Clase 4** del Módulo 1:
-
-1. **Añade los datos** en `src/js/data/modulo-1.js`:
-   ```js
-   {
-     id: 4,
-     titulo: "Nueva Clase",
-     temas: [...]
-   }
-   ```
-
-2. **Crea el HTML** en `src/pages/modulo-1/clase-4.html`:
-   ```html
-   <main class="lesson-page" data-modulo="1" data-clase="4">
-   ```
-   
-   Y usa el mismo script:
-   ```html
-   <script type="module" src="/src/js/pages/clase.js"></script>
-   ```
-
-No necesitas crear ningún archivo JS adicional.
-
-### Añadir un nuevo módulo
-
-Para añadir el **Módulo 2**:
-
-1. **Crea el archivo de datos** `src/js/data/modulo-2.js` siguiendo la estructura de `modulo-1.js`
-
-2. **Registra el módulo** en `src/js/data/index.js`:
-   ```js
-   import { modulo2Data } from './modulo-2.js';
-   
-   export const modulos = {
-     1: modulo1Data,
-     2: modulo2Data,  // Añadir aquí
-   };
-   ```
-
-3. **Crea las páginas HTML** con los atributos correspondientes:
-   - `src/pages/modulo-2/index.html` con `data-modulo="2"`
-   - `src/pages/modulo-2/clase-1.html` con `data-modulo="2" data-clase="1"`
-
----
-
-## Estructura SASS
-
-Estilos organizados siguiendo la arquitectura **7-1 Pattern**:
-
-```
-src/sass/
-├── abstracts/          # Variables, funciones, mixins
-│   ├── _variables.scss # Breakpoints, fuentes, layout
-│   ├── _functions.scss # Funciones personalizadas
-│   └── _mixins.scss    # Mixins reutilizables
-│
-├── base/               # Estilos base y reset
-│   ├── _reset.scss     # Reset CSS
-│   ├── _typography.scss
-│   └── _utilities.scss # Clases de utilidad
-│
-├── components/         # Componentes reutilizables
-│   ├── _buttons.scss
-│   ├── _cards.scss
-│   ├── _content-blocks.scss
-│   ├── _module2-blocks.scss  # Bloques específicos del Módulo 2
-│   └── _tables.scss
-│
-├── layout/             # Estructura de la página
-│   ├── _header.scss
-│   ├── _grid.scss
-│   └── _footer.scss
-│
-├── themes/             # Temas (dark/light)
-│   └── _default.scss   # Variables CSS
-│
-└── main.scss           # Importa todo
-```
-
-### Convenciones
-
-- **Archivos parciales**: Comienzan con `_` (underscore)
-- **BEM**: Metodología para nombrar clases
-- **Variables CSS**: Para temas dinámicos (`--variable`)
-- **Variables SASS**: Para valores estáticos
-
----
-
-## Tecnologías
-
-- **Vite** - Bundler y servidor de desarrollo
-- **SASS** - Preprocesador CSS
-- **Vanilla JS** - Sin frameworks
-- **Font Awesome** - Iconos
-- **Google Fonts** - Inter + JetBrains Mono
-
----
-
-## Despliegue
-
-### GitHub Pages
-
-El proyecto está configurado para desplegarse en GitHub Pages con el base path `/apuntes-javascript/`.
+Para generar los archivos estáticos optimizados para producción:
 
 ```bash
 npm run build
+```
+
+Para previsualizar la build localmente:
+
+```bash
+npm run preview
+```
+
+### 5. Despliegue (GitHub Pages)
+
+El proyecto incluye un script para desplegar automáticamente en la rama `gh-pages`:
+
+```bash
 npm run deploy
 ```
 
-### Vercel / Netlify
+---
 
-Para desplegar en Vercel o Netlify, cambia el `base` en `vite.config.js` a `/`.
+## Estructura del Proyecto
+
+El proyecto sigue una arquitectura escalable y mantenible:
+
+```bash
+apuntes-javascript/
+├── index.html              # Landing page
+├── vite.config.js          # Configuración de Vite
+├── src/
+│   ├── js/                
+│   │   ├── data/           # Contenido (JSON-like) de cada módulo
+│   │   ├── modules/        # Lógica reutilizable (Theme, UI Renderer)
+│   │   └── pages/          # Controladores específicos por página
+│   ├── pages/              # Archivos HTML (Vistas) organizados por módulo
+│   │   ├── modulo-1/
+│   │   ├── ...
+│   │   └── modulo-6/
+│   └── sass/               # Estilos con patrón 7-1
+│       ├── abstracts/      # Variables, mixins
+│       ├── base/           # Reset, tipografía
+│       ├── components/     # Botones, cards, bloques de código
+│       ├── layout/         # Grid, header, footer
+│       └── themes/         # Esquemas de color (Dark/Light)
+└── transcripciones/        # Referencias y material de apoyo
+```
+
+### Sistema de Renderizado Dinámico
+
+Para evitar duplicidad de código, usamos un manejador centralizado (`src/js/pages/clase.js`) que lee atributos `data-*` del HTML para inyectar el contenido correspondiente desde los archivos de datos.
+
+```html
+<!-- Ejemplo: Clase 20 del Módulo 6 -->
+<main class="lesson-page" data-modulo="6" data-clase="20">
+    <!-- El contenido se inyecta aquí automáticamente -->
+</main>
+```
 
 ---
 
 ## Licencia
 
-Este proyecto es para uso educativo personal.
+Este proyecto es de uso personal y educativo desarrollado por **[Álvaro Barrena Revilla](https://alvarobarrena.vercel.app/)**.

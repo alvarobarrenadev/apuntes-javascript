@@ -5,6 +5,7 @@ import '@/sass/main.scss';
 import { initTheme } from '../modules/theme.js';
 import { renderClase } from '../modules/renderer.js';
 import { initFooter } from '../modules/footer.js';
+import { getClasesDelModulo } from '../data/index.js';
 
 // Inicializar tema
 initTheme();
@@ -19,3 +20,39 @@ const claseId = parseInt(main?.dataset.clase || '1', 10);
 
 // Renderizar la clase correspondiente
 renderClase(moduloId, claseId);
+
+// Lógica de navegación (Anterior / Siguiente)
+setupNavigation(moduloId, claseId);
+
+function setupNavigation(moduloId, claseId) {
+  const clases = getClasesDelModulo(moduloId);
+  if (!clases || clases.length === 0) return;
+
+  // Encontrar el índice actual
+  const currentIndex = clases.findIndex(c => c.id === claseId);
+  if (currentIndex === -1) return;
+
+  const prevClass = clases[currentIndex - 1];
+  const nextClass = clases[currentIndex + 1];
+
+  const prevBtn = document.querySelector('.lesson-nav-prev');
+  const nextBtn = document.querySelector('.lesson-nav-next');
+
+  // Configurar botón Anterior
+  if (prevBtn && prevClass) {
+    const link = document.createElement('a');
+    link.className = 'lesson-nav-prev';
+    link.href = `./clase-${prevClass.id}.html`;
+    link.innerHTML = `<i class="fa-solid fa-arrow-left"></i> Anterior`;
+    prevBtn.replaceWith(link);
+  }
+
+  // Configurar botón Siguiente
+  if (nextBtn && nextClass) {
+    const link = document.createElement('a');
+    link.className = 'lesson-nav-next';
+    link.href = `./clase-${nextClass.id}.html`;
+    link.innerHTML = `Siguiente <i class="fa-solid fa-arrow-right"></i>`;
+    nextBtn.replaceWith(link);
+  }
+}

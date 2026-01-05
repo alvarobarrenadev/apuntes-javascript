@@ -47,7 +47,8 @@ export const modulesData = [
     title: "El DOM",
     desc: "Manipulación dinámica del HTML y CSS desde JavaScript.",
     icon: "fa-sitemap",
-    count: 6
+    count: 6,
+    link: `${BASE}src/pages/modulo-6/`
   },
   {
     title: "Eventos",

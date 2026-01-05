@@ -298,6 +298,22 @@ function renderTemaContent(tema) {
     html += `<pre class="code-snippet"><code>${escapeHtml(tema.ejemplo)}</code></pre>`;
   }
 
+  // Colección de bloques de código (para ejercicios o ejemplos múltiples)
+  if (tema.codigos) {
+    html += `
+      <div class="code-collection">
+        ${tema.codigos.map(c => `
+          <div class="code-block-item">
+            ${c.titulo ? `<h5><i class="fa-solid fa-code"></i> ${c.titulo}</h5>` : ''}
+            ${c.descripcion ? `<p class="code-desc">${formatText(c.descripcion)}</p>` : ''}
+            <pre class="code-snippet"><code>${escapeHtml(c.codigo)}</code></pre>
+            ${c.explicacion ? `<p class="code-explanation"><i class="fa-solid fa-arrow-right"></i> ${formatText(c.explicacion)}</p>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
   // Ejemplo de código simple (propiedad codigo - Módulo 3)
   if (tema.codigo && typeof tema.codigo === 'string') {
     html += `<pre class="code-snippet"><code>${escapeHtml(tema.codigo)}</code></pre>`;

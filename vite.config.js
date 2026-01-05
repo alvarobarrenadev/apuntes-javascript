@@ -38,6 +38,19 @@ export default defineConfig({
         modulo4clase16: resolve(__dirname, "src/pages/modulo-4/clase-16.html"),
         modulo4clase17: resolve(__dirname, "src/pages/modulo-4/clase-17.html"),
         modulo4clase18: resolve(__dirname, "src/pages/modulo-4/clase-18.html"),
+
+        // Módulo 5: ES6 y Tooling
+        modulo5: resolve(__dirname, "src/pages/modulo-5/index.html"),
+        modulo5clase19: resolve(__dirname, "src/pages/modulo-5/clase-19.html"),
+
+        // Módulo 6: DOM
+        modulo6: resolve(__dirname, "src/pages/modulo-6/index.html"),
+        modulo6clase20: resolve(__dirname, "src/pages/modulo-6/clase-20.html"),
+        modulo6clase21: resolve(__dirname, "src/pages/modulo-6/clase-21.html"),
+        modulo6clase22: resolve(__dirname, "src/pages/modulo-6/clase-22.html"),
+        modulo6clase23: resolve(__dirname, "src/pages/modulo-6/clase-23.html"),
+        modulo6clase24: resolve(__dirname, "src/pages/modulo-6/clase-24.html"),
+        modulo6clase25: resolve(__dirname, "src/pages/modulo-6/clase-25.html"),
       },
     },
   },
