@@ -21,7 +21,7 @@ export function renderClase(moduloId, claseId) {
       <div class="class-card-header">
         <div class="class-number">${clase.id}</div>
         <div class="class-info">
-          <h1>${clase.titulo}</h1>
+          <h1>${formatText(clase.titulo)}</h1>
         </div>
       </div>
       
@@ -40,7 +40,7 @@ function renderTema(tema, index) {
     <section class="tema-block">
       <div class="tema-header">
         <span class="tema-number">${index + 1}</span>
-        <h3>${tema.titulo}</h3>
+        <h3>${formatText(tema.titulo)}</h3>
       </div>
       
       <p class="tema-intro">${formatText(tema.contenido)}</p>

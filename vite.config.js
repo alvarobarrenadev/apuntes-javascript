@@ -21,6 +21,23 @@ export default defineConfig({
         modulo2clase5: resolve(__dirname, "src/pages/modulo-2/clase-5.html"),
         modulo2clase6: resolve(__dirname, "src/pages/modulo-2/clase-6.html"),
         modulo2clase7: resolve(__dirname, "src/pages/modulo-2/clase-7.html"),
+
+        // Módulo 3: Arrays y Objetos
+        modulo3: resolve(__dirname, "src/pages/modulo-3/index.html"),
+        modulo3clase8: resolve(__dirname, "src/pages/modulo-3/clase-8.html"),
+        modulo3clase9: resolve(__dirname, "src/pages/modulo-3/clase-9.html"),
+        modulo3clase10: resolve(__dirname, "src/pages/modulo-3/clase-10.html"),
+        modulo3clase11: resolve(__dirname, "src/pages/modulo-3/clase-11.html"),
+        modulo3clase12: resolve(__dirname, "src/pages/modulo-3/clase-12.html"),
+        modulo3clase13: resolve(__dirname, "src/pages/modulo-3/clase-13.html"),
+        modulo3clase14: resolve(__dirname, "src/pages/modulo-3/clase-14.html"),
+
+        // Módulo 4: Prototipos y Clases
+        modulo4: resolve(__dirname, "src/pages/modulo-4/index.html"),
+        modulo4clase15: resolve(__dirname, "src/pages/modulo-4/clase-15.html"),
+        modulo4clase16: resolve(__dirname, "src/pages/modulo-4/clase-16.html"),
+        modulo4clase17: resolve(__dirname, "src/pages/modulo-4/clase-17.html"),
+        modulo4clase18: resolve(__dirname, "src/pages/modulo-4/clase-18.html"),
       },
     },
   },
