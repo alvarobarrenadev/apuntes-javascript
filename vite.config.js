@@ -61,6 +61,13 @@ export default defineConfig({
         modulo7clase30: resolve(__dirname, "src/pages/modulo-7/clase-30.html"),
         modulo7clase31: resolve(__dirname, "src/pages/modulo-7/clase-31.html"),
         modulo7clase32: resolve(__dirname, "src/pages/modulo-7/clase-32.html"),
+
+        // Módulo 8: Almacenamiento y Vite
+        modulo8: resolve(__dirname, "src/pages/modulo-8/index.html"),
+        modulo8clase33: resolve(__dirname, "src/pages/modulo-8/clase-33.html"),
+        modulo8clase34: resolve(__dirname, "src/pages/modulo-8/clase-34.html"),
+        modulo8clase35: resolve(__dirname, "src/pages/modulo-8/clase-35.html"),
+        modulo8clase36: resolve(__dirname, "src/pages/modulo-8/clase-36.html"),
     },
     },
   },

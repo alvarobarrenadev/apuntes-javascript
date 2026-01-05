@@ -31,6 +31,7 @@ Actualmente el proyecto abarca los siguientes módulos:
 - **Módulo 5:** JavaScript Moderno (ES6+)
 - **Módulo 6:** Manipulación del DOM (Selectores, Creación de elementos, Atributos, Eventos...)
 - **Módulo 7:** Gestión de Eventos y Asincronía
+- **Módulo 8:** Almacenamiento y Proyectos con Vite (Cookies, LocalStorage, SessionStorage, Vite)
 
 > *Nota: El contenido se actualiza y expande continuamente conforme avanza el curso.*
 
@@ -115,7 +116,8 @@ apuntes-javascript/
 │   ├── pages/              # Archivos HTML (Vistas) organizados por módulo
 │   │   ├── modulo-1/
 │   │   ├── ...
-│   │   └── modulo-6/
+│   │   ├── modulo-7/
+│   │   └── modulo-8/
 │   └── sass/               # Estilos con patrón 7-1
 │       ├── abstracts/      # Variables, mixins
 │       ├── base/           # Reset, tipografía
