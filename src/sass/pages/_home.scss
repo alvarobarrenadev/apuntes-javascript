@@ -1,0 +1,51 @@
+// HOME PAGE STYLES
+
+// Separador de secciones (Inicial / Avanzado)
+.section-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 64px;
+
+
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+
+  // Barra lateral decorativa
+  &::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 36px;
+    background: var(--accent-gradient);
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  // Línea horizontal sutil
+  &::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--border-subtle) 0%, transparent 100%);
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+
+  // Ajuste para el primer título
+  &:first-of-type {
+    margin-top: 16px;
+  }
+
+  // Badge opcional (si quisiéramos añadir 'Fase 1' etc)
+  span {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: auto; // Lo empuja a la derecha si quitamos el flex:1 del after
+  }
+}

@@ -14,6 +14,22 @@ export function renderModules(modulesData, gridId = 'modulesGrid') {
   }
 
   modulesData.forEach((mod, index) => {
+    // Insertar título de sección "JavaScript Inicial" antes del primer módulo
+    if (index === 0) {
+      const title = document.createElement('h2');
+      title.className = 'section-divider';
+      title.textContent = 'JavaScript Inicial';
+      grid.appendChild(title);
+    }
+
+    // Insertar título de sección "JavaScript Avanzado" antes del módulo 6 (index 5)
+    if (index === 5) {
+      const title = document.createElement('h2');
+      title.className = 'section-divider';
+      title.textContent = 'JavaScript Avanzado';
+      grid.appendChild(title);
+    }
+
     const card = createModuleCard(mod, index);
     grid.appendChild(card);
   });
