@@ -1,4 +1,4 @@
-import{i as t,a}from"./footer-BfRR1JS6.js";import{g as o}from"./index-DTHpUktO.js";t();a();const r=document.querySelector("main"),c=parseInt(r?.dataset.modulo||"1",10);d(c);function d(s){const i=document.getElementById("classesGrid");if(!i)return;const n=o(s);if(n.length===0){i.innerHTML="<p>No hay clases disponibles</p>";return}i.innerHTML=n.map(e=>`
+import{i as t,a}from"./footer-BfRR1JS6.js";import{g as o}from"./index-DDUw6dQo.js";t();a();const r=document.querySelector("main"),c=parseInt(r?.dataset.modulo||"1",10);d(c);function d(s){const i=document.getElementById("classesGrid");if(!i)return;const n=o(s);if(n.length===0){i.innerHTML="<p>No hay clases disponibles</p>";return}i.innerHTML=n.map(e=>`
     <a href="clase-${e.id}.html" class="class-nav-card">
       <div class="class-nav-number">${e.id}</div>
       <div class="class-nav-content">
