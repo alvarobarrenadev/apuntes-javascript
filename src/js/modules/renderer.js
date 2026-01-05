@@ -43,7 +43,7 @@ function renderTema(tema, index) {
         <h3>${tema.titulo}</h3>
       </div>
       
-      <p class="tema-intro">${tema.contenido}</p>
+      <p class="tema-intro">${formatText(tema.contenido)}</p>
       
       ${renderTemaContent(tema)}
     </section>
@@ -65,7 +65,7 @@ function renderTemaContent(tema) {
           <span>Puntos Clave</span>
         </div>
         <ul class="check-list">
-          ${tema.puntosClave.map(punto => `<li><i class="fa-solid fa-check"></i> ${punto}</li>`).join('')}
+          ${tema.puntosClave.map(punto => `<li><i class="fa-solid fa-check"></i> ${formatText(punto)}</li>`).join('')}
         </ul>
       </div>
     `;
@@ -79,7 +79,7 @@ function renderTemaContent(tema) {
           <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-cube"></i></div>
             <h4>${c.nombre}</h4>
-            <p>${c.descripcion}</p>
+            <p>${formatText(c.descripcion)}</p>
           </div>
         `).join('')}
       </div>
@@ -95,7 +95,7 @@ function renderTemaContent(tema) {
             <div class="method-number">${i + 1}</div>
             <div class="method-content">
               <h4>${m.nombre}</h4>
-              <p>${m.descripcion}</p>
+              <p>${formatText(m.descripcion)}</p>
               ${m.ejemplo ? `<pre class="code-snippet"><code>${escapeHtml(m.ejemplo)}</code></pre>` : ''}
             </div>
           </div>
@@ -126,8 +126,8 @@ function renderTemaContent(tema) {
           <div class="position-item">
             <code class="position-tag">${p.lugar}</code>
             <div class="position-info">
-              <p>${p.comportamiento}</p>
-              ${p.solucion ? `<p class="tip"><i class="fa-solid fa-lightbulb"></i> ${p.solucion}</p>` : ''}
+              <p>${formatText(p.comportamiento)}</p>
+              ${p.solucion ? `<p class="tip"><i class="fa-solid fa-lightbulb"></i> ${formatText(p.solucion)}</p>` : ''}
             </div>
           </div>
         `).join('')}
@@ -146,7 +146,7 @@ function renderTemaContent(tema) {
               <i class="fa-solid ${t.icono}"></i>
               <code>${t.palabra}</code>
             </div>
-            <p>${t.descripcion}</p>
+            <p>${formatText(t.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(t.ejemplo)}</code></pre>
           </div>
         `).join('')}
@@ -161,7 +161,7 @@ function renderTemaContent(tema) {
         ${tema.tipos.map(t => `
           <div class="type-card">
             <h4>${t.nombre}</h4>
-            <p>${t.descripcion}</p>
+            <p>${formatText(t.descripcion)}</p>
             <div class="type-examples">
               ${t.ejemplos.map(e => `<code>${escapeHtml(e)}</code>`).join('')}
             </div>
@@ -276,12 +276,12 @@ function renderTemaContent(tema) {
 
   // Alerta
   if (tema.alerta) {
-    html += `<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i> ${tema.alerta}</div>`;
+    html += `<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i> ${formatText(tema.alerta)}</div>`;
   }
 
   // Nota general
   if (tema.nota && !tema.ejemplos && !tema.comparacion) {
-    html += `<div class="alert info"><i class="fa-solid fa-circle-info"></i> ${tema.nota}</div>`;
+    html += `<div class="alert info"><i class="fa-solid fa-circle-info"></i> <span>${formatText(tema.nota)}</span></div>`;
   }
 
   // Sintaxis simple (string)
@@ -395,12 +395,12 @@ function renderTemaContent(tema) {
               <div class="comparison-header">
                 <span class="comparison-type">${d.tipo}</span>
               </div>
-              <p>${d.descripcion}</p>
+              <p>${formatText(d.descripcion)}</p>
               <pre class="code-snippet"><code>${escapeHtml(d.ejemplo)}</code></pre>
             </div>
           `).join('')}
         </div>
-        ${tema.funcionVsMetodo.nota ? `<div class="alert info"><i class="fa-solid fa-lightbulb"></i> ${tema.funcionVsMetodo.nota}</div>` : ''}
+        ${tema.funcionVsMetodo.note ? `<div class="alert info"><i class="fa-solid fa-lightbulb"></i> ${formatText(tema.funcionVsMetodo.note)}</div>` : ''}
       </div>
     `;
   }
@@ -411,7 +411,7 @@ function renderTemaContent(tema) {
       <div class="function-example">
         <h4 class="function-example-title"><i class="fa-solid fa-code"></i> ${tema.ejemploFuncion.descripcion}</h4>
         <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploFuncion.codigo)}</code></pre>
-        <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploFuncion.explicacion}</p>
+        <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${formatText(tema.ejemploFuncion.explicacion)}</p>
       </div>
     `;
   }
@@ -430,7 +430,7 @@ function renderTemaContent(tema) {
               <span class="part-number">${i + 1}</span>
               <div class="part-content">
                 <strong>${p.nombre}</strong>
-                <p>${p.descripcion}</p>
+                <p>${formatText(p.descripcion)}</p>
               </div>
             </div>
           `).join('')}
@@ -461,7 +461,7 @@ function renderTemaContent(tema) {
         ${tema.tiposRetorno.map(t => `
           <div class="return-type-card">
             <h5>${t.tipo}</h5>
-            <p>${t.descripcion}</p>
+            <p>${formatText(t.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(t.codigo)}</code></pre>
           </div>
         `).join('')}
@@ -476,7 +476,7 @@ function renderTemaContent(tema) {
         ${tema.conceptosParametros.map(c => `
           <div class="concept-card">
             <h5><i class="fa-solid fa-lightbulb"></i> ${c.nombre}</h5>
-            <p>${c.descripcion}</p>
+            <p>${formatText(c.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(c.codigo)}</code></pre>
           </div>
         `).join('')}
@@ -494,7 +494,7 @@ function renderTemaContent(tema) {
               <h5>${p.tipo}</h5>
               <span class="applies-to">${p.aplicaA}</span>
             </div>
-            <p>${p.descripcion}</p>
+            <p>${formatText(p.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(p.codigo)}</code></pre>
           </div>
         `).join('')}
@@ -512,7 +512,7 @@ function renderTemaContent(tema) {
               <i class="fa-solid ${t.icono || 'fa-code'}"></i>
               <h5>${t.nombre}</h5>
             </div>
-            <p>${t.descripcion}</p>
+            <p>${formatText(t.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(t.codigo)}</code></pre>
           </div>
         `).join('')}
@@ -526,7 +526,7 @@ function renderTemaContent(tema) {
       <div class="callback-example">
         <h5><i class="fa-solid fa-share"></i> ${tema.ejemploCallback.descripcion}</h5>
         <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploCallback.codigo)}</code></pre>
-        <p class="callback-explanation"><i class="fa-solid fa-info-circle"></i> ${tema.ejemploCallback.explicacion}</p>
+        <p class="callback-explanation"><i class="fa-solid fa-info-circle"></i> ${formatText(tema.ejemploCallback.explicacion)}</p>
       </div>
     `;
   }
@@ -564,7 +564,7 @@ function renderTemaContent(tema) {
     html += `
       <div class="nested-functions">
         <pre class="code-snippet large"><code>${escapeHtml(tema.funcionesAnidadas.codigo)}</code></pre>
-        ${tema.funcionesAnidadas.nota ? `<div class="alert info"><i class="fa-solid fa-info-circle"></i> ${tema.funcionesAnidadas.nota}</div>` : ''}
+        ${tema.funcionesAnidadas.nota ? `<div class="alert info"><i class="fa-solid fa-info-circle"></i> ${formatText(tema.funcionesAnidadas.nota)}</div>` : ''}
       </div>
     `;
   }
@@ -575,7 +575,7 @@ function renderTemaContent(tema) {
       <div class="return-function">
         <h5><i class="fa-solid fa-reply"></i> ${tema.retornoFuncion.titulo}</h5>
         <pre class="code-snippet large"><code>${escapeHtml(tema.retornoFuncion.codigo)}</code></pre>
-        <p class="return-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.retornoFuncion.explicacion}</p>
+        <p class="return-explanation"><i class="fa-solid fa-arrow-right"></i> ${formatText(tema.retornoFuncion.explicacion)}</p>
       </div>
     `;
   }
@@ -584,11 +584,11 @@ function renderTemaContent(tema) {
   if (tema.queSonClosures) {
     html += `
       <div class="closures-intro">
-        <p class="closures-definition">${tema.queSonClosures.definicion}</p>
+        <p class="closures-definition">${formatText(tema.queSonClosures.definicion)}</p>
         <div class="closures-importance">
           <h5><i class="fa-solid fa-star"></i> ¿Por qué son importantes?</h5>
           <ul class="check-list">
-            ${tema.queSonClosures.porQueImportan.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+            ${tema.queSonClosures.porQueImportan.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
           </ul>
         </div>
       </div>
@@ -599,13 +599,16 @@ function renderTemaContent(tema) {
   if (tema.ejemploClosure) {
     html += `
       <div class="closure-example">
-        <h5><i class="fa-solid fa-lock"></i> ${tema.ejemploClosure.titulo}</h5>
+        <div class="example-header">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>${tema.ejemploClosure.titulo || 'Ejemplo Práctico'}</span>
+        </div>
         <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploClosure.codigo)}</code></pre>
-        <p class="closure-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploClosure.explicacion}</p>
+        ${tema.ejemploClosure.explicacion ? `<p class="closure-explanation"><i class="fa-solid fa-info-circle"></i> ${formatText(tema.ejemploClosure.explicacion)}</p>` : ''}
         ${tema.ejemploClosure.puntosClave ? `
           <div class="closure-points">
             <ul class="check-list">
-              ${tema.ejemploClosure.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+              ${tema.ejemploClosure.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
             </ul>
           </div>
         ` : ''}
@@ -625,7 +628,7 @@ function renderTemaContent(tema) {
           <div class="creation-card ${f.destacado ? 'destacado' : ''}">
             <h5>${f.tipo}</h5>
             <pre class="code-snippet"><code>${escapeHtml(f.ejemplo)}</code></pre>
-            <p>${f.descripcion}</p>
+            <p>${formatText(f.descripcion)}</p>
           </div>
         `).join('')}
       </div>
@@ -667,7 +670,7 @@ function renderTemaContent(tema) {
             ${tema.metodosString.map(m => `
               <tr>
                 <td data-label="Método"><code>${m.metodo}</code></td>
-                <td data-label="Descripción">${m.descripcion}</td>
+                <td data-label="Descripción">${formatText(m.descripcion)}</td>
                 <td data-label="Ejemplo"><code>${escapeHtml(m.ejemplo)}</code></td>
               </tr>
             `).join('')}
@@ -684,7 +687,7 @@ function renderTemaContent(tema) {
         ${tema.valoresEspeciales.map(v => `
           <div class="special-value-card">
             <code>${v.valor}</code>
-            <p>${v.descripcion}</p>
+            <p>${formatText(v.descripcion)}</p>
           </div>
         `).join('')}
       </div>
@@ -707,7 +710,7 @@ function renderTemaContent(tema) {
             ${tema.metodosNumber.map(m => `
               <tr>
                 <td data-label="Método"><code>${m.metodo}</code></td>
-                <td data-label="Descripción">${m.descripcion}</td>
+                <td data-label="Descripción">${formatText(m.descripcion)}</td>
                 <td data-label="Ejemplo"><code>${escapeHtml(m.ejemplo)}</code></td>
               </tr>
             `).join('')}
@@ -779,10 +782,19 @@ function renderTemaContent(tema) {
           <pre class="code-snippet"><code>${escapeHtml(tema.estructuraFor.ejemplo)}</code></pre>
         </div>
         ${tema.estructuraFor.explicacion ? `
-          <div class="for-explanation">
-            <ul>
-              ${tema.estructuraFor.explicacion.map(e => `<li>${e}</li>`).join('')}
-            </ul>
+          <div class="for-explanation-steps">
+            ${tema.estructuraFor.explicacion.map(e => {
+              const [labelPart, descPart] = e.split(' → ');
+              const [label, code] = labelPart.split(': ');
+              return `
+                <div class="for-step">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span class="step-label">${label}:</span>
+                  <code class="inline-code">${code}</code>
+                  <span class="step-desc">${formatText(descPart)}</span>
+                </div>
+              `;
+            }).join('')}
           </div>
         ` : ''}
       </div>
@@ -797,11 +809,11 @@ function renderTemaContent(tema) {
   if (tema.definicionScope) {
     html += `
       <div class="scope-definition">
-        <p class="scope-desc">${tema.definicionScope.descripcion}</p>
+        <p class="scope-desc">${formatText(tema.definicionScope.descripcion)}</p>
         <div class="scope-rules">
           <h5><i class="fa-solid fa-list-check"></i> Reglas importantes:</h5>
           <ul class="check-list">
-            ${tema.definicionScope.reglas.map(r => `<li><i class="fa-solid fa-check"></i> ${r}</li>`).join('')}
+            ${tema.definicionScope.reglas.map(r => `<li><i class="fa-solid fa-check"></i> ${formatText(r)}</li>`).join('')}
           </ul>
         </div>
       </div>
@@ -818,7 +830,7 @@ function renderTemaContent(tema) {
               <i class="fa-solid ${s.icono}"></i>
               <h5>${s.tipo}</h5>
             </div>
-            <p>${s.descripcion}</p>
+            <p>${formatText(s.descripcion)}</p>
             <pre class="code-snippet"><code>${escapeHtml(s.ejemplo)}</code></pre>
           </div>
         `).join('')}
@@ -831,7 +843,7 @@ function renderTemaContent(tema) {
     html += `
       <div class="scope-chain-example">
         <pre class="code-snippet large"><code>${escapeHtml(tema.ejemploCadena.codigo)}</code></pre>
-        <p class="scope-chain-explanation"><i class="fa-solid fa-arrow-right"></i> ${tema.ejemploCadena.explicacion}</p>
+        <p class="scope-chain-explanation"><i class="fa-solid fa-arrow-right"></i> ${formatText(tema.ejemploCadena.explicacion)}</p>
       </div>
     `;
   }
@@ -846,7 +858,10 @@ function renderTemaContent(tema) {
           <span class="answer-label">Respuesta:</span>
           <code class="answer-value">${tema.ejemploHoisting.respuesta}</code>
         </div>
-        <p class="hoisting-explanation">${tema.ejemploHoisting.explicacion}</p>
+        <div class="hoisting-interpretation">
+          <p>JavaScript lo interpreta así:</p>
+          <pre class="code-snippet small"><code>${escapeHtml(tema.ejemploHoisting.explicacion.replace('JavaScript lo interpreta así:', '').trim())}</code></pre>
+        </div>
       </div>
     `;
   }
@@ -918,7 +933,11 @@ function renderTemaContent(tema) {
           </tbody>
         </table>
       </div>
-      ${tema.recomendacion ? `<div class="alert success"><i class="fa-solid fa-lightbulb"></i> <strong>Recomendación:</strong> ${tema.recomendacion}</div>` : ''}
+      ${tema.recomendacion ? `
+        <div class="alert success">
+          <i class="fa-solid fa-lightbulb"></i> 
+          <span><strong>Recomendación:</strong> ${formatText(tema.recomendacion)}</span>
+        </div>` : ''}
     `;
   }
 
@@ -926,7 +945,10 @@ function renderTemaContent(tema) {
   if (tema.requisitos) {
     html += `
       <div class="requirements-list">
-        <h5><i class="fa-solid fa-list-ol"></i> Requisitos para crear un closure:</h5>
+        <div class="list-header">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span>Requisitos para crear un closure:</span>
+        </div>
         <ol class="numbered-list">
           ${tema.requisitos.map(r => `<li>${r}</li>`).join('')}
         </ol>
@@ -942,6 +964,7 @@ function renderTemaContent(tema) {
           <div class="closure-use-card">
             <h5><i class="fa-solid fa-cube"></i> ${u.uso}</h5>
             <p>${u.descripcion}</p>
+            ${u.ejemplo ? `<pre class="code-snippet small"><code>${escapeHtml(u.ejemplo)}</code></pre>` : ''}
           </div>
         `).join('')}
       </div>
@@ -1009,7 +1032,7 @@ function renderTemaContent(tema) {
             ${tema.caracteresEscape.map(c => `
               <tr>
                 <td data-label="Carácter"><code>${escapeHtml(c.caracter)}</code></td>
-                <td data-label="Descripción">${c.descripcion}</td>
+                <td data-label="Descripción">${formatText(c.descripcion)}</td>
                 <td data-label="Ejemplo"><code>${escapeHtml(c.ejemplo)}</code></td>
               </tr>
             `).join('')}
@@ -1027,7 +1050,7 @@ function renderTemaContent(tema) {
           <div class="creation-card">
             <h5>${f.forma}</h5>
             <code>${escapeHtml(f.ejemplo)}</code>
-            <p>${f.descripcion}</p>
+            <p>${formatText(f.descripcion)}</p>
           </div>
         `).join('')}
       </div>
@@ -1050,7 +1073,7 @@ function renderTemaContent(tema) {
             ${tema.constantesNumber.map(c => `
               <tr>
                 <td data-label="Constante"><code>${escapeHtml(c.constante)}</code></td>
-                <td data-label="Descripción">${c.descripcion}</td>
+                <td data-label="Descripción">${formatText(c.descripcion)}</td>
                 <td data-label="Valor"><code>${c.valor}</code></td>
               </tr>
             `).join('')}
@@ -1071,8 +1094,57 @@ function renderTemaContent(tema) {
             <span>Puntos Clave</span>
           </div>
           <ul class="check-list">
-            ${tema.objetoWindow.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${p}</li>`).join('')}
+            ${tema.objetoWindow.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
           </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  // Short-circuit behavior (Repaso lógica)
+  if (tema.shortCircuit) {
+    html += `
+      <div class="short-circuit-grid">
+        ${tema.shortCircuit.map(s => `
+          <div class="short-circuit-card">
+            <div class="short-circuit-header">
+              <code class="operator">${s.operador}</code>
+              <span>${s.regla}</span>
+            </div>
+            <pre class="code-snippet"><code>${escapeHtml(s.ejemplos)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Comportamiento especial (NaN, etc)
+  if (tema.comportamientoEspecial) {
+    html += `
+      <div class="info-box behavior-box">
+        <div class="info-box-header">
+          <i class="fa-solid fa-flask"></i>
+          <span>${tema.comportamientoEspecial.titulo}</span>
+        </div>
+        <ul class="check-list">
+          ${tema.comportamientoEspecial.puntos.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
+        </ul>
+        <pre class="code-snippet"><code>${escapeHtml(tema.comportamientoEspecial.codigo)}</code></pre>
+      </div>
+    `;
+  }
+
+  // Debug Scopes guide
+  if (tema.debugScopes) {
+    html += `
+      <div class="debug-scopes-section">
+        <div class="debug-steps">
+          ${tema.debugScopes.pasos.map((p, i) => `
+            <div class="debug-step">
+              <span class="step-num">${i + 1}</span>
+              <p>${formatText(p)}</p>
+            </div>
+          `).join('')}
         </div>
       </div>
     `;
@@ -1104,8 +1176,8 @@ function renderOperadores(tema) {
               <tr class="${op.destacado ? 'highlight-row' : ''}">
                 <td data-label="Operador"><code class="operator-symbol">${escapeHtml(op.simbolo)}</code></td>
                 <td data-label="Nombre">
-                  ${op.nombre}
-                  ${op.descripcion ? `<small>${op.descripcion}</small>` : ''}
+                   ${op.nombre}
+                  ${op.descripcion ? `<small>${formatText(op.descripcion)}</small>` : ''}
                 </td>
                 <td data-label="Ejemplo"><code>${escapeHtml(op.ejemplo)}</code></td>
               </tr>
@@ -1130,7 +1202,7 @@ function renderOperadores(tema) {
               ${op.variantes.map(v => `
                 <div class="variant">
                   <code>${v.forma}</code>
-                  <p>${v.descripcion}</p>
+                  <p>${formatText(v.descripcion)}</p>
                 </div>
               `).join('')}
             </div>
@@ -1151,7 +1223,7 @@ function renderOperadores(tema) {
               <code class="logic-symbol">${op.simbolo}</code>
               <span>${op.nombre}</span>
             </div>
-            <p class="logic-rule">${op.regla}</p>
+            <p class="logic-rule">${formatText(op.regla)}</p>
             ${op.tablaVerdad ? `
               <table class="truth-table">
                 <thead>
@@ -1185,6 +1257,24 @@ function renderOperadores(tema) {
   }
 
   return '';
+}
+
+/**
+ * Formatea texto básico (negrita y código inline)
+ */
+function formatText(text) {
+  if (!text) return '';
+  
+  // Primero escapamos HTML para seguridad
+  let formatted = escapeHtml(text);
+  
+  // Negrita: **texto**
+  formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+  // Código inline: `texto`
+  formatted = formatted.replace(/`(.*?)`/g, '<code class="inline-code">$1</code>');
+  
+  return formatted;
 }
 
 /**

@@ -12,6 +12,14 @@ export const modulo2Data = {
       descripcion: "Aprende qué son las funciones, cómo declararlas, los parámetros, el retorno y las diferentes formas de crearlas.",
       temas: [
         {
+          titulo: "Repaso: Operadores Lógicos Avanzados",
+          contenido: "Antes de profundizar en funciones, es vital entender que && y || no solo devuelven booleanos, sino el valor de uno de sus operandos (Short-circuiting).",
+          shortCircuit: [
+            { operador: "&&", regla: "Devuelve el primer valor 'falsy' o el último 'truthy'.", ejemplos: "44 && 20 // 20\n0 && 10 // 0" },
+            { operador: "||", regla: "Devuelve el primer valor 'truthy' o el último 'falsy'.", ejemplos: "44 || undefined // 44\n0 || 17 // 17" }
+          ]
+        },
+        {
           titulo: "¿Qué es una función?",
           contenido: "Una función es un trozo de código ejecutable al que le asignamos un nombre para poder reutilizarlo en cualquier parte de nuestro programa. Es como una 'caja negra' a la que le pasamos datos y nos devuelve un resultado.",
           puntosClave: [
@@ -137,7 +145,7 @@ const retorno = mostrarMensaje('Hola');
 console.log(retorno); // undefined`
             }
           ],
-          nota: "Una función sin return explícito siempre devuelve undefined."
+          nota: "Una función sin `return` explícito siempre devuelve `undefined`."
         },
         {
           titulo: "Parámetros de funciones",
@@ -182,6 +190,16 @@ saludar('Ana');   // "Hola, Ana"`
 }
 
 sumarTodos(1, 2, 3, 4, 5); // 15`
+            },
+            {
+              nombre: "Curiosidad: double parens",
+              descripcion: "Si una función devuelve otra, podemos invocarla inmediatamente usando un segundo par de paréntesis.",
+              codigo: `function externa() {
+  return function() {
+    console.log('¡Hola!');
+  }
+}
+externa()(); // Imprime ¡Hola!`
             }
           ]
         },
@@ -511,12 +529,23 @@ const linea = datos.join(';');
             { valor: "-Infinity", descripcion: "Representa el infinito negativo" },
             { valor: "NaN", descripcion: "Not a Number - resultado de operaciones inválidas" }
           ],
+          comportamientoEspecial: {
+            titulo: "Peculiaridades de NaN",
+            puntos: [
+              "typeof NaN devuelve 'number' (aunque parezca contradictorio)",
+              "NaN === NaN es FALSE. Un NaN nunca es igual a otro NaN",
+              "Para comprobar si algo es NaN, usa la función isNaN()"
+            ],
+            codigo: `console.log(typeof NaN); // "number"
+console.log(NaN === NaN); // false
+console.log(isNaN('hola')); // true`
+          },
           constantesNumber: [
             { constante: "Number.MAX_VALUE", descripcion: "Número máximo representable", valor: "1.79e+308" },
             { constante: "Number.MIN_VALUE", descripcion: "Número positivo más pequeño", valor: "5e-324" },
             { constante: "Number.MAX_SAFE_INTEGER", descripcion: "Entero seguro máximo", valor: "9007199254740991" }
           ],
-          nota: "Para números mayores que MAX_SAFE_INTEGER, usa BigInt (ej: 9007199254740992n)."
+          nota: "Para números mayores que `MAX_SAFE_INTEGER`, usa `BigInt` (ej: `9007199254740992n`)."
         },
         {
           titulo: "Métodos de Number y Math",
@@ -575,7 +604,7 @@ if (edad >= 18) {
           ejemplo: `const edad = 20;
 const mensaje = edad >= 18 ? 'Mayor de edad' : 'Menor de edad';
 console.log(mensaje); // 'Mayor de edad'`,
-          nota: "Se usa mucho en React para renderizado condicional: {isLoading ? <Spinner /> : <Content />}"
+          nota: "Se usa mucho en React para renderizado condicional: `{isLoading ? <Spinner /> : <Content />}`"
         },
         {
           titulo: "Switch",
@@ -639,7 +668,7 @@ do {
 } while (contador < 5);
 // Imprime: 0, 1, 2, 3, 4`
           },
-          nota: "La diferencia clave: do...while siempre ejecuta al menos una vez, while puede no ejecutarse nunca."
+          nota: "La diferencia clave: `do...while` siempre ejecuta al menos una vez, `while` puede no ejecutarse nunca."
         },
         {
           titulo: "Bucle for",
@@ -678,7 +707,22 @@ do {
             reglas: [
               "Las variables solo son accesibles dentro del scope donde fueron declaradas",
               "Los scopes hijos pueden acceder a scopes padres, pero NO al revés",
-              "Cada función crea un nuevo scope"
+              "Cada función crea un nuevo scope",
+              "El scope más reducido posible ayuda al **Recolector de Basura** (Garbage Collector) a liberar memoria"
+            ]
+          },
+          nota: "Es una buena práctica declarar variables en el scope más pequeño necesario para optimizar el uso de memoria."
+        },
+        {
+          titulo: "Depuración de Scopes en el Navegador",
+          contenido: "Puedes visualizar qué variables están disponibles en cada momento usando las Herramientas de Desarrollo de Chrome.",
+          debugScopes: {
+            pasos: [
+              "Abre las Herramientas de Desarrollo (F12)",
+              "Ve a la pestaña **Sources**",
+              "Pon un **Breakpoint** haciendo clic en el número de línea",
+              "En el panel derecho, busca la sección **Scope**",
+              "Podrás ver qué variables son Locales, de Script o Globales en ese punto exacto"
             ]
           }
         },
@@ -771,7 +815,7 @@ comer();`,
               "En Node.js no existe window, se usa global"
             ]
           },
-          alerta: "Evita usar variables globales siempre que sea posible. Poluciona el namespace global y puede causar colisiones."
+          alerta: "Evita usar variables globales siempre que sea posible. Contamina el namespace global y puede causar colisiones."
         },
         {
           titulo: "¿Qué es el Hoisting?",
@@ -786,7 +830,7 @@ var nombre;           // Declaración elevada
 console.log(nombre);  // undefined (declarada pero sin valor)
 nombre = 'Juan';      // Asignación en su lugar original`
           },
-          nota: "Solo se eleva la DECLARACIÓN, no la asignación. Por eso imprime undefined en lugar de error."
+          nota: "Solo se eleva la DECLARACIÓN, no la asignación. Por eso imprime `undefined` en lugar de error."
         },
         {
           titulo: "¿Qué sufre Hoisting?",
@@ -825,7 +869,7 @@ const saludar = function() {
             { caracteristica: "Se añade a window", var: "Sí", let: "No", const: "No" },
             { caracteristica: "Hoisting", var: "Sí (undefined)", let: "TDZ", const: "TDZ" }
           ],
-          recomendacion: "Usa const por defecto. Usa let solo cuando necesites reasignar. Evita var."
+          recomendacion: "Usa `const` por defecto. Usa `let` solo cuando necesites reasignar. Evita `var`."
         },
         {
           titulo: "¿Qué es un Closure?",
@@ -840,6 +884,8 @@ const saludar = function() {
           titulo: "Ejemplo de Closure: Contador",
           contenido: "El ejemplo clásico de closure es un contador con datos privados:",
           ejemploClosure: {
+            titulo: "Contador Privado (Estado Encapsulado)",
+            explicacion: "Los métodos retornados mantienen el acceso a la variable 'contador' gracias al closure, aunque la función original ya haya terminado.",
             codigo: `function crearContador(valorInicial = 0) {
   // Variable PRIVADA - solo accesible desde dentro
   let contador = valorInicial;
@@ -886,19 +932,38 @@ console.log(c2.obtenerValor()); // 99
           usosClosures: [
             {
               uso: "Encapsulación / Datos privados",
-              descripcion: "Crear variables que no son accesibles desde fuera, como en el ejemplo del contador."
+              descripcion: "Crear variables que no son accesibles desde fuera, como en el ejemplo del contador.",
+              ejemplo: `function crearContador() {
+  let contador = 0;
+  return () => ++contador;
+}
+const leer = crearContador();`
             },
             {
               uso: "Factory Functions",
-              descripcion: "Funciones que crean y retornan otras funciones con configuraciones específicas."
+              descripcion: "Funciones que crean y retornan otras funciones con configuraciones específicas.",
+              ejemplo: `function crearSumador(x) {
+  return (y) => x + y;
+}
+const suma5 = crearSumador(5);`
             },
             {
               uso: "Memoización",
-              descripcion: "Guardar resultados de funciones costosas para no recalcularlos."
+              descripcion: "Guardar resultados de funciones costosas para no recalcularlos.",
+              ejemplo: `function memo() {
+  const cache = {};
+  return (n) => cache[n] || (cache[n] = n * 2);
+}`
             },
             {
               uso: "Event Handlers",
-              descripcion: "Mantener el contexto en callbacks y manejadores de eventos."
+              descripcion: "Mantener el contexto en callbacks y manejadores de eventos.",
+              ejemplo: `function setupBotones() {
+  let clicks = 0;
+  document.body.onclick = () => {
+    console.log(++clicks);
+  };
+}`
             }
           ],
           nota: "Los closures son la base de muchos patrones en JavaScript y se usan intensivamente en React (hooks como useState usan closures)."
