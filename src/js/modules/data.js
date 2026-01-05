@@ -40,7 +40,8 @@ export const modulesData = [
     title: "Módulos ES6",
     desc: "Organización de código con Import/Export y bundlers.",
     icon: "fa-box-open",
-    count: 1
+    count: 1,
+    link: `${BASE}src/pages/modulo-5/`
   },
   {
     title: "El DOM",
