@@ -122,14 +122,43 @@ miForm.addEventListener('submit', (e) => {
         },
         {
           titulo: "Propiedades de los Controles (Inputs)",
-          contenido: "Cada elemento dentro de un formulario tiene propiedades que podemos leer o modificar por código.",
+          contenido: "Cada elemento dentro de un formulario tiene propiedades que podemos leer o modificar por código. Estas propiedades devuelven valores que reflejan el estado actual del elemento.",
           puntosClave: [
-            "**value**: Contenido actual del campo.",
-            "**checked**: Estado de checkbox o radio (booleano).",
-            "**disabled / readOnly**: Bloqueo del elemento.",
-            "**required**: Si es obligatorio.",
-            "**Selection**: `selectionStart` y `selectionEnd` permiten saber qué texto ha marcado el usuario."
+            "**value**: Contenido actual del campo (string).",
+            "**checked / defaultChecked**: Estado de checkbox o radio (booleano). `defaultChecked` indica si venía marcado por defecto.",
+            "**disabled / readOnly / hidden**: Estados de bloqueo del elemento (booleanos).",
+            "**required**: Si es obligatorio para el envío del formulario.",
+            "**accept**: Solo para `input[type=file]`, indica qué tipos de archivo se permiten.",
+            "**autocomplete**: Si el navegador puede autocompletar el campo.",
+            "**type / name**: Tipo de input y nombre para el envío del formulario.",
+            "**maxLength, min, max, step**: Restricciones de longitud o valores numéricos.",
+            "**pattern**: Expresión regular para validación HTML5.",
+            "**placeholder / size**: Texto de ayuda y tamaño visual del campo.",
+            "**selectionStart / selectionEnd**: Posición del texto seleccionado por el usuario dentro del input."
           ]
+        },
+        {
+          titulo: "Eventos Focus, Blur y Change",
+          contenido: "Eventos fundamentales para gestionar la interacción con campos de formulario. Permiten saber cuándo el usuario entra, sale o modifica un campo.",
+          puntosClave: [
+            "**focus**: Se dispara cuando el elemento recibe el foco (el usuario hace clic o tabula hacia él).",
+            "**blur**: Se dispara cuando el elemento pierde el foco (el usuario hace clic fuera).",
+            "**change**: Se dispara cuando el valor ha cambiado Y el elemento pierde el foco. No se dispara mientras escribes, solo al salir.",
+            "**input**: Alternativa a `change` que se dispara con cada pulsación de tecla."
+          ],
+          codigo: `const input = document.getElementById('email');
+
+input.addEventListener('focus', () => {
+  console.log('El campo tiene el foco');
+});
+
+input.addEventListener('blur', () => {
+  console.log('El campo ha perdido el foco');
+});
+
+input.addEventListener('change', () => {
+  console.log('El valor ha cambiado a:', input.value);
+});`
         },
         {
           titulo: "Eventos de Ratón (Avanzado)",
@@ -142,12 +171,36 @@ miForm.addEventListener('submit', (e) => {
           ]
         },
         {
-          titulo: "Eventos de Teclado y Multimedia",
-          contenido: "Control total sobre la entrada de texto y elementos de audio/vídeo.",
+          titulo: "Eventos de Teclado",
+          contenido: "Control total sobre la entrada de texto. Tres tipos de eventos principales con diferencias sutiles pero importantes.",
           puntosClave: [
-            "**event.key vs event.code**: `key` es el carácter resultante ('A'), `code` es la posición física ('KeyA').",
-            "**Location**: Permite saber si se pulsó la tecla 'Shift' izquierda o derecha.",
-            "**Multimedia**: Eventos como `play`, `pause`, `ended` o `durationchange` para reproductores personalizados."
+            "**keydown**: Se dispara al pulsar una tecla (incluye teclas especiales como flechas, Escape, etc.).",
+            "**keypress**: Se dispara al pulsar una tecla que produce un carácter (DEPRECADO, usar keydown).",
+            "**keyup**: Se dispara al soltar una tecla.",
+            "**event.key**: Devuelve el valor del carácter ('a', 'Enter', 'ArrowUp').",
+            "**event.code**: Devuelve la posición física de la tecla ('KeyA', 'Enter', 'ArrowUp').",
+            "**event.location**: Indica si la tecla tiene posición (izquierda/derecha para Shift, Ctrl, Alt)."
+          ],
+          codigo: `// Detectar teclas de dirección
+document.addEventListener('keydown', (e) => {
+  switch(e.key) {
+    case 'ArrowUp':    console.log('Arriba'); break;
+    case 'ArrowDown':  console.log('Abajo'); break;
+    case 'ArrowLeft':  console.log('Izquierda'); break;
+    case 'ArrowRight': console.log('Derecha'); break;
+  }
+});`
+        },
+        {
+          titulo: "Eventos Multimedia",
+          contenido: "Elementos `<audio>` y `<video>` tienen eventos específicos para controlar la reproducción.",
+          puntosClave: [
+            "**play / pause**: Se disparan al reproducir o pausar el contenido.",
+            "**ended**: Se dispara cuando el contenido termina de reproducirse.",
+            "**durationchange**: Se dispara cuando cambia la duración del elemento.",
+            "**timeupdate**: Se dispara constantemente mientras se reproduce (para barras de progreso).",
+            "**seeking / seeked**: Se disparan cuando el usuario mueve la barra de reproducción.",
+            "**volumechange**: Se dispara cuando cambia el volumen."
           ]
         },
         {
@@ -217,7 +270,9 @@ for (let el of elementos) {
           puntosClave: [
             "**Subir en la jerarquía**: `parentElement.parentElement` para alcanzar abuelos (ej. de un span a su contenedor div).",
             "**Bajar a elementos específicos**: `firstElementChild` y `lastElementChild` (ignoran nodos de texto/espacios).",
-            "**Iteración Condicional**: Filtrar elementos por su número de hijos (`children.length`) antes de operar."
+            "**Iteración Condicional**: Filtrar elementos por su número de hijos (`children.length`) antes de operar.",
+            "**Hermanos**: `nextElementSibling` y `previousElementSibling` para navegar lateralmente.",
+            "**children vs childNodes**: `children` solo devuelve elementos, `childNodes` incluye nodos de texto."
           ],
           codigo: `// Seleccionar el antepenúltimo párrafo de cada DIV
 const divs = document.querySelectorAll('div');
@@ -227,7 +282,11 @@ divs.forEach(div => {
     const antepenultimo = párrafos[párrafos.length - 3];
     antepenultimo.classList.toggle('highlight');
   }
-});`
+});
+
+// Seleccionar el padre del primer LI
+const primerLi = document.getElementsByTagName('li')[0];
+const padre = primerLi.parentElement; // Devuelve el UL/OL`
         },
         {
           titulo: "Inserción y Reposicionamiento",
@@ -235,7 +294,9 @@ divs.forEach(div => {
           puntosClave: [
             "**insertBefore(nuevo, referencia)**: Inserta antes del nodo de referencia. Si el nodo ya existía, lo MUEVE.",
             "**Insertar al inicio**: `padre.insertBefore(nuevo, padre.firstElementChild)`.",
-            "**Insertar en medio**: Seleccionar el hijo intermedio como referencia."
+            "**Insertar en medio**: Seleccionar el hijo intermedio como referencia.",
+            "**prepend / append**: Métodos modernos para insertar al principio o final.",
+            "**Mover elementos**: Si usas `appendChild` o `insertBefore` con un nodo existente, se MUEVE, no se duplica."
           ],
           codigo: `// Insertar entre los dos únicos elementos de una lista
 const listas = document.querySelectorAll('ol');
@@ -246,7 +307,13 @@ listas.forEach(lista => {
     // Se inserta antes del segundo (que es el lastElementChild)
     lista.insertBefore(nuevo, lista.lastElementChild);
   }
-});`
+});
+
+// Añadir elemento como primer hijo
+const nuevoP = document.createElement('p');
+nuevoP.textContent = "Soy el primero";
+contenedor.insertBefore(nuevoP, contenedor.firstElementChild);
+// O con prepend: contenedor.prepend(nuevoP);`
         },
         {
           titulo: "Atributos y Texto",
@@ -254,7 +321,9 @@ listas.forEach(lista => {
           puntosClave: [
             "**document.createTextNode**: Crea un nodo de texto puro, ideal para añadir puntuación o texto sin etiquetas.",
             "**dataset**: Forma preferida para manejar atributos `data-*` (ej: `el.dataset.iva = 0`).",
-            "**Iterar Atributos**: `elemento.attributes` permite recorrer todos los atributos de un nodo (name y value)."
+            "**Iterar Atributos**: `elemento.attributes` permite recorrer todos los atributos de un nodo (name y value).",
+            "**hasAttribute / removeAttribute**: Para verificar existencia y eliminar atributos.",
+            "**getAttribute / setAttribute**: Para leer/escribir atributos de forma programática."
           ],
           codigo: `// Añadir un punto final a cada párrafo
 const ps = document.querySelectorAll('p');
@@ -265,7 +334,21 @@ ps.forEach(p => {
 
 // Manipulación compleja de clases y dataset
 const ofertas = document.querySelectorAll('section.products article.oferta');
-ofertas.forEach(art => art.dataset.iva = "0");`
+ofertas.forEach(art => art.dataset.iva = "0");
+
+// Iterar por todos los atributos de un elemento
+const span = document.getElementById('miSpan');
+for (let attr of span.attributes) {
+  console.log(\`\${attr.name}: \${attr.value}\`);
+}
+
+// Comprobar y añadir clase si tiene un atributo
+const divs = document.getElementsByTagName('div');
+for (let div of divs) {
+  if (div.hasAttribute('class')) {
+    div.classList.add('container');
+  }
+}`
         },
         {
           titulo: "Sustitución de Elementos",
@@ -277,6 +360,46 @@ link.href = "#";
 link.textContent = li.textContent;
 li.textContent = ""; // Limpia el LI
 li.appendChild(link); // Añade el enlace dentro`
+        },
+        {
+          titulo: "Estilos Inline con JavaScript",
+          contenido: "Modificar estilos CSS directamente desde JavaScript usando la propiedad `style`.",
+          puntosClave: [
+            "**Sintaxis camelCase**: Las propiedades CSS con guión se escriben en camelCase (font-size → fontSize).",
+            "**Valores como strings**: Siempre debemos pasar el valor como string, incluyendo la unidad ('40px').",
+            "**Prioridad**: Los estilos inline tienen alta especificidad, sobrescriben clases."
+          ],
+          codigo: `// Modificar estilos de un H1
+const h1 = document.querySelector('h1');
+h1.style.fontSize = '40px';
+h1.style.color = 'orange';
+h1.style.textAlign = 'right';
+
+// Obtener estilos computados (incluyendo los de CSS)
+const estilosComputados = window.getComputedStyle(h1);
+console.log(estilosComputados.fontSize);`
+        },
+        {
+          titulo: "Selectores CSS Avanzados desde JS",
+          contenido: "querySelector y querySelectorAll aceptan cualquier selector CSS válido, permitiendo búsquedas muy específicas.",
+          puntosClave: [
+            "**Selectores de atributo**: `[data-iva='0']`, `[href^='https']`.",
+            "**Combinadores**: `section.products article.oferta` (descendiente), `ul > li` (hijo directo).",
+            "**Pseudoclases**: `:first-child`, `:last-child`, `:nth-child(n)`.",
+            "**Encadenar búsquedas**: Primero seleccionar un contenedor, luego buscar dentro de él."
+          ],
+          codigo: `// Selectores complejos
+const spans = document.querySelectorAll('div.padre p span');
+
+// Buscar dentro de un elemento específico
+const form = document.forms[0];
+const emailInput = form.querySelector('input[type="email"]');
+
+// Selectores de atributo
+const articulos = document.querySelectorAll('article[data-iva="0"]');
+
+// Último hijo de cada UL
+const ultimosLi = document.querySelectorAll('ul > li:last-child');`
         }
       ]
     },
@@ -344,12 +467,16 @@ document.querySelector('ul').addEventListener('click', (e) => {
           puntosClave: [
             "**CustomEvent**: Permite pasar datos extra en la propiedad `detail`.",
             "**dispatchEvent**: Método para lanzar el evento manualmente.",
-            "**Simulación**: Podemos lanzar un `new Event('click')` sobre un botón por código."
+            "**Simulación**: Podemos lanzar un `new Event('click')` sobre un botón por código.",
+            "**bubbles**: Si `true`, el evento burbujea hacia arriba en el DOM.",
+            "**cancelable**: Si `true`, se puede cancelar con `preventDefault()`.",
+            "**composed**: Si `true`, el evento atraviesa el Shadow DOM."
           ],
           codigo: `// 1. Definir y disparar evento custom
 const eventRegistro = new CustomEvent('usuarioRegistrado', {
   detail: { nombre: 'Alvaro', id: 26 },
-  bubbles: true
+  bubbles: true,
+  cancelable: true
 });
 
 document.dispatchEvent(eventRegistro);
@@ -357,7 +484,37 @@ document.dispatchEvent(eventRegistro);
 // 2. Escuchar el evento
 document.addEventListener('usuarioRegistrado', (e) => {
   console.log("Nuevo usuario:", e.detail.nombre);
-});`
+});
+
+// 3. Simular click programáticamente
+const btn = document.querySelector('button');
+const clickSimulado = new Event('click');
+btn.dispatchEvent(clickSimulado);`
+        },
+        {
+          titulo: "Opciones Avanzadas de addEventListener",
+          contenido: "El tercer parámetro de `addEventListener` puede ser un booleano (capture) o un objeto con múltiples opciones.",
+          puntosClave: [
+            "**capture**: `true` para escuchar en fase de captura, `false` (defecto) para burbujeo.",
+            "**once**: `true` para que el listener se ejecute solo una vez y se elimine automáticamente.",
+            "**passive**: `true` indica que nunca llamarás a `preventDefault()`. Mejora el rendimiento en eventos como scroll.",
+            "**signal**: Permite cancelar el listener usando un `AbortController`."
+          ],
+          codigo: `// Listener que solo se ejecuta una vez
+btn.addEventListener('click', () => {
+  console.log('Solo una vez');
+}, { once: true });
+
+// Escuchar en fase de captura
+padre.addEventListener('click', callback, { capture: true });
+
+// Scroll optimizado (passive)
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+// Cancelar listener con AbortController
+const controller = new AbortController();
+btn.addEventListener('click', callback, { signal: controller.signal });
+// Para cancelar: controller.abort();`
         }
       ]
     },
@@ -416,6 +573,27 @@ function ordenar() {
   items.sort();
   lista.innerHTML = "";
   items.forEach(txt => crearNuevoLi(txt));
+}
+
+// Lógica para añadir nuevo elemento
+btnNuevo.addEventListener('click', () => {
+  const texto = prompt('Introduce el nombre del elemento:');
+  if (texto) {
+    crearNuevoLi(texto);
+  }
+});
+
+// Función reutilizable para crear un LI con botón de borrar
+function crearNuevoLi(texto) {
+  const li = document.createElement('li');
+  li.appendChild(document.createTextNode(texto));
+  
+  const btnBorrar = document.createElement('button');
+  btnBorrar.textContent = 'X';
+  btnBorrar.onclick = (e) => e.target.parentElement.remove();
+  li.appendChild(btnBorrar);
+  
+  lista.appendChild(li);
 }`
         },
         {
@@ -529,6 +707,48 @@ if (cartasAbiertas.length === 2) {
     setTimeout(() => {
       ocultar(c1, c2);
     }, 600);
+  }
+}`
+        },
+        {
+          titulo: "Algoritmo Shuffle y Cronómetro",
+          contenido: "Funciones de utilidad esenciales para el juego: barajar arrays y medir el tiempo de resolución.",
+          puntosClave: [
+            "**Fisher-Yates Shuffle**: Algoritmo eficiente para barajar arrays de forma aleatoria.",
+            "**setInterval**: Para actualizar el cronómetro cada segundo o milisegundo.",
+            "**Detección de Victoria**: Contar elementos con `data-matched='true'` y comparar con el total.",
+            "**Reutilización**: Estas funciones se pueden reutilizar en múltiples proyectos."
+          ],
+          codigo: `// Algoritmo Fisher-Yates para barajar
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Cronómetro básico
+let segundos = 0;
+let intervalo;
+
+function iniciarCronometro() {
+  intervalo = setInterval(() => {
+    segundos++;
+    document.getElementById('timer').textContent = segundos + 's';
+  }, 1000);
+}
+
+function pararCronometro() {
+  clearInterval(intervalo);
+}
+
+// Detectar victoria
+function checkVictoria() {
+  const matched = document.querySelectorAll('[data-matched="true"]');
+  if (matched.length === totalCartas) {
+    pararCronometro();
+    alert('¡Ganaste en ' + segundos + ' segundos!');
   }
 }`
         }
