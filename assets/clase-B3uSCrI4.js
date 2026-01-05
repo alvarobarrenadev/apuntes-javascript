@@ -1,35 +1,35 @@
-import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCySlZs.js";function p(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const a=n(s,o);if(!a){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
+import{i as n,a as p}from"./footer-R3qEfzWy.js";import{a as v}from"./index-DGSWgNpe.js";function $(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const c=v(s,o);if(!c){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
     <article class="class-card">
       <div class="class-card-header">
-        <div class="class-number">${a.id}</div>
+        <div class="class-number">${c.id}</div>
         <div class="class-info">
-          <h1>${a.titulo}</h1>
+          <h1>${e(c.titulo)}</h1>
         </div>
       </div>
       
       <div class="class-content">
-        ${a.temas.map((d,l)=>v(d,l)).join("")}
+        ${c.temas.map((d,l)=>h(d,l)).join("")}
       </div>
     </article>
-  `}function v(s,o){return`
+  `}function h(s,o){return`
     <section class="tema-block">
       <div class="tema-header">
         <span class="tema-number">${o+1}</span>
-        <h3>${s.titulo}</h3>
+        <h3>${e(s.titulo)}</h3>
       </div>
       
-      <p class="tema-intro">${s.contenido}</p>
+      <p class="tema-intro">${e(s.contenido)}</p>
       
       ${u(s)}
     </section>
-  `}function u(s){let o="";return s.puntosClave&&(o+=`
+  `}function u(s){let o="";if(s.puntosClave&&(o+=`
       <div class="info-box puntos-clave">
         <div class="info-box-header">
           <i class="fa-solid fa-key"></i>
           <span>Puntos Clave</span>
         </div>
         <ul class="check-list">
-          ${s.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+          ${s.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
         </ul>
       </div>
     `),s.caracteristicas&&(o+=`
@@ -38,19 +38,19 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-cube"></i></div>
             <h4>${i.nombre}</h4>
-            <p>${i.descripcion}</p>
+            <p>${e(i.descripcion)}</p>
           </div>
         `).join("")}
       </div>
     `),s.metodos&&s.titulo.includes("ejecutar")&&(o+=`
       <div class="methods-list">
-        ${s.metodos.map((i,a)=>`
+        ${s.metodos.map((i,c)=>`
           <div class="method-item">
-            <div class="method-number">${a+1}</div>
+            <div class="method-number">${c+1}</div>
             <div class="method-content">
               <h4>${i.nombre}</h4>
-              <p>${i.descripcion}</p>
-              ${i.ejemplo?`<pre class="code-snippet"><code>${e(i.ejemplo)}</code></pre>`:""}
+              <p>${e(i.descripcion)}</p>
+              ${i.ejemplo?`<pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>`:""}
             </div>
           </div>
         `).join("")}
@@ -70,13 +70,13 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <div class="position-item">
             <code class="position-tag">${i.lugar}</code>
             <div class="position-info">
-              <p>${i.comportamiento}</p>
-              ${i.solucion?`<p class="tip"><i class="fa-solid fa-lightbulb"></i> ${i.solucion}</p>`:""}
+              <p>${e(i.comportamiento)}</p>
+              ${i.solucion?`<p class="tip"><i class="fa-solid fa-lightbulb"></i> ${e(i.solucion)}</p>`:""}
             </div>
           </div>
         `).join("")}
       </div>
-      ${s.codigoEjemplo?`<pre class="code-snippet"><code>${e(s.codigoEjemplo)}</code></pre>`:""}
+      ${s.codigoEjemplo?`<pre class="code-snippet"><code>${a(s.codigoEjemplo)}</code></pre>`:""}
     `),s.tipos&&s.titulo.includes("Declaración")&&(o+=`
       <div class="declaration-grid">
         ${s.tipos.map(i=>`
@@ -85,8 +85,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <i class="fa-solid ${i.icono}"></i>
               <code>${i.palabra}</code>
             </div>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.ejemplo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -95,9 +95,9 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.tipos.map(i=>`
           <div class="type-card">
             <h4>${i.nombre}</h4>
-            <p>${i.descripcion}</p>
+            <p>${e(i.descripcion)}</p>
             <div class="type-examples">
-              ${i.ejemplos.map(a=>`<code>${e(a)}</code>`).join("")}
+              ${i.ejemplos.map(c=>`<code>${a(c)}</code>`).join("")}
             </div>
           </div>
         `).join("")}
@@ -114,8 +114,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <tbody>
             ${s.ejemplos.map(i=>`
               <tr>
-                <td data-label="Expresión"><code>${e(i.codigo)}</code></td>
-                <td data-label="Resultado"><code class="result">${e(i.resultado)}</code></td>
+                <td data-label="Expresión"><code>${a(i.codigo)}</code></td>
+                <td data-label="Resultado"><code class="result">${a(i.resultado)}</code></td>
               </tr>
             `).join("")}
           </tbody>
@@ -136,14 +136,14 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
             ${s.reglas.map(i=>`
               <tr>
                 <td data-label="Tipo">${i.tipo}</td>
-                <td data-label="Ejemplo"><code>${e(i.ejemplo)}</code></td>
+                <td data-label="Ejemplo"><code>${a(i.ejemplo)}</code></td>
                 <td data-label="Estilo"><span class="style-badge">${i.estilo}</span></td>
               </tr>
             `).join("")}
           </tbody>
         </table>
       </div>
-    `),s.operadores&&(o+=h(s)),s.ejemplos&&s.titulo.includes("Ternario")&&(o+=`
+    `),s.operadores&&(o+=f(s)),s.ejemplos&&s.titulo.includes("Ternario")&&(o+=`
       <div class="syntax-highlight">
         <code>${s.sintaxis}</code>
       </div>
@@ -151,7 +151,7 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.ejemplos.map(i=>`
           <div class="example-item">
             <h5>${i.descripcion}</h5>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -171,20 +171,20 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <tbody>
             ${s.comparacion.map(i=>`
               <tr class="${i.diferente?"highlight-row":""}">
-                <td data-label="Expresión"><code>${e(i.expresion)}</code></td>
-                <td data-label="?? (Nullish)"><code>${e(i.resultadoNullish)}</code></td>
-                <td data-label="|| (OR)"><code>${e(i.resultadoOr)}</code></td>
+                <td data-label="Expresión"><code>${a(i.expresion)}</code></td>
+                <td data-label="?? (Nullish)"><code>${a(i.resultadoNullish)}</code></td>
+                <td data-label="|| (OR)"><code>${a(i.resultadoOr)}</code></td>
               </tr>
             `).join("")}
           </tbody>
         </table>
       </div>
       ${s.nota?`<div class="alert info"><i class="fa-solid fa-circle-info"></i> ${s.nota}</div>`:""}
-    `),s.alerta&&(o+=`<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i> ${s.alerta}</div>`),s.nota&&!s.ejemplos&&!s.comparacion&&(o+=`<div class="alert info"><i class="fa-solid fa-circle-info"></i> ${s.nota}</div>`),s.sintaxis&&typeof s.sintaxis=="string"&&!s.equivalencia&&(o+=`
+    `),s.alerta&&(o+=`<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i><span>${e(s.alerta)}</span></div>`),s.nota&&!s.ejemplos&&!s.comparacion&&(o+=`<div class="alert info"><i class="fa-solid fa-circle-info"></i> <span>${e(s.nota)}</span></div>`),s.sintaxis&&typeof s.sintaxis=="string"&&!s.equivalencia&&(o+=`
       <div class="syntax-box">
-        <code class="syntax-code">${e(s.sintaxis)}</code>
+        <code class="syntax-code">${a(s.sintaxis)}</code>
       </div>
-    `),s.ejemplo&&typeof s.ejemplo=="string"&&(o+=`<pre class="code-snippet"><code>${e(s.ejemplo)}</code></pre>`),s.versiones&&(o+=`
+    `),s.ejemplo&&typeof s.ejemplo=="string"&&(o+=`<pre class="code-snippet"><code>${a(s.ejemplo)}</code></pre>`),s.codigo&&typeof s.codigo=="string"&&(o+=`<pre class="code-snippet"><code>${a(s.codigo)}</code></pre>`),s.versiones&&(o+=`
       <div class="table-container">
         <table class="data-table versions-table">
           <thead>
@@ -224,11 +224,11 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
                   </tr>
                 </thead>
                 <tbody>
-                  ${i.ejemplos.map(a=>`
+                  ${i.ejemplos.map(c=>`
                     <tr>
-                      <td data-label="Código"><code>${e(a.codigo)}</code></td>
-                      <td data-label="Resultado"><code class="result">${e(a.resultado)}</code></td>
-                      <td data-label="Explicación">${a.explicacion}</td>
+                      <td data-label="Código"><code>${a(c.codigo)}</code></td>
+                      <td data-label="Resultado"><code class="result">${a(c.resultado)}</code></td>
+                      <td data-label="Explicación">${c.explicacion}</td>
                     </tr>
                   `).join("")}
                 </tbody>
@@ -249,7 +249,7 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
       <div class="examples-grid">
         ${s.ejemplos.map(i=>`
           <div class="example-card">
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
             <p class="example-explanation"><i class="fa-solid fa-arrow-right"></i> ${i.explicacion}</p>
           </div>
         `).join("")}
@@ -264,40 +264,40 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <div class="comparison-header">
                 <span class="comparison-type">${i.tipo}</span>
               </div>
-              <p>${i.descripcion}</p>
-              <pre class="code-snippet"><code>${e(i.ejemplo)}</code></pre>
+              <p>${e(i.descripcion)}</p>
+              <pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>
             </div>
           `).join("")}
         </div>
-        ${s.funcionVsMetodo.nota?`<div class="alert info"><i class="fa-solid fa-lightbulb"></i> ${s.funcionVsMetodo.nota}</div>`:""}
+        ${s.funcionVsMetodo.note?`<div class="alert info"><i class="fa-solid fa-lightbulb"></i> ${e(s.funcionVsMetodo.note)}</div>`:""}
       </div>
     `),s.ejemploFuncion&&(o+=`
       <div class="function-example">
         <h4 class="function-example-title"><i class="fa-solid fa-code"></i> ${s.ejemploFuncion.descripcion}</h4>
-        <pre class="code-snippet large"><code>${e(s.ejemploFuncion.codigo)}</code></pre>
-        <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${s.ejemploFuncion.explicacion}</p>
+        <pre class="code-snippet large"><code>${a(s.ejemploFuncion.codigo)}</code></pre>
+        <p class="function-explanation"><i class="fa-solid fa-arrow-right"></i> ${e(s.ejemploFuncion.explicacion)}</p>
       </div>
     `),s.estructuraFuncion&&(o+=`
       <div class="structure-section">
         <div class="structure-parts">
-          ${s.estructuraFuncion.partes.map((i,a)=>`
+          ${s.estructuraFuncion.partes.map((i,c)=>`
             <div class="structure-part">
-              <span class="part-number">${a+1}</span>
+              <span class="part-number">${c+1}</span>
               <div class="part-content">
                 <strong>${i.nombre}</strong>
-                <p>${i.descripcion}</p>
+                <p>${e(i.descripcion)}</p>
               </div>
             </div>
           `).join("")}
         </div>
-        <pre class="code-snippet large"><code>${e(s.estructuraFuncion.codigo)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.estructuraFuncion.codigo)}</code></pre>
       </div>
     `),s.ejemplosInvocacion&&(o+=`
       <div class="examples-grid">
         ${s.ejemplosInvocacion.map(i=>`
           <div class="example-card">
             <h5>${i.titulo}</h5>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -306,8 +306,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.tiposRetorno.map(i=>`
           <div class="return-type-card">
             <h5>${i.tipo}</h5>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -316,8 +316,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.conceptosParametros.map(i=>`
           <div class="concept-card">
             <h5><i class="fa-solid fa-lightbulb"></i> ${i.nombre}</h5>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -329,8 +329,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <h5>${i.tipo}</h5>
               <span class="applies-to">${i.aplicaA}</span>
             </div>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -342,65 +342,68 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <i class="fa-solid ${i.icono||"fa-code"}"></i>
               <h5>${i.nombre}</h5>
             </div>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
     `),s.ejemploCallback&&(o+=`
       <div class="callback-example">
         <h5><i class="fa-solid fa-share"></i> ${s.ejemploCallback.descripcion}</h5>
-        <pre class="code-snippet large"><code>${e(s.ejemploCallback.codigo)}</code></pre>
-        <p class="callback-explanation"><i class="fa-solid fa-info-circle"></i> ${s.ejemploCallback.explicacion}</p>
+        <pre class="code-snippet large"><code>${a(s.ejemploCallback.codigo)}</code></pre>
+        <p class="callback-explanation"><i class="fa-solid fa-info-circle"></i> ${e(s.ejemploCallback.explicacion)}</p>
       </div>
     `),s.casoDeUso&&(o+=`
       <div class="use-case">
         <h5><i class="fa-solid fa-flask"></i> ${s.casoDeUso.titulo}</h5>
-        <pre class="code-snippet"><code>${e(s.casoDeUso.codigo)}</code></pre>
+        <pre class="code-snippet"><code>${a(s.casoDeUso.codigo)}</code></pre>
       </div>
     `),s.sintaxisIIFE&&(o+=`
       <div class="iife-section">
         <div class="syntax-highlight">
           <code>${s.sintaxisIIFE.estructura}</code>
         </div>
-        <pre class="code-snippet large"><code>${e(s.sintaxisIIFE.codigo)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.sintaxisIIFE.codigo)}</code></pre>
         <div class="iife-uses">
           <h5><i class="fa-solid fa-check-circle"></i> Usos comunes:</h5>
           <ul class="check-list">
-            ${s.sintaxisIIFE.usos.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+            ${s.sintaxisIIFE.usos.map(i=>`<li><i class="fa-solid fa-check"></i><span>${i}</span></li>`).join("")}
           </ul>
         </div>
       </div>
     `),s.funcionesAnidadas&&(o+=`
       <div class="nested-functions">
-        <pre class="code-snippet large"><code>${e(s.funcionesAnidadas.codigo)}</code></pre>
-        ${s.funcionesAnidadas.nota?`<div class="alert info"><i class="fa-solid fa-info-circle"></i> ${s.funcionesAnidadas.nota}</div>`:""}
+        <pre class="code-snippet large"><code>${a(s.funcionesAnidadas.codigo)}</code></pre>
+        ${s.funcionesAnidadas.nota?`<div class="alert info"><i class="fa-solid fa-info-circle"></i> ${e(s.funcionesAnidadas.nota)}</div>`:""}
       </div>
     `),s.retornoFuncion&&(o+=`
       <div class="return-function">
         <h5><i class="fa-solid fa-reply"></i> ${s.retornoFuncion.titulo}</h5>
-        <pre class="code-snippet large"><code>${e(s.retornoFuncion.codigo)}</code></pre>
-        <p class="return-explanation"><i class="fa-solid fa-arrow-right"></i> ${s.retornoFuncion.explicacion}</p>
+        <pre class="code-snippet large"><code>${a(s.retornoFuncion.codigo)}</code></pre>
+        <p class="return-explanation"><i class="fa-solid fa-arrow-right"></i> ${e(s.retornoFuncion.explicacion)}</p>
       </div>
     `),s.queSonClosures&&(o+=`
       <div class="closures-intro">
-        <p class="closures-definition">${s.queSonClosures.definicion}</p>
+        <p class="closures-definition">${e(s.queSonClosures.definicion)}</p>
         <div class="closures-importance">
           <h5><i class="fa-solid fa-star"></i> ¿Por qué son importantes?</h5>
           <ul class="check-list">
-            ${s.queSonClosures.porQueImportan.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+            ${s.queSonClosures.porQueImportan.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
           </ul>
         </div>
       </div>
     `),s.ejemploClosure&&(o+=`
       <div class="closure-example">
-        <h5><i class="fa-solid fa-lock"></i> ${s.ejemploClosure.titulo}</h5>
-        <pre class="code-snippet large"><code>${e(s.ejemploClosure.codigo)}</code></pre>
-        <p class="closure-explanation"><i class="fa-solid fa-arrow-right"></i> ${s.ejemploClosure.explicacion}</p>
+        <div class="example-header">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>${s.ejemploClosure.titulo||"Ejemplo Práctico"}</span>
+        </div>
+        <pre class="code-snippet large"><code>${a(s.ejemploClosure.codigo)}</code></pre>
+        ${s.ejemploClosure.explicacion?`<p class="closure-explanation"><i class="fa-solid fa-info-circle"></i> ${e(s.ejemploClosure.explicacion)}</p>`:""}
         ${s.ejemploClosure.puntosClave?`
           <div class="closure-points">
             <ul class="check-list">
-              ${s.ejemploClosure.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+              ${s.ejemploClosure.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
             </ul>
           </div>
         `:""}
@@ -410,8 +413,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.formasCrear.map(i=>`
           <div class="creation-card ${i.destacado?"destacado":""}">
             <h5>${i.tipo}</h5>
-            <pre class="code-snippet"><code>${e(i.ejemplo)}</code></pre>
-            <p>${i.descripcion}</p>
+            <pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
           </div>
         `).join("")}
       </div>
@@ -421,11 +424,11 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         <div class="comparison-columns">
           <div class="comparison-col before">
             <span class="comparison-label">❌ Antes</span>
-            <pre class="code-snippet"><code>${e(s.comparacion.antes)}</code></pre>
+            <pre class="code-snippet"><code>${a(s.comparacion.antes)}</code></pre>
           </div>
           <div class="comparison-col after">
             <span class="comparison-label">✓ Después</span>
-            <pre class="code-snippet"><code>${e(s.comparacion.despues)}</code></pre>
+            <pre class="code-snippet"><code>${a(s.comparacion.despues)}</code></pre>
           </div>
         </div>
       </div>
@@ -443,8 +446,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
             ${s.metodosString.map(i=>`
               <tr>
                 <td data-label="Método"><code>${i.metodo}</code></td>
-                <td data-label="Descripción">${i.descripcion}</td>
-                <td data-label="Ejemplo"><code>${e(i.ejemplo)}</code></td>
+                <td data-label="Descripción">${e(i.descripcion)}</td>
+                <td data-label="Ejemplo"><code>${a(i.ejemplo)}</code></td>
               </tr>
             `).join("")}
           </tbody>
@@ -455,7 +458,7 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.valoresEspeciales.map(i=>`
           <div class="special-value-card">
             <code>${i.valor}</code>
-            <p>${i.descripcion}</p>
+            <p>${e(i.descripcion)}</p>
           </div>
         `).join("")}
       </div>
@@ -473,8 +476,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
             ${s.metodosNumber.map(i=>`
               <tr>
                 <td data-label="Método"><code>${i.metodo}</code></td>
-                <td data-label="Descripción">${i.descripcion}</td>
-                <td data-label="Ejemplo"><code>${e(i.ejemplo)}</code></td>
+                <td data-label="Descripción">${e(i.descripcion)}</td>
+                <td data-label="Ejemplo"><code>${a(i.ejemplo)}</code></td>
               </tr>
             `).join("")}
           </tbody>
@@ -482,58 +485,63 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
       </div>
     `),s.estructuraCondicional&&(o+=`
       <div class="conditional-structure">
-        <pre class="code-snippet large"><code>${e(s.estructuraCondicional.sintaxis)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.estructuraCondicional.sintaxis)}</code></pre>
         <div class="conditional-example">
           <h5><i class="fa-solid fa-code"></i> Ejemplo práctico:</h5>
-          <pre class="code-snippet"><code>${e(s.estructuraCondicional.ejemplo)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.estructuraCondicional.ejemplo)}</code></pre>
         </div>
       </div>
     `),s.estructuraSwitch&&(o+=`
       <div class="switch-structure">
-        <pre class="code-snippet large"><code>${e(s.estructuraSwitch.sintaxis)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.estructuraSwitch.sintaxis)}</code></pre>
         <div class="switch-example">
           <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
-          <pre class="code-snippet"><code>${e(s.estructuraSwitch.ejemplo)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.estructuraSwitch.ejemplo)}</code></pre>
         </div>
       </div>
     `),s.estructuraWhile&&(o+=`
       <div class="loop-structure">
-        <pre class="code-snippet"><code>${e(s.estructuraWhile.sintaxis)}</code></pre>
+        <pre class="code-snippet"><code>${a(s.estructuraWhile.sintaxis)}</code></pre>
         <div class="loop-example">
           <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
-          <pre class="code-snippet"><code>${e(s.estructuraWhile.ejemplo)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.estructuraWhile.ejemplo)}</code></pre>
         </div>
       </div>
     `),s.estructuraDoWhile&&(o+=`
       <div class="loop-structure">
-        <pre class="code-snippet"><code>${e(s.estructuraDoWhile.sintaxis)}</code></pre>
+        <pre class="code-snippet"><code>${a(s.estructuraDoWhile.sintaxis)}</code></pre>
         <div class="loop-example">
           <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
-          <pre class="code-snippet"><code>${e(s.estructuraDoWhile.ejemplo)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.estructuraDoWhile.ejemplo)}</code></pre>
         </div>
       </div>
     `),s.estructuraFor&&(o+=`
       <div class="for-structure">
-        <pre class="code-snippet"><code>${e(s.estructuraFor.sintaxis)}</code></pre>
+        <pre class="code-snippet"><code>${a(s.estructuraFor.sintaxis)}</code></pre>
         <div class="for-example">
           <h5><i class="fa-solid fa-code"></i> Ejemplo:</h5>
-          <pre class="code-snippet"><code>${e(s.estructuraFor.ejemplo)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.estructuraFor.ejemplo)}</code></pre>
         </div>
         ${s.estructuraFor.explicacion?`
-          <div class="for-explanation">
-            <ul>
-              ${s.estructuraFor.explicacion.map(i=>`<li>${i}</li>`).join("")}
-            </ul>
+          <div class="for-explanation-steps">
+            ${s.estructuraFor.explicacion.map(i=>{const[c,d]=i.split(" → "),[l,r]=c.split(": ");return`
+                <div class="for-step">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span class="step-label">${l}:</span>
+                  <code class="inline-code">${r}</code>
+                  <span class="step-desc">${e(d)}</span>
+                </div>
+              `}).join("")}
           </div>
         `:""}
       </div>
     `),s.definicionScope&&(o+=`
       <div class="scope-definition">
-        <p class="scope-desc">${s.definicionScope.descripcion}</p>
+        <p class="scope-desc">${e(s.definicionScope.descripcion)}</p>
         <div class="scope-rules">
           <h5><i class="fa-solid fa-list-check"></i> Reglas importantes:</h5>
           <ul class="check-list">
-            ${s.definicionScope.reglas.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+            ${s.definicionScope.reglas.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
           </ul>
         </div>
       </div>
@@ -545,25 +553,28 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <i class="fa-solid ${i.icono}"></i>
               <h5>${i.tipo}</h5>
             </div>
-            <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.ejemplo)}</code></pre>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>
           </div>
         `).join("")}
       </div>
     `),s.ejemploCadena&&(o+=`
       <div class="scope-chain-example">
-        <pre class="code-snippet large"><code>${e(s.ejemploCadena.codigo)}</code></pre>
-        <p class="scope-chain-explanation"><i class="fa-solid fa-arrow-right"></i> ${s.ejemploCadena.explicacion}</p>
+        <pre class="code-snippet large"><code>${a(s.ejemploCadena.codigo)}</code></pre>
+        <p class="scope-chain-explanation"><i class="fa-solid fa-arrow-right"></i> ${e(s.ejemploCadena.explicacion)}</p>
       </div>
     `),s.ejemploHoisting&&(o+=`
       <div class="hoisting-example">
         <p class="hoisting-question"><i class="fa-solid fa-question-circle"></i> ${s.ejemploHoisting.pregunta}</p>
-        <pre class="code-snippet"><code>${e(s.ejemploHoisting.codigo)}</code></pre>
+        <pre class="code-snippet"><code>${a(s.ejemploHoisting.codigo)}</code></pre>
         <div class="hoisting-answer">
           <span class="answer-label">Respuesta:</span>
           <code class="answer-value">${s.ejemploHoisting.respuesta}</code>
         </div>
-        <p class="hoisting-explanation">${s.ejemploHoisting.explicacion}</p>
+        <div class="hoisting-interpretation">
+          <p>JavaScript lo interpreta así:</p>
+          <pre class="code-snippet small"><code>${a(s.ejemploHoisting.explicacion.replace("JavaScript lo interpreta así:","").trim())}</code></pre>
+        </div>
       </div>
     `),s.tablaHoisting&&(o+=`
       <div class="table-container">
@@ -590,40 +601,84 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
       <div class="hoisting-functions">
         <div class="hoisting-func-card success">
           <h5><i class="fa-solid fa-check-circle"></i> Función Declarativa (con hoisting)</h5>
-          <pre class="code-snippet"><code>${e(s.ejemploFunciones.funcionDeclarativa)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.ejemploFunciones.funcionDeclarativa)}</code></pre>
         </div>
         <div class="hoisting-func-card error">
           <h5><i class="fa-solid fa-times-circle"></i> Expresión de Función (sin hoisting)</h5>
-          <pre class="code-snippet"><code>${e(s.ejemploFunciones.funcionExpresion)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.ejemploFunciones.funcionExpresion)}</code></pre>
         </div>
       </div>
-    `),s.tablaComparativa&&(o+=`
-      <div class="table-container">
-        <table class="data-table comparison-table-vars">
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th><code>var</code></th>
-              <th><code>let</code></th>
-              <th><code>const</code></th>
-            </tr>
-          </thead>
-          <tbody>
-            ${s.tablaComparativa.map(i=>`
+    `),s.tablaComparativa&&s.tablaComparativa.length>0){const i=s.tablaComparativa[0];if("var"in i)o+=`
+        <div class="table-container">
+          <table class="data-table comparison-table-vars">
+            <thead>
               <tr>
-                <td data-label="Característica">${i.caracteristica}</td>
-                <td data-label="var">${i.var}</td>
-                <td data-label="let">${i.let}</td>
-                <td data-label="const">${i.const}</td>
+                <th>Característica</th>
+                <th><code>var</code></th>
+                <th><code>let</code></th>
+                <th><code>const</code></th>
               </tr>
-            `).join("")}
-          </tbody>
-        </table>
-      </div>
-      ${s.recomendacion?`<div class="alert success"><i class="fa-solid fa-lightbulb"></i> <strong>Recomendación:</strong> ${s.recomendacion}</div>`:""}
-    `),s.requisitos&&(o+=`
+            </thead>
+            <tbody>
+              ${s.tablaComparativa.map(c=>`
+                <tr>
+                  <td data-label="Característica">${e(c.caracteristica)}</td>
+                  <td data-label="var">${e(c.var)}</td>
+                  <td data-label="let">${e(c.let)}</td>
+                  <td data-label="const">${e(c.const)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;else if("tradicional"in i)o+=`
+        <div class="table-container">
+          <table class="data-table comparison-table-functions">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Función Tradicional</th>
+                <th>Arrow Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${s.tablaComparativa.map(c=>`
+                <tr>
+                  <td data-label="Característica">${e(c.caracteristica)}</td>
+                  <td data-label="Tradicional">${e(c.tradicional)}</td>
+                  <td data-label="Arrow">${e(c.arrow)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;else{const c=Object.keys(i);o+=`
+        <div class="table-container">
+          <table class="data-table comparison-table-generic">
+            <thead>
+              <tr>
+                ${c.map(d=>`<th>${d.charAt(0).toUpperCase()+d.slice(1)}</th>`).join("")}
+              </tr>
+            </thead>
+            <tbody>
+              ${s.tablaComparativa.map(d=>`
+                <tr>
+                  ${c.map(l=>`<td data-label="${l}">${e(d[l])}</td>`).join("")}
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `}s.recomendacion&&(o+=`
+        <div class="alert success">
+          <i class="fa-solid fa-lightbulb"></i> 
+          <span><strong>Recomendación:</strong> ${e(s.recomendacion)}</span>
+        </div>`)}return s.requisitos&&(o+=`
       <div class="requirements-list">
-        <h5><i class="fa-solid fa-list-ol"></i> Requisitos para crear un closure:</h5>
+        <div class="list-header">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span>Requisitos para crear un closure:</span>
+        </div>
         <ol class="numbered-list">
           ${s.requisitos.map(i=>`<li>${i}</li>`).join("")}
         </ol>
@@ -633,7 +688,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.usosClosures.map(i=>`
           <div class="closure-use-card">
             <h5><i class="fa-solid fa-cube"></i> ${i.uso}</h5>
-            <p>${i.descripcion}</p>
+            <p>${e(i.descripcion)}</p>
+            ${i.ejemplo?`<pre class="code-snippet small"><code>${a(i.ejemplo)}</code></pre>`:""}
           </div>
         `).join("")}
       </div>
@@ -641,17 +697,17 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
       <div class="validation-techniques">
         <div class="technique-card">
           <h5><i class="fa-solid fa-keyboard"></i> Pedir datos con prompt</h5>
-          <pre class="code-snippet"><code>${e(s.tecnicasValidacion.prompt)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.tecnicasValidacion.prompt)}</code></pre>
         </div>
         <div class="technique-card">
           <h5><i class="fa-solid fa-shield-halved"></i> Validar entrada</h5>
-          <pre class="code-snippet"><code>${e(s.tecnicasValidacion.validacion)}</code></pre>
+          <pre class="code-snippet"><code>${a(s.tecnicasValidacion.validacion)}</code></pre>
         </div>
       </div>
     `),s.solucion&&(o+=`
       <div class="exercise-solution">
         <h5><i class="fa-solid fa-code"></i> Solución:</h5>
-        <pre class="code-snippet large"><code>${e(s.solucion.codigo)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.solucion.codigo)}</code></pre>
       </div>
     `),s.formasConcatenacion&&(o+=`
       <div class="concatenation-methods">
@@ -659,7 +715,7 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <div class="concat-card">
             <h5><i class="fa-solid fa-link"></i> ${i.metodo}</h5>
             <p>${i.descripcion}</p>
-            <pre class="code-snippet"><code>${e(i.codigo)}</code></pre>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
           </div>
         `).join("")}
       </div>
@@ -676,9 +732,9 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <tbody>
             ${s.caracteresEscape.map(i=>`
               <tr>
-                <td data-label="Carácter"><code>${e(i.caracter)}</code></td>
-                <td data-label="Descripción">${i.descripcion}</td>
-                <td data-label="Ejemplo"><code>${e(i.ejemplo)}</code></td>
+                <td data-label="Carácter"><code>${a(i.caracter)}</code></td>
+                <td data-label="Descripción">${e(i.descripcion)}</td>
+                <td data-label="Ejemplo"><code>${a(i.ejemplo)}</code></td>
               </tr>
             `).join("")}
           </tbody>
@@ -689,8 +745,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
         ${s.formasCrearNumero.map(i=>`
           <div class="creation-card">
             <h5>${i.forma}</h5>
-            <code>${e(i.ejemplo)}</code>
-            <p>${i.descripcion}</p>
+            <code>${a(i.ejemplo)}</code>
+            <p>${e(i.descripcion)}</p>
           </div>
         `).join("")}
       </div>
@@ -707,8 +763,8 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <tbody>
             ${s.constantesNumber.map(i=>`
               <tr>
-                <td data-label="Constante"><code>${e(i.constante)}</code></td>
-                <td data-label="Descripción">${i.descripcion}</td>
+                <td data-label="Constante"><code>${a(i.constante)}</code></td>
+                <td data-label="Descripción">${e(i.descripcion)}</td>
                 <td data-label="Valor"><code>${i.valor}</code></td>
               </tr>
             `).join("")}
@@ -717,18 +773,111 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
       </div>
     `),s.objetoWindow&&(o+=`
       <div class="window-object-section">
-        <pre class="code-snippet large"><code>${e(s.objetoWindow.codigo)}</code></pre>
+        <pre class="code-snippet large"><code>${a(s.objetoWindow.codigo)}</code></pre>
         <div class="info-box puntos-clave">
           <div class="info-box-header">
             <i class="fa-solid fa-key"></i>
             <span>Puntos Clave</span>
           </div>
           <ul class="check-list">
-            ${s.objetoWindow.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i> ${i}</li>`).join("")}
+            ${s.objetoWindow.puntosClave.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
           </ul>
         </div>
       </div>
-    `),o}function h(s){const o=s.operadores;return o[0].simbolo&&!o[0].variantes&&!o[0].tablaVerdad?`
+    `),s.shortCircuit&&(o+=`
+      <div class="short-circuit-grid">
+        ${s.shortCircuit.map(i=>`
+          <div class="short-circuit-card">
+            <div class="short-circuit-header">
+              <code class="operator">${i.operador}</code>
+              <span>${i.regla}</span>
+            </div>
+            <pre class="code-snippet"><code>${a(i.ejemplos)}</code></pre>
+          </div>
+        `).join("")}
+      </div>
+    `),s.comportamientoEspecial&&(o+=`
+      <div class="info-box behavior-box">
+        <div class="info-box-header">
+          <i class="fa-solid fa-flask"></i>
+          <span>${s.comportamientoEspecial.titulo}</span>
+        </div>
+        <ul class="check-list">
+          ${s.comportamientoEspecial.puntos.map(i=>`<li><i class="fa-solid fa-check"></i><span>${e(i)}</span></li>`).join("")}
+        </ul>
+        <pre class="code-snippet"><code>${a(s.comportamientoEspecial.codigo)}</code></pre>
+      </div>
+    `),s.debugScopes&&(o+=`
+      <div class="debug-scopes-section">
+        <div class="debug-steps">
+          ${s.debugScopes.pasos.map((i,c)=>`
+            <div class="debug-step">
+              <span class="step-num">${c+1}</span>
+              <p>${e(i)}</p>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `),s.formasDeclaracion&&(o+=`
+      <div class="declaration-methods">
+        ${s.formasDeclaracion.map(i=>`
+          <div class="declaration-method-card">
+            <h5><i class="fa-solid fa-code"></i> ${i.forma}</h5>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.ejemplo)}</code></pre>
+          </div>
+        `).join("")}
+      </div>
+    `),s.metodosIteracion&&(o+=`
+      <div class="iteration-methods">
+        ${s.metodosIteracion.map(i=>`
+          <div class="iteration-card">
+            <h5><i class="fa-solid fa-repeat"></i> ${i.metodo}</h5>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
+          </div>
+        `).join("")}
+      </div>
+    `),s.conceptosParametros&&(o+=`
+      <div class="concepts-grid">
+        ${s.conceptosParametros.map(i=>`
+          <div class="concept-card">
+            <h5><i class="fa-solid fa-terminal"></i> <code>${i.nombre}</code></h5>
+            <p>${e(i.descripcion)}</p>
+            ${i.codigo?`<pre class="code-snippet"><code>${a(i.codigo)}</code></pre>`:""}
+          </div>
+        `).join("")}
+      </div>
+    `),s.tiposDeclaracion&&s.titulo.toLowerCase().includes("sintaxis")&&(o+=`
+      <div class="declaration-types-grid">
+        ${s.tiposDeclaracion.map(i=>`
+          <div class="declaration-type-card">
+            <h5><i class="fa-solid ${i.icono||"fa-arrow-right"}"></i> ${i.nombre}</h5>
+            <p>${e(i.descripcion)}</p>
+            <pre class="code-snippet"><code>${a(i.codigo)}</code></pre>
+          </div>
+        `).join("")}
+      </div>
+    `),s.metodosArray&&(o+=`
+      <div class="array-methods-list">
+        ${s.metodosArray.map(i=>`
+          <div class="array-method-card">
+            <h5><i class="fa-solid fa-cube"></i> ${i.metodo}</h5>
+            <p>${e(i.descripcion)}</p>
+            ${i.codigo?`<pre class="code-snippet"><code>${a(i.codigo)}</code></pre>`:""}
+          </div>
+        `).join("")}
+      </div>
+    `),s.sintaxis&&(o+=`
+      <div class="syntax-box">
+        <pre class="code-snippet syntax"><code>${a(s.sintaxis)}</code></pre>
+      </div>
+    `),s.recomendacion&&(o+=`
+      <div class="alert info">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>${e(s.recomendacion)}</span>
+      </div>
+    `),o}function f(s){const o=s.operadores;return o[0].simbolo&&!o[0].variantes&&!o[0].tablaVerdad?`
       <div class="table-container">
         <table class="data-table operators-table">
           <thead>
@@ -741,12 +890,12 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
           <tbody>
             ${o.map(i=>`
               <tr class="${i.destacado?"highlight-row":""}">
-                <td data-label="Operador"><code class="operator-symbol">${e(i.simbolo)}</code></td>
+                <td data-label="Operador"><code class="operator-symbol">${a(i.simbolo)}</code></td>
                 <td data-label="Nombre">
-                  ${i.nombre}
-                  ${i.descripcion?`<small>${i.descripcion}</small>`:""}
+                   ${i.nombre}
+                  ${i.descripcion?`<small>${e(i.descripcion)}</small>`:""}
                 </td>
-                <td data-label="Ejemplo"><code>${e(i.ejemplo)}</code></td>
+                <td data-label="Ejemplo"><code>${a(i.ejemplo)}</code></td>
               </tr>
             `).join("")}
           </tbody>
@@ -761,17 +910,17 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <span>${i.nombre}</span>
             </div>
             <div class="variants">
-              ${i.variantes.map(a=>`
+              ${i.variantes.map(c=>`
                 <div class="variant">
-                  <code>${a.forma}</code>
-                  <p>${a.descripcion}</p>
+                  <code>${c.forma}</code>
+                  <p>${e(c.descripcion)}</p>
                 </div>
               `).join("")}
             </div>
           </div>
         `).join("")}
       </div>
-      ${s.ejemplo?`<pre class="code-snippet"><code>${e(s.ejemplo)}</code></pre>`:""}
+      ${s.ejemplo?`<pre class="code-snippet"><code>${a(s.ejemplo)}</code></pre>`:""}
     `:o[0].tablaVerdad||o[0].regla?`
       <div class="logic-operators">
         ${o.map(i=>`
@@ -780,18 +929,18 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
               <code class="logic-symbol">${i.simbolo}</code>
               <span>${i.nombre}</span>
             </div>
-            <p class="logic-rule">${i.regla}</p>
+            <p class="logic-rule">${e(i.regla)}</p>
             ${i.tablaVerdad?`
               <table class="truth-table">
                 <thead>
                   <tr><th>A</th><th>B</th><th>Resultado</th></tr>
                 </thead>
                 <tbody>
-                  ${i.tablaVerdad.map(a=>`
+                  ${i.tablaVerdad.map(c=>`
                     <tr>
-                      <td><code class="${a.a}">${a.a}</code></td>
-                      <td><code class="${a.b}">${a.b}</code></td>
-                      <td><code class="${a.resultado}">${a.resultado}</code></td>
+                      <td><code class="${c.a}">${c.a}</code></td>
+                      <td><code class="${c.b}">${c.b}</code></td>
+                      <td><code class="${c.resultado}">${c.resultado}</code></td>
                     </tr>
                   `).join("")}
                 </tbody>
@@ -804,10 +953,10 @@ import{i as t,a as r}from"./footer-BdrxZYuy.js";import{a as n}from"./index-CuCyS
             `:""}
             ${i.ejemplos?`
               <div class="logic-examples">
-                ${i.ejemplos.map(a=>`<code>${e(a)}</code>`).join("")}
+                ${i.ejemplos.map(c=>`<code>${a(c)}</code>`).join("")}
               </div>
             `:""}
           </div>
         `).join("")}
       </div>
-    `:""}function e(s){const o=document.createElement("div");return o.textContent=s,o.innerHTML}t();r();const c=document.querySelector("main"),$=parseInt(c?.dataset.modulo||"1",10),f=parseInt(c?.dataset.clase||"1",10);p($,f);
+    `:""}function e(s){if(!s)return"";let o=a(s);return o=o.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>"),o=o.replace(/`(.*?)`/g,'<code class="inline-code">$1</code>'),o}function a(s){const o=document.createElement("div");return o.textContent=s,o.innerHTML}n();p();const t=document.querySelector("main"),b=parseInt(t?.dataset.modulo||"1",10),g=parseInt(t?.dataset.clase||"1",10);$(b,g);
