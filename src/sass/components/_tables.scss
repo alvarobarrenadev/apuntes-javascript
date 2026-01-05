@@ -90,8 +90,7 @@
   }
 }
 
-.style-badge,
-.inline-code {
+.style-badge {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.82em;
   background: rgba(139, 92, 246, 0.1);
@@ -100,6 +99,23 @@
   border-radius: 4px;
   font-weight: 500;
   border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.inline-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  /* Ligeramente más grande para legibilidad */
+  background: rgba(139, 92, 246, 0.15);
+  /* Fondo más visible */
+  color: #c4b5fd;
+  /* Violeta muy claro/brillante */
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  /* Borde más definido */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
 }
 
 .style-badge {

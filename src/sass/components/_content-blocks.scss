@@ -52,6 +52,17 @@
       margin-top: 4px;
       flex-shrink: 0;
     }
+
+    >span {
+      flex: 1;
+
+      // Asegurar que los elementos formateados sean inline
+      strong,
+      code,
+      .inline-code {
+        display: inline;
+      }
+    }
   }
 }
 

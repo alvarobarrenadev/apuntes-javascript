@@ -213,18 +213,27 @@
 .declaration-header {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 14px;
 
   i {
-    color: var(--accent-primary);
-    font-size: 1.2rem;
+    background: var(--accent-primary);
+    color: white;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.85rem;
   }
 
   h5 {
     color: var(--text-main);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
   }
 }
 

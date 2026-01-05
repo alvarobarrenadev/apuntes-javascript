@@ -65,7 +65,7 @@ function renderTemaContent(tema) {
           <span>Puntos Clave</span>
         </div>
         <ul class="check-list">
-          ${tema.puntosClave.map(punto => `<li><i class="fa-solid fa-check"></i> ${formatText(punto)}</li>`).join('')}
+          ${tema.puntosClave.map(punto => `<li><i class="fa-solid fa-check"></i><span>${formatText(punto)}</span></li>`).join('')}
         </ul>
       </div>
     `;
@@ -276,7 +276,7 @@ function renderTemaContent(tema) {
 
   // Alerta
   if (tema.alerta) {
-    html += `<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i> ${formatText(tema.alerta)}</div>`;
+    html += `<div class="alert warning"><i class="fa-solid fa-triangle-exclamation"></i><span>${formatText(tema.alerta)}</span></div>`;
   }
 
   // Nota general
@@ -293,9 +293,14 @@ function renderTemaContent(tema) {
     `;
   }
 
-  // Ejemplo de código simple
+  // Ejemplo de código simple (propiedad ejemplo)
   if (tema.ejemplo && typeof tema.ejemplo === 'string') {
     html += `<pre class="code-snippet"><code>${escapeHtml(tema.ejemplo)}</code></pre>`;
+  }
+
+  // Ejemplo de código simple (propiedad codigo - Módulo 3)
+  if (tema.codigo && typeof tema.codigo === 'string') {
+    html += `<pre class="code-snippet"><code>${escapeHtml(tema.codigo)}</code></pre>`;
   }
 
   // Versiones de ECMAScript
@@ -552,7 +557,7 @@ function renderTemaContent(tema) {
         <div class="iife-uses">
           <h5><i class="fa-solid fa-check-circle"></i> Usos comunes:</h5>
           <ul class="check-list">
-            ${tema.sintaxisIIFE.usos.map(u => `<li><i class="fa-solid fa-check"></i> ${u}</li>`).join('')}
+            ${tema.sintaxisIIFE.usos.map(u => `<li><i class="fa-solid fa-check"></i><span>${u}</span></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -588,7 +593,7 @@ function renderTemaContent(tema) {
         <div class="closures-importance">
           <h5><i class="fa-solid fa-star"></i> ¿Por qué son importantes?</h5>
           <ul class="check-list">
-            ${tema.queSonClosures.porQueImportan.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
+            ${tema.queSonClosures.porQueImportan.map(p => `<li><i class="fa-solid fa-check"></i><span>${formatText(p)}</span></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -608,7 +613,7 @@ function renderTemaContent(tema) {
         ${tema.ejemploClosure.puntosClave ? `
           <div class="closure-points">
             <ul class="check-list">
-              ${tema.ejemploClosure.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
+              ${tema.ejemploClosure.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i><span>${formatText(p)}</span></li>`).join('')}
             </ul>
           </div>
         ` : ''}
@@ -813,7 +818,7 @@ function renderTemaContent(tema) {
         <div class="scope-rules">
           <h5><i class="fa-solid fa-list-check"></i> Reglas importantes:</h5>
           <ul class="check-list">
-            ${tema.definicionScope.reglas.map(r => `<li><i class="fa-solid fa-check"></i> ${formatText(r)}</li>`).join('')}
+            ${tema.definicionScope.reglas.map(r => `<li><i class="fa-solid fa-check"></i><span>${formatText(r)}</span></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -908,37 +913,95 @@ function renderTemaContent(tema) {
     `;
   }
 
-  // Tabla comparativa (var vs let vs const)
-  if (tema.tablaComparativa) {
-    html += `
-      <div class="table-container">
-        <table class="data-table comparison-table-vars">
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th><code>var</code></th>
-              <th><code>let</code></th>
-              <th><code>const</code></th>
-            </tr>
-          </thead>
-          <tbody>
-            ${tema.tablaComparativa.map(c => `
+  // Tabla comparativa (Genérica)
+  if (tema.tablaComparativa && tema.tablaComparativa.length > 0) {
+    const primerItem = tema.tablaComparativa[0];
+    
+    // CASO 1: Tabla de Variables (var, let, const)
+    if ('var' in primerItem) {
+      html += `
+        <div class="table-container">
+          <table class="data-table comparison-table-vars">
+            <thead>
               <tr>
-                <td data-label="Característica">${c.caracteristica}</td>
-                <td data-label="var">${c.var}</td>
-                <td data-label="let">${c.let}</td>
-                <td data-label="const">${c.const}</td>
+                <th>Característica</th>
+                <th><code>var</code></th>
+                <th><code>let</code></th>
+                <th><code>const</code></th>
               </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      </div>
-      ${tema.recomendacion ? `
+            </thead>
+            <tbody>
+              ${tema.tablaComparativa.map(c => `
+                <tr>
+                  <td data-label="Característica">${formatText(c.caracteristica)}</td>
+                  <td data-label="var">${formatText(c.var)}</td>
+                  <td data-label="let">${formatText(c.let)}</td>
+                  <td data-label="const">${formatText(c.const)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    } 
+    // CASO 2: Tabla de Funciones (Tradicional vs Arrow)
+    else if ('tradicional' in primerItem) {
+      html += `
+        <div class="table-container">
+          <table class="data-table comparison-table-functions">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Función Tradicional</th>
+                <th>Arrow Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tema.tablaComparativa.map(c => `
+                <tr>
+                  <td data-label="Característica">${formatText(c.caracteristica)}</td>
+                  <td data-label="Tradicional">${formatText(c.tradicional)}</td>
+                  <td data-label="Arrow">${formatText(c.arrow)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    // CASO 3: Genérica (Totalmente dinámica)
+    else {
+      // Obtener todas las columnas
+      const columnas = Object.keys(primerItem);
+      
+      html += `
+        <div class="table-container">
+          <table class="data-table comparison-table-generic">
+            <thead>
+              <tr>
+                ${columnas.map(col => `<th>${col.charAt(0).toUpperCase() + col.slice(1)}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${tema.tablaComparativa.map(row => `
+                <tr>
+                  ${columnas.map(col => `<td data-label="${col}">${formatText(row[col])}</td>`).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+    
+    // Recomendación común al final
+    if (tema.recomendacion) {
+      html += `
         <div class="alert success">
           <i class="fa-solid fa-lightbulb"></i> 
           <span><strong>Recomendación:</strong> ${formatText(tema.recomendacion)}</span>
-        </div>` : ''}
-    `;
+        </div>`;
+    }
   }
 
   // Requisitos (para closures, etc)
@@ -963,7 +1026,7 @@ function renderTemaContent(tema) {
         ${tema.usosClosures.map(u => `
           <div class="closure-use-card">
             <h5><i class="fa-solid fa-cube"></i> ${u.uso}</h5>
-            <p>${u.descripcion}</p>
+            <p>${formatText(u.descripcion)}</p>
             ${u.ejemplo ? `<pre class="code-snippet small"><code>${escapeHtml(u.ejemplo)}</code></pre>` : ''}
           </div>
         `).join('')}
@@ -1094,7 +1157,7 @@ function renderTemaContent(tema) {
             <span>Puntos Clave</span>
           </div>
           <ul class="check-list">
-            ${tema.objetoWindow.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
+            ${tema.objetoWindow.puntosClave.map(p => `<li><i class="fa-solid fa-check"></i><span>${formatText(p)}</span></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -1127,7 +1190,7 @@ function renderTemaContent(tema) {
           <span>${tema.comportamientoEspecial.titulo}</span>
         </div>
         <ul class="check-list">
-          ${tema.comportamientoEspecial.puntos.map(p => `<li><i class="fa-solid fa-check"></i> ${formatText(p)}</li>`).join('')}
+          ${tema.comportamientoEspecial.puntos.map(p => `<li><i class="fa-solid fa-check"></i><span>${formatText(p)}</span></li>`).join('')}
         </ul>
         <pre class="code-snippet"><code>${escapeHtml(tema.comportamientoEspecial.codigo)}</code></pre>
       </div>
@@ -1146,6 +1209,102 @@ function renderTemaContent(tema) {
             </div>
           `).join('')}
         </div>
+      </div>
+    `;
+  }
+
+  // Formas de declaración (Arrays, Objetos - Módulo 3)
+  if (tema.formasDeclaracion) {
+    html += `
+      <div class="declaration-methods">
+        ${tema.formasDeclaracion.map(f => `
+          <div class="declaration-method-card">
+            <h5><i class="fa-solid fa-code"></i> ${f.forma}</h5>
+            <p>${formatText(f.descripcion)}</p>
+            <pre class="code-snippet"><code>${escapeHtml(f.ejemplo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Métodos de iteración (for, for...of, for...in - Módulo 3)
+  if (tema.metodosIteracion) {
+    html += `
+      <div class="iteration-methods">
+        ${tema.metodosIteracion.map(m => `
+          <div class="iteration-card">
+            <h5><i class="fa-solid fa-repeat"></i> ${m.metodo}</h5>
+            <p>${formatText(m.descripcion)}</p>
+            <pre class="code-snippet"><code>${escapeHtml(m.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Conceptos con parámetros (continue/break - Módulo 3)
+  if (tema.conceptosParametros) {
+    html += `
+      <div class="concepts-grid">
+        ${tema.conceptosParametros.map(c => `
+          <div class="concept-card">
+            <h5><i class="fa-solid fa-terminal"></i> <code>${c.nombre}</code></h5>
+            <p>${formatText(c.descripcion)}</p>
+            ${c.codigo ? `<pre class="code-snippet"><code>${escapeHtml(c.codigo)}</code></pre>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Tipos de declaración de funciones (Arrow Functions - Módulo 3)
+  if (tema.tiposDeclaracion && tema.titulo.toLowerCase().includes('sintaxis')) {
+    html += `
+      <div class="declaration-types-grid">
+        ${tema.tiposDeclaracion.map(t => `
+          <div class="declaration-type-card">
+            <h5><i class="fa-solid ${t.icono || 'fa-arrow-right'}"></i> ${t.nombre}</h5>
+            <p>${formatText(t.descripcion)}</p>
+            <pre class="code-snippet"><code>${escapeHtml(t.codigo)}</code></pre>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Métodos de Arrays (push, pop, etc. - Módulo 3)
+  if (tema.metodosArray) {
+    html += `
+      <div class="array-methods-list">
+        ${tema.metodosArray.map(m => `
+          <div class="array-method-card">
+            <h5><i class="fa-solid fa-cube"></i> ${m.metodo}</h5>
+            <p>${formatText(m.descripcion)}</p>
+            ${m.codigo ? `<pre class="code-snippet"><code>${escapeHtml(m.codigo)}</code></pre>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Sintaxis destacada (Módulo 3)
+  if (tema.sintaxis) {
+    html += `
+      <div class="syntax-box">
+        <pre class="code-snippet syntax"><code>${escapeHtml(tema.sintaxis)}</code></pre>
+      </div>
+    `;
+  }
+
+
+
+  // Recomendaciones (Módulo 3)
+  if (tema.recomendacion) {
+    html += `
+      <div class="alert info">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>${formatText(tema.recomendacion)}</span>
       </div>
     `;
   }
