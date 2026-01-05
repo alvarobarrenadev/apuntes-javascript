@@ -1,4 +1,4 @@
-import{i as n,a as p}from"./footer-R3qEfzWy.js";import{a as v}from"./index-DGSWgNpe.js";function $(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const c=v(s,o);if(!c){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
+import{i as n,a as p}from"./footer-7VhJ3hks.js";import{a as v}from"./index-oW59L5U9.js";function $(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const c=v(s,o);if(!c){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
     <article class="class-card">
       <div class="class-card-header">
         <div class="class-number">${c.id}</div>
