@@ -6,11 +6,21 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        // Main
         main: resolve(__dirname, "index.html"),
+        
+        // Módulo 1: Fundamentos
         modulo1: resolve(__dirname, "src/pages/modulo-1/index.html"),
         modulo1clase1: resolve(__dirname, "src/pages/modulo-1/clase-1.html"),
         modulo1clase2: resolve(__dirname, "src/pages/modulo-1/clase-2.html"),
         modulo1clase3: resolve(__dirname, "src/pages/modulo-1/clase-3.html"),
+        
+        // Módulo 2: Funciones
+        modulo2: resolve(__dirname, "src/pages/modulo-2/index.html"),
+        modulo2clase4: resolve(__dirname, "src/pages/modulo-2/clase-4.html"),
+        modulo2clase5: resolve(__dirname, "src/pages/modulo-2/clase-5.html"),
+        modulo2clase6: resolve(__dirname, "src/pages/modulo-2/clase-6.html"),
+        modulo2clase7: resolve(__dirname, "src/pages/modulo-2/clase-7.html"),
       },
     },
   },

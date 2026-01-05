@@ -46,7 +46,8 @@ src/js/
 ├── main.js              # Entry point global
 ├── data/
 │   ├── index.js         # Registro centralizado de módulos
-│   └── modulo-1.js      # Datos del Módulo 1 (clases, temas, contenido)
+│   ├── modulo-1.js      # Datos del Módulo 1: Fundamentos
+│   └── modulo-2.js      # Datos del Módulo 2: Funciones
 ├── modules/
 │   ├── theme.js         # Lógica del tema claro/oscuro
 │   └── renderer.js      # Renderizador unificado de clases
@@ -146,6 +147,7 @@ src/sass/
 │   ├── _buttons.scss
 │   ├── _cards.scss
 │   ├── _content-blocks.scss
+│   ├── _module2-blocks.scss  # Bloques específicos del Módulo 2
 │   └── _tables.scss
 │
 ├── layout/             # Estructura de la página
