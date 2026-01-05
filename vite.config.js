@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-export default defineConfig({
-  base: "/apuntes-javascript/", // Solo para Github Pages. Para desplegar en Vercel, solo poner /
+export default defineConfig(({ command }) => ({
+  // En desarrollo usa "/", en build usa "/apuntes-javascript/" para GitHub Pages
+  base: command === 'serve' ? '/' : '/apuntes-javascript/',
   build: {
     rollupOptions: {
       input: {
@@ -104,4 +105,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
