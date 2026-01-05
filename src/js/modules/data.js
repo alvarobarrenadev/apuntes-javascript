@@ -54,7 +54,8 @@ export const modulesData = [
     title: "Eventos",
     desc: "Gestión de interacción, listeners y propagación.",
     icon: "fa-computer-mouse",
-    count: 4
+    count: 4,
+    link: `${BASE}src/pages/modulo-7/`
   },
   {
     title: "Storage",

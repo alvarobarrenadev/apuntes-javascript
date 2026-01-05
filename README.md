@@ -30,6 +30,7 @@ Actualmente el proyecto abarca los siguientes módulos:
 - **Módulo 4:** Lógica de programación
 - **Módulo 5:** JavaScript Moderno (ES6+)
 - **Módulo 6:** Manipulación del DOM (Selectores, Creación de elementos, Atributos, Eventos...)
+- **Módulo 7:** Gestión de Eventos y Asincronía
 
 > *Nota: El contenido se actualiza y expande continuamente conforme avanza el curso.*
 

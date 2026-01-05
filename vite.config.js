@@ -51,7 +51,17 @@ export default defineConfig({
         modulo6clase23: resolve(__dirname, "src/pages/modulo-6/clase-23.html"),
         modulo6clase24: resolve(__dirname, "src/pages/modulo-6/clase-24.html"),
         modulo6clase25: resolve(__dirname, "src/pages/modulo-6/clase-25.html"),
-      },
+
+        // Módulo 7: Eventos
+        modulo7: resolve(__dirname, "src/pages/modulo-7/index.html"),
+        modulo7clase26: resolve(__dirname, "src/pages/modulo-7/clase-26.html"),
+        modulo7clase27: resolve(__dirname, "src/pages/modulo-7/clase-27.html"),
+        modulo7clase28: resolve(__dirname, "src/pages/modulo-7/clase-28.html"),
+        modulo7clase29: resolve(__dirname, "src/pages/modulo-7/clase-29.html"),
+        modulo7clase30: resolve(__dirname, "src/pages/modulo-7/clase-30.html"),
+        modulo7clase31: resolve(__dirname, "src/pages/modulo-7/clase-31.html"),
+        modulo7clase32: resolve(__dirname, "src/pages/modulo-7/clase-32.html"),
+    },
     },
   },
   resolve: {
