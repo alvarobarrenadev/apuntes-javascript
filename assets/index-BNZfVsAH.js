@@ -1,4 +1,4 @@
-const i={titulo:"Conceptos Básicos",descripcion:"Fundamentos, variables, tipos de datos y operadores esenciales de JavaScript.",icono:"fa-bolt",clases:[{id:1,titulo:"Introducción a JavaScript",descripcion:"Descubre qué es JavaScript, sus características únicas, cómo ejecutarlo y la historia de ECMAScript.",temas:[{titulo:"¿Qué es JavaScript?",contenido:'JavaScript es el tercer pilar fundamental del desarrollo web, junto con HTML y CSS. Mientras HTML estructura la información y CSS la estiliza, JavaScript actúa como el "cerebro" que permite manipular y controlar todo lo que hemos construido previamente.',puntosClave:["Es el responsable de controlar toda la interactividad del usuario en la web","Es el único lenguaje de programación que funciona nativamente en los navegadores","Es un lenguaje de programación completo (Turing completo)","Fue desarrollado por Brendan Eich de Netscape en 1995"]},{titulo:"Características del lenguaje",contenido:"JavaScript tiene características únicas que lo diferencian de otros lenguajes de programación.",caracteristicas:[{nombre:"Interpretado",descripcion:"No necesita compilación, el navegador lo ejecuta directamente"},{nombre:"Tipado dinámico",descripcion:"Una variable puede cambiar de tipo en tiempo de ejecución. El tipo está asociado al valor, no a la variable"},{nombre:"Objetual",descripcion:"Casi todo en JavaScript son objetos, incluyendo arrays y funciones"},{nombre:"Funciones de primera clase",descripcion:"Las funciones son objetos que tienen sus propias propiedades y métodos"}]},{titulo:"Cómo ejecutar JavaScript",contenido:"Existen cuatro formas principales de ejecutar código JavaScript:",metodos:[{nombre:"Consola del navegador",descripcion:"Abre el inspector de elementos (F12) y ve a la pestaña Console. Puedes escribir código directamente.",ejemplo:"console.log('¡Hola Mundo!');"},{nombre:"Etiqueta &lt;script&gt; inline",descripcion:"Escribe código JavaScript directamente dentro de una etiqueta &lt;script&gt; en tu HTML.",ejemplo:`<script>
+const t={titulo:"Conceptos Básicos",descripcion:"Fundamentos, variables, tipos de datos y operadores esenciales de JavaScript.",icono:"fa-bolt",clases:[{id:1,titulo:"Introducción a JavaScript",descripcion:"Descubre qué es JavaScript, sus características únicas, cómo ejecutarlo y la historia de ECMAScript.",temas:[{titulo:"¿Qué es JavaScript?",contenido:'JavaScript es el tercer pilar fundamental del desarrollo web, junto con HTML y CSS. Mientras HTML estructura la información y CSS la estiliza, JavaScript actúa como el "cerebro" que permite manipular y controlar todo lo que hemos construido previamente.',puntosClave:["Es el responsable de controlar toda la interactividad del usuario en la web","Es el único lenguaje de programación que funciona nativamente en los navegadores","Es un lenguaje de programación completo (Turing completo)","Fue desarrollado por Brendan Eich de Netscape en 1995"]},{titulo:"Características del lenguaje",contenido:"JavaScript tiene características únicas que lo diferencian de otros lenguajes de programación.",caracteristicas:[{nombre:"Interpretado",descripcion:"No necesita compilación, el navegador lo ejecuta directamente"},{nombre:"Tipado dinámico",descripcion:"Una variable puede cambiar de tipo en tiempo de ejecución. El tipo está asociado al valor, no a la variable"},{nombre:"Objetual",descripcion:"Casi todo en JavaScript son objetos, incluyendo arrays y funciones"},{nombre:"Funciones de primera clase",descripcion:"Las funciones son objetos que tienen sus propias propiedades y métodos"}]},{titulo:"Cómo ejecutar JavaScript",contenido:"Existen cuatro formas principales de ejecutar código JavaScript:",metodos:[{nombre:"Consola del navegador",descripcion:"Abre el inspector de elementos (F12) y ve a la pestaña Console. Puedes escribir código directamente.",ejemplo:"console.log('¡Hola Mundo!');"},{nombre:"Etiqueta &lt;script&gt; inline",descripcion:"Escribe código JavaScript directamente dentro de una etiqueta &lt;script&gt; en tu HTML.",ejemplo:`<script>
   console.log('Desde HTML');
 <\/script>`},{nombre:"Archivo externo",descripcion:"Crea un archivo .js y enlázalo con &lt;script src='archivo.js'&gt;&lt;/script&gt;",ejemplo:"<script src='script.js'><\/script>"},{nombre:"Node.js",descripcion:"Ejecuta archivos JavaScript desde la terminal con el comando node.",ejemplo:"node script.js"}]},{titulo:"Ubicación del script",contenido:"La posición de la etiqueta &lt;script&gt; afecta cuándo se ejecuta el código:",posiciones:[{lugar:"En el &lt;head&gt;",comportamiento:"Se ejecuta ANTES de que se pinte el HTML. El DOM no está disponible.",solucion:"Usar el atributo defer para esperar a que cargue la página"},{lugar:"En el &lt;body&gt;",comportamiento:"Se ejecuta mientras se dibuja la página"},{lugar:"Antes de &lt;/body&gt;",comportamiento:"Se ejecuta DESPUÉS de pintar todo el HTML. El DOM está completamente disponible."}],codigoEjemplo:`<!-- Con defer: espera a que cargue toda la página -->
 <script src="script.js" defer><\/script>`},{titulo:"Console: tu mejor amigo",contenido:"El objeto console proporciona métodos para depurar y mostrar información:",metodos:[{nombre:"console.log()",descripcion:"Imprime información general",color:"default"},{nombre:"console.info()",descripcion:"Imprime información (con icono)",color:"blue"},{nombre:"console.warn()",descripcion:"Muestra advertencias (amarillo)",color:"yellow"},{nombre:"console.error()",descripcion:"Muestra errores (rojo)",color:"red"},{nombre:"console.clear()",descripcion:"Limpia la consola",color:"gray"}]},{titulo:"Entornos de ejecución",contenido:"JavaScript puede ejecutarse en diferentes entornos, y dependiendo de dónde se ejecute, tendrás acceso a diferentes objetos y APIs:",caracteristicas:[{nombre:"Frontend (Navegador)",descripcion:"Tienes acceso al objeto window, document (DOM), y puedes manipular la página web"},{nombre:"Backend (Node.js)",descripcion:"Tienes acceso al sistema de archivos, redes, pero NO al DOM ni a window"}],nota:"Los scripts pueden interactuar con el mundo exterior de forma diferente según el entorno. En frontend manipulas el DOM, en backend accedes a archivos."},{titulo:"ECMAScript: La evolución del lenguaje",contenido:"JavaScript se basa en el estándar ECMAScript. A lo largo de los años, se han añadido nuevas características:",versiones:[{anio:"1997",version:"ES1",novedades:"Primera edición del estándar"},{anio:"2009",version:"ES5",novedades:"strict mode, JSON, métodos de Array"},{anio:"2015",version:"ES6/ES2015",novedades:"let/const, clases, arrow functions, promises, modules",destacado:!0},{anio:"2016",version:"ES2016",novedades:"Array.includes(), operador **"},{anio:"2017",version:"ES2017",novedades:"async/await, Object.entries()"},{anio:"2020",version:"ES2020",novedades:"Nullish coalescing (??), optional chaining (?.)"}],nota:"ES6 (2015) fue un cambio revolucionario. Las versiones modernas añaden mejoras cada año."}]},{id:2,titulo:"Variables y Tipos de Datos",descripcion:"Aprende a declarar variables con let y const, y domina los tipos primitivos (string, number, boolean...).",temas:[{titulo:"¿Qué es una variable?",contenido:"Una variable es una zona de memoria RAM a la que le asignamos un nombre para poder hacer referencia a ella posteriormente. Es como decirle al sistema: 'necesito espacio para guardar datos, y quiero llamarlo así'.",puntosClave:["Usar nombres descriptivos (no 'a', 'b', 'x')","Evitar ambigüedades","Evitar palabras reservadas del lenguaje","No usar tildes ni caracteres especiales","Usar camelCase para nombrar variables"]},{titulo:"Declaración de variables",contenido:"JavaScript ofrece tres formas de declarar variables, cada una con un comportamiento diferente:",tipos:[{palabra:"var",descripcion:"Forma antigua. Tiene scope de función y permite redeclaración. NO RECOMENDADO.",ejemplo:"var nombre = 'JavaScript';",icono:"fa-triangle-exclamation",color:"warning"},{palabra:"let",descripcion:"Forma moderna. Tiene scope de bloque y permite reasignación pero no redeclaración.",ejemplo:`let contador = 0;
@@ -23,7 +23,7 @@ saludar();           // "Hola, "
 saludar('Juan');     // "Hola, Juan"
 
 // Las funciones tienen tipo 'function':
-typeof saludar;      // "function"`,explicacion:"La función 'saludar' recibe un parámetro 'nombre' con valor por defecto vacío. Devuelve un string concatenado."},nota:"En JavaScript, las funciones son muy peculiares y tienen un tratamiento especial. Veremos una clase específica de funciones donde profundizaremos en arrow functions, callbacks, closures y más."}]}]},t={titulo:"Funciones",descripcion:"Funciones, control de flujo, scope, closures y hoisting en JavaScript.",icono:"fa-code",clases:[{id:4,titulo:"Funciones en JavaScript",descripcion:"Aprende qué son las funciones, cómo declararlas, los parámetros, el retorno y las diferentes formas de crearlas.",temas:[{titulo:"Repaso: Operadores Lógicos Avanzados",contenido:"Antes de profundizar en funciones, es vital entender que && y || no solo devuelven booleanos, sino el valor de uno de sus operandos (Short-circuiting).",shortCircuit:[{operador:"&&",regla:"Devuelve el primer valor 'falsy' o el último 'truthy'.",ejemplos:`44 && 20 // 20
+typeof saludar;      // "function"`,explicacion:"La función 'saludar' recibe un parámetro 'nombre' con valor por defecto vacío. Devuelve un string concatenado."},nota:"En JavaScript, las funciones son muy peculiares y tienen un tratamiento especial. Veremos una clase específica de funciones donde profundizaremos en arrow functions, callbacks, closures y más."}]}]},i={titulo:"Funciones",descripcion:"Funciones, control de flujo, scope, closures y hoisting en JavaScript.",icono:"fa-code",clases:[{id:4,titulo:"Funciones en JavaScript",descripcion:"Aprende qué son las funciones, cómo declararlas, los parámetros, el retorno y las diferentes formas de crearlas.",temas:[{titulo:"Repaso: Operadores Lógicos Avanzados",contenido:"Antes de profundizar en funciones, es vital entender que && y || no solo devuelven booleanos, sino el valor de uno de sus operandos (Short-circuiting).",shortCircuit:[{operador:"&&",regla:"Devuelve el primer valor 'falsy' o el último 'truthy'.",ejemplos:`44 && 20 // 20
 0 && 10 // 0`},{operador:"||",regla:"Devuelve el primer valor 'truthy' o el último 'falsy'.",ejemplos:`44 || undefined // 44
 0 || 17 // 17`}]},{titulo:"¿Qué es una función?",contenido:"Una función es un trozo de código ejecutable al que le asignamos un nombre para poder reutilizarlo en cualquier parte de nuestro programa. Es como una 'caja negra' a la que le pasamos datos y nos devuelve un resultado.",puntosClave:["Es un bloque de código reutilizable que encapsula una tarea específica","Tiene sentido cuando un código se ejecuta más de una vez","Podemos pasarle datos (parámetros) y obtener resultados (retorno)","Las funciones en JavaScript son objetos con propiedades y métodos propios","Son 'ciudadanos de primera clase' (first-class citizens)"]},{titulo:"Ventajas de usar funciones",contenido:"Las funciones nos proporcionan múltiples beneficios a la hora de escribir y mantener nuestro código:",caracteristicas:[{nombre:"Reutilización de código",descripcion:"Evita duplicar código. Escribes una vez, ejecutas muchas veces desde diferentes partes del programa."},{nombre:"Organización y legibilidad",descripcion:"El código queda modularizado en bloques lógicos. Más fácil de leer y entender, especialmente en proyectos grandes."},{nombre:"Facilidad de mantenimiento",descripcion:"Si necesitas modificar la lógica, solo cambias un lugar. Reduce errores y simplifica las actualizaciones."},{nombre:"Abstracción",descripcion:"Puedes usar una función sin saber cómo funciona internamente. Solo importa QUÉ hace, no CÓMO lo hace."},{nombre:"Menos errores",descripcion:"El código organizado en funciones es más fácil de depurar. Los errores son más fáciles de localizar."},{nombre:"Testing facilitado",descripcion:"Las funciones permiten probar el código de forma individual e independiente (unit testing)."}]},{titulo:"Estructura de una función",contenido:"Una función se compone de varias partes esenciales:",estructuraFuncion:{partes:[{nombre:"Palabra clave function",descripcion:"Indica que estamos declarando una función"},{nombre:"Nombre de la función",descripcion:"Identificador para poder invocarla posteriormente"},{nombre:"Parámetros",descripcion:"Valores que recibe la función (entre paréntesis)"},{nombre:"Cuerpo de la función",descripcion:"Bloque de código entre llaves { } que se ejecuta"},{nombre:"Return (opcional)",descripcion:"Devuelve un valor al finalizar la ejecución"}],codigo:`function calcularCuadrado(numero) {
   const resultado = numero * numero;
@@ -1458,130 +1458,757 @@ const padre = p.parentElement;`},{titulo:"16. Hermano anterior",descripcion:"Her
 const previo = p.previousElementSibling;`},{titulo:"17. Background rojo",descripcion:"Primer div con clase .container a rojo con style.",codigo:`const div = document.querySelector('div.container');
 div.style.backgroundColor = 'red';`},{titulo:"18. Reemplazar contenido P",descripcion:"P con ID 'text', ponle un enlace dentro (reemplazando contenido).",codigo:`const p = document.getElementById('text');
 p.innerHTML = '<a href="google.com">Google</a>';`},{titulo:"19. Divs Eustaquio",descripcion:"Selecciona todos los divs con clase 'eustaquio'.",codigo:"const divs = document.querySelectorAll('div.eustaquio');"},{titulo:"20. P con ID Paisa",descripcion:"Selecciona el párrafo con ID 'paisa'.",codigo:"const p = document.getElementById('paisa');"},{titulo:"21. Primer párrafo hijo de un Div",descripcion:"Selecciona el primer párrafo que sea hijo directo de un div.",codigo:"const p = document.querySelector('div > p');"},{titulo:"22. Penúltimo enlace",descripcion:"Selecciona el penúltimo enlace de la página.",codigo:`const enlaces = document.getElementsByTagName('a');
-const penultimo = enlaces[enlaces.length - 2];`}]}]}]},u={titulo:"Gestión de Eventos y Asincronía",descripcion:"Domina la gestión de eventos en JavaScript, el Event Loop y la asincronía.",icono:"fa-bolt",clases:[{id:26,titulo:"Gestión de Eventos",descripcion:"Aprende qué son los eventos, cómo capturarlos y las diferentes formas de manejarlos en JavaScript.",temas:[{titulo:"¿Qué es un Evento?",contenido:"Los eventos son el mecanismo por el cual JavaScript detecta y responde a las acciones del usuario (clicks, teclado, scroll) o del navegador (carga completa, redimensionado). Es una comunicación asíncrona y bidireccional.",puntosClave:["**Asíncronos**: El código no se bloquea esperando a que ocurran.","**Asociados al DOM**: Ocurren sobre elementos específicos `elemento.addEventListener`.","**Patrón Observador**: Establecemos un 'escucha' (listener) que reacciona cuando el evento se dispara."]},{titulo:"Formas de capturar eventos",contenido:"Existen tres formas principales de manejar eventos, aunque solo una es la recomendada profesionalmente.",codigos:[{titulo:"1. Mediante Atributos HTML (No recomendado)",descripcion:"Mezcla lógica con estructura. Difícil de mantener.",codigo:`<button onclick="alert('Hola')">Púlsame</button>
-<!-- O llamando a una función -->
-<button onclick="miFuncion()">Púlsame</button>`},{titulo:"2. Mediante Propiedades del DOM (Limitado)",descripcion:"Mejor separación, pero solo permite un manejador por evento. Si asignas otro, se sobrescribe.",codigo:`const btn = document.querySelector('button');
-btn.onclick = () => console.log('Click 1');
-btn.onclick = () => console.log('Click 2'); // Sobrescribe el anterior. Solo saldrá 'Click 2'.`},{titulo:"3. eventListener (Recomendado)",descripcion:"Estándar moderno. Permite múltiples manejadores y opciones avanzadas.",codigo:`const btn = document.querySelector('button');
+const penultimo = enlaces[enlaces.length - 2];`}]}]}]},u={titulo:"Gestión de Eventos y Asincronía",descripcion:"Domina la gestión de eventos en JavaScript, el Event Loop y la asincronía.",icono:"fa-bolt",clases:[{id:26,titulo:"Gestión de Eventos",descripcion:"Aprende qué son los eventos, cómo capturarlos y las diferentes formas de manejarlos en JavaScript.",temas:[{titulo:"¿Qué es un Evento?",contenido:"Los eventos son el 'idioma' en el que JavaScript entiende las acciones del usuario. Representan el mecanismo para establecer una comunicación bidireccional y en tiempo real entre la aplicación y los usuarios.",puntosClave:["**Asíncronos**: No bloquean la ejecución; se establece un 'guardián' que espera en segundo plano.","**Asociados al DOM**: Siempre ocurren sobre un elemento específico o el objeto `document`.","**Patrón Observador**: Preparamos código para que se dispare solo cuando el suceso ocurra.","**Seguridad**: Los navegadores restringen cada vez más qué eventos pueden dispararse sin interacción humana."]},{titulo:"Formas de capturar eventos",contenido:"Históricamente han existido varias formas de 'escuchar' sucesos, pero su evolución ha buscado separar la lógica del marcado.",codigos:[{titulo:"1. Atributos HTML (Obsoleto)",descripcion:"Mezcla lógica con estructura (como el CSS inline). Muy difícil de mantener si cambias nombres de funciones.",codigo:`<!-- Requiere una función definida globalmente -->
+<button onclick="mostrarAlert()">Púlsame</button>
+<button onclick="console.log('Directo')">Consola</button>`},{titulo:"2. Propiedades del DOM (Limitado)",descripcion:"Se asigna desde JS pero tiene el mismo problema de fondo: solo permite un manejador. `setAttribute` también entra en esta categoría.",codigo:`const btn = document.querySelector('button');
+// Opción A: Propiedad directa
+btn.onclick = () => console.log('Click A');
+// Opción B: Atributo (JS -> HTML)
+btn.setAttribute('onclick', 'mostrarAlert()');`},{titulo:"3. addEventListener (Estándar Profesional)",descripcion:"Es el método recomendado. Permite múltiples funciones para un mismo evento y mayor control.",codigo:`const btn = document.querySelector('button');
 
-// Sintaxis: elemento.addEventListener(evento, callback)
+// Sintaxis: elemento.addEventListener(tipo, callback)
 btn.addEventListener('click', () => {
-  console.log('Manejador 1');
+  console.log('Escuchador 1');
 });
 
-btn.addEventListener('click', () => {
-  console.log('Manejador 2'); // Se ejecutan ambos
-});`}]},{titulo:"Eliminar Eventos",contenido:"Podemos dejar de escuchar eventos con `removeEventListener`. Para que funcione, la función callback debe ser **la misma referencia** (no puede ser una función anónima o flecha definida inline).",codigo:`const btn = document.querySelector('#btn');
-
-function manejarClick() {
-  console.log('Click procesado');
-  // Se auto-elimina después del primer uso
+// Permite pasar una función nombrada
+function saludar() { console.log('Hola!'); }
+btn.addEventListener('click', saludar);`}]},{titulo:"Remover Eventos y Funciones Anónimas",contenido:"Para usar `removeEventListener`, debemos pasar **la misma referencia** de función que usamos al añadirlo. Las funciones anónimas o flecha creadas inline no pueden borrarse.",puntosClave:["**Referencia Identica**: JS necesita saber exactamente qué 'vigilante' quitar.","**Funciones Anónimas**: `() => { ... }` crea una instancia nueva cada vez, por lo que nunca coinciden para el borrado."],codigo:`function manejarClick() {
+  console.log('Se ejecuta una vez');
   btn.removeEventListener('click', manejarClick);
 }
 
-btn.addEventListener('click', manejarClick);`},{titulo:"El Objeto Event",contenido:"Cuando ocurre un evento, el navegador crea automáticamente un objeto `event` con todos los detalles de lo ocurrido y lo pasa como **primer argumento** a nuestra función manejadora.",puntosClave:["**target**: El elemento que originó el evento.","**type**: El tipo de evento ('click', 'keydown', etc).","**timeStamp**: Momento exacto en que ocurrió.","**clientX / clientY**: Coordenadas del puntero."],codigo:`document.querySelector('button').addEventListener('click', (event) => {
-  console.log(event.target); // El botón pulsado
-  console.log(event.type);   // "click"
-});`}]},{id:27,titulo:"Tipos de Eventos Relevantes",descripcion:"Explora los eventos más comunes: Formularios, Ratón, Teclado y Carga del Documento.",temas:[{titulo:"Eventos de Formulario",contenido:"Los formularios son la principal entrada de datos. Podemos validar y controlar su envío.",puntosClave:["**submit**: Se dispara al intentar enviar el formulario. Usar `e.preventDefault()` para validar antes de enviar.","**reset**: Se dispara al resetear el formulario.","**change**: Se dispara cuando el valor de un input cambia y **pierde el foco**.","**input**: Se dispara en tiempo real mientras se escribe.","**focus/blur**: Cuando un elemento recibe o pierde el foco."],codigo:`const form = document.forms[0];
+btn.addEventListener('click', manejarClick); // FUNCIONA
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Evita recarga de página
-  
-  const email = form.elements.email.value;
-  if (!email.includes('@')) {
-    alert('Email inválido');
-  } else {
-    // form.submit(); // Envío manual si todo OK
-    console.log('Formulario válido');
+// ESTO NO FUNCIONARÍA PARA BORRAR:
+btn.addEventListener('click', () => { ... });
+btn.removeEventListener('click', () => { ... }); // Son funciones diferentes para JS`},{titulo:"El Objeto Event (La Instancia)",contenido:"Al dispararse un evento, JS crea un objeto (instancia de la clase `Event`) con metadatos y lo pasa como primer argumento al callback.",puntosClave:["**target**: El elemento real que disparó la acción (fundamental en delegación).","**type**: Nombre del evento ('click', 'keydown').","**timeStamp**: Milisegundos desde que se cargó la página.","**Coordenadas**: `clientX/Y` (viewport), `screenX/Y` (monitor).","**Teclas Especiales**: `ctrlKey`, `shiftKey`, `altKey` (booleanos).","**Botón Ratón**: `button` (0: Izquierdo, 1: Central, 2: Derecho)."],codigo:`// Aplicar un mismo listener a muchos elementos
+const botones = document.querySelectorAll('button');
+
+botones.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    // Usamos e.target para saber CUAL de todos los botones se pulsó
+    console.log("Pulsaste el botón: ", e.target.textContent);
+    console.log("Coordenadas click: ", e.clientX, e.clientY);
+  });
+});`}]},{id:27,titulo:"Tipos de Eventos Relevantes",descripcion:"Explora los eventos más comunes: Formularios, Ratón, Teclado, Multimedia y Carga del Documento.",temas:[{titulo:"Formularios y acceso al DOM",contenido:"Los formularios son la entrada principal de datos. JavaScript ofrece formas directas de acceder a ellos sin necesidad de selectores pesados.",puntosClave:["**document.forms**: Colección de todos los formularios de la página. Ej: `document.forms[0]`.","**elements**: Propiedad del formulario que devuelve una lista de todos sus controles (inputs, buttons, etc).","**Metodos**: `form.submit()` envía manualmente; `form.reset()` limpia todos los campos."],codigo:`const miForm = document.forms[0];
+const emailInput = miForm.elements['email']; // Acceso por name o id
+
+// Validar antes de enviar
+miForm.addEventListener('submit', (e) => {
+  if (!emailInput.value.includes('@')) {
+    e.preventDefault(); // Detiene el envío
+    alert('Correo inválido');
   }
-});`},{titulo:"Eventos de Ratón (Mouse)",contenido:"Interacciones del puntero con los elementos.",puntosClave:["**click / dblclick**: Click izquierdo simple o doble.","**mouseenter / mouseleave**: Cuando el ratón entra o sale de un elemento (no burbujea).","**mouseover / mouseout**: Similar, pero sí burbujea a los hijos.","**contextmenu**: Click derecho. Se puede bloquear con `preventDefault`."],codigo:`// Ejercicio: Color aleatorio al pasar el ratón
-const elementos = document.body.children;
+});`},{titulo:"Propiedades de los Controles (Inputs)",contenido:"Cada elemento dentro de un formulario tiene propiedades que podemos leer o modificar por código.",puntosClave:["**value**: Contenido actual del campo.","**checked**: Estado de checkbox o radio (booleano).","**disabled / readOnly**: Bloqueo del elemento.","**required**: Si es obligatorio.","**Selection**: `selectionStart` y `selectionEnd` permiten saber qué texto ha marcado el usuario."]},{titulo:"Eventos de Ratón (Avanzado)",contenido:"Interacciones precisas con el puntero.",puntosClave:["**mousedown / mouseup**: Diferencia entre el momento de pulsar y el de soltar.","**mouseenter / mouseleave**: Ideales para efectos visuales (no burbujean, más estables).","**mousemove**: Se dispara constantemente al mover el ratón (útil para trackers o juegos).","**contextmenu**: Click derecho. Se puede bloquear para crear menús personalizados con `e.preventDefault()`."]},{titulo:"Eventos de Teclado y Multimedia",contenido:"Control total sobre la entrada de texto y elementos de audio/vídeo.",puntosClave:["**event.key vs event.code**: `key` es el carácter resultante ('A'), `code` es la posición física ('KeyA').","**Location**: Permite saber si se pulsó la tecla 'Shift' izquierda o derecha.","**Multimedia**: Eventos como `play`, `pause`, `ended` o `durationchange` para reproductores personalizados."]},{titulo:"Carga y Estado de la Ventana",contenido:"Eventos globales que rigen el ciclo de vida de la página.",puntosClave:["**DOMContentLoaded**: Se dispara cuando el HTML está listo. Permite tener los `<script>` en el `<head>` sin errores de 'elemento no encontrado'.","**load**: Espera a que carguen imágenes y recursos externos.","**resize**: Detecta cambios en el tamaño de la ventana.","**scroll**: Detecta el desplazamiento del usuario.","**Clipboard**: `copy`, `cut` y `paste` para controlar el portapapeles."],codigo:`// El estándar para inicializar scripts:
+document.addEventListener('DOMContentLoaded', () => {
+  initApp();
+});
+
+window.addEventListener('scroll', () => {
+  console.log("Posición scroll:", window.scrollY);
+});`},{titulo:"Ejercicios Prácticos: Dinamismo Total",contenido:"Aplica lo aprendido para manipular múltiples elementos a la vez y controlar el comportamiento nativo.",codigos:[{titulo:"Color Aleatorio al entrar/salir",descripcion:"Uso de comodín '*' para seleccionar todo el body y aplicar efectos dinámicos.",codigo:`const elementos = document.body.getElementsByTagName('*');
+
+const generarColor = () => {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return \`rgb(\${r}, \${g}, \${b})\`;
+};
 
 for (let el of elementos) {
-  el.addEventListener('mouseenter', () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    el.style.backgroundColor = \`rgb(\${r},\${g},\${b})\`;
+  el.addEventListener('mouseenter', (e) => {
+    e.target.style.backgroundColor = generarColor();
   });
-  
-  el.addEventListener('mouseleave', () => {
-    el.style.backgroundColor = ''; // Restaurar
+  el.addEventListener('mouseleave', (e) => {
+    e.target.style.backgroundColor = 'white';
   });
-}`},{titulo:"Eventos de Teclado (Keyboard)",contenido:"Captura la interacción con las teclas.",puntosClave:["**keydown**: Al bajar la tecla (se repite si se mantiene).","**keyup**: Al soltar la tecla.","**event.key**: Devuelve el valor de la tecla ('a', 'Enter', 'Escape').","**event.code**: Devuelve el código físico ('KeyA', 'Enter')."]},{titulo:"Carga del Documento",contenido:"Es vital saber cuándo el DOM está listo para ser manipulado, especialmente si el script está en el `<head>`.",puntosClave:["**DOMContentLoaded**: El HTML ha sido completamente cargado y parseado (sin esperar imágenes/CSS). Es el momento seguro para manipular el DOM.","**load**: Se dispara cuando TODO (imágenes, scripts externos, estilos) ha terminado de cargar."],codigo:`document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM listo para usar');
-  // Aquí seleccionamos elementos seguros
-  const btn = document.querySelector('#miBtn');
-});`}]},{id:28,titulo:"Práctica de Selectores y DOM",descripcion:"Resolución de ejercicios complejos de selección y manipulación del DOM.",temas:[{titulo:"Estrategias de Selección",contenido:"Repaso de métodos avanzados para seleccionar elementos basados en su relación jerárquica.",puntosClave:["**Navegación al padre**: Uso de `parentElement` para subir niveles (ej. de un `span` a su `div` contenedor).","**Hermanos**: Uso de `previousElementSibling` y `nextElementSibling`.","**Selectores CSS**: Potencia de `querySelectorAll` para selecciones complejas (ej. `section.products article.oferta`)."],codigo:`// Ejemplo: Cambiar estilo al abuelo de un span
-const spans = document.querySelectorAll('div.padre > p > span');
-
-for (let span of spans) {
-  // Span -> P -> Div
-  const divAbuelo = span.parentElement.parentElement;
-  divAbuelo.style.borderColor = 'blue';
-}`},{titulo:"Manipulación de Listas",contenido:"Lógica para insertar elementos en posiciones específicas.",puntosClave:["**insertBefore**: Para insertar antes de un nodo referencia.","**Primer elemento**: `list.insertBefore(nuevo, list.firstElementChild)`","**Elemento central**: Calcular índice y buscar el nodo de referencia."]}]},{id:29,titulo:"Propagación y Eventos Personalizados",descripcion:"Entiende el flujo de eventos (Bubbling vs Capturing), la delegación y cómo crear tus propios eventos.",temas:[{titulo:"Flujo de Eventos",contenido:"Cuando ocurre un evento en un elemento anidado, este no se 'queda' ahí, sino que viaja a través del DOM. Por defecto, ocurre en fase de **Burbujeo (Bubbling)**: desde el elemento más profundo hacia arriba (window).",puntosClave:["**Bubbling (Default)**: Hijo -> Padre -> Abuelo.","**Capturing**: Abuelo -> Padre -> Hijo. Se activa con `{ capture: true }` en addEventListener.","**stopPropagation()**: Detiene el viaje del evento. Evita que los padres se enteren."],codigo:`// Ejemplo de Bubbling
-child.addEventListener('click', () => console.log('Hijo'));
-parent.addEventListener('click', () => console.log('Padre'));
-
-// Al hacer click en el hijo, saldrá: 'Hijo' y luego 'Padre'`},{titulo:"Delegación de Eventos",contenido:"En lugar de añadir un listener a 100 botones, añadimos **uno solo** al padre y usamos `event.target` para identificar cuál fue pulsado. Es más eficiente y funciona para elementos creados dinámicamente.",codigo:`const lista = document.querySelector('ul');
-
-lista.addEventListener('click', (e) => {
-  // e.target es el elemento CLICKADO (puede ser el li, o un span dentro)
-  // e.currentTarget es la LISTA (donde está el listener)
-  
-  if (e.target.tagName === 'LI') {
-    console.log('Click en elemento:', e.target.textContent);
+}`},{titulo:"Bloquear Menú Contextual",descripcion:"Evita que aparezca el menú del botón derecho en toda la página.",codigo:`document.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  console.log("Menú bloqueado por seguridad/diseño");
+});`}]}]},{id:28,titulo:"Práctica de Selectores y DOM",descripcion:"Resolución de retos reales: navegación jerárquica, inserciones dinámicas y manipulación de atributos.",temas:[{titulo:"Navegación y Relaciones del DOM",contenido:"Aprender a moverse por el árbol (hacia arriba, abajo o lados) es vital cuando no tenemos IDs directos.",puntosClave:["**Subir en la jerarquía**: `parentElement.parentElement` para alcanzar abuelos (ej. de un span a su contenedor div).","**Bajar a elementos específicos**: `firstElementChild` y `lastElementChild` (ignoran nodos de texto/espacios).","**Iteración Condicional**: Filtrar elementos por su número de hijos (`children.length`) antes de operar."],codigo:`// Seleccionar el antepenúltimo párrafo de cada DIV
+const divs = document.querySelectorAll('div');
+divs.forEach(div => {
+  const párrafos = div.querySelectorAll('p');
+  if (párrafos.length >= 3) {
+    const antepenultimo = párrafos[párrafos.length - 3];
+    antepenultimo.classList.toggle('highlight');
   }
-});`},{titulo:"Eventos Personalizados (CustomEvent)",contenido:"Podemos crear y despachar nuestros propios eventos para desacoplar lógica.",codigo:`// 1. Crear el evento con datos
-const eventoCompra = new CustomEvent('compraRealizada', {
-  detail: { producto: 'Laptop', precio: 1000 }
+});`},{titulo:"Inserción y Reposicionamiento",contenido:"Métodos para colocar elementos exactamente donde los necesitamos.",puntosClave:["**insertBefore(nuevo, referencia)**: Inserta antes del nodo de referencia. Si el nodo ya existía, lo MUEVE.","**Insertar al inicio**: `padre.insertBefore(nuevo, padre.firstElementChild)`.","**Insertar en medio**: Seleccionar el hijo intermedio como referencia."],codigo:`// Insertar entre los dos únicos elementos de una lista
+const listas = document.querySelectorAll('ol');
+listas.forEach(lista => {
+  if (lista.children.length === 2) {
+    const nuevo = document.createElement('li');
+    nuevo.textContent = "Intermedio";
+    // Se inserta antes del segundo (que es el lastElementChild)
+    lista.insertBefore(nuevo, lista.lastElementChild);
+  }
+});`},{titulo:"Atributos y Texto",contenido:"Manipulación fina de la metadata de los elementos y creación de nuevos tipos de nodos.",puntosClave:["**document.createTextNode**: Crea un nodo de texto puro, ideal para añadir puntuación o texto sin etiquetas.","**dataset**: Forma preferida para manejar atributos `data-*` (ej: `el.dataset.iva = 0`).","**Iterar Atributos**: `elemento.attributes` permite recorrer todos los atributos de un nodo (name y value)."],codigo:`// Añadir un punto final a cada párrafo
+const ps = document.querySelectorAll('p');
+ps.forEach(p => {
+  const punto = document.createTextNode('.');
+  p.appendChild(punto);
 });
+
+// Manipulación compleja de clases y dataset
+const ofertas = document.querySelectorAll('section.products article.oferta');
+ofertas.forEach(art => art.dataset.iva = "0");`},{titulo:"Sustitución de Elementos",contenido:"Patrón para transformar un elemento en otro manteniendo su contenido.",codigo:`// Convertir el texto de un LI en un enlace
+const li = document.querySelector('li');
+const link = document.createElement('a');
+link.href = "#";
+link.textContent = li.textContent;
+li.textContent = ""; // Limpia el LI
+li.appendChild(link); // Añade el enlace dentro`}]},{id:29,titulo:"Propagación y Eventos Personalizados",descripcion:"Entiende el flujo de eventos (Bubbling vs Capturing), la delegación y cómo crear tus propios eventos.",temas:[{titulo:"Flujo de Eventos: Fases",contenido:"Cuando ocurre un evento, este viaja por el DOM en tres fases. Entender esto evita que los eventos se disparen en lugares no deseados.",puntosClave:["**Fase de Captura (Capturing)**: El evento baja desde `window` hasta el elemento objetivo. Se activa con `{ capture: true }`.","**Fase de Objetivo (Target)**: El evento llega al elemento que lo originó.","**Fase de Burbujeo (Bubbling)**: El evento sube desde el elemento hacia arriba. Es el comportamiento por defecto."],codigo:`// Ejemplo de Bubbling vs Capturing
+const hijo = document.querySelector('.hijo');
+const padre = document.querySelector('.padre');
+
+hijo.addEventListener('click', () => console.log('1. Hijo (Burbujeo)'));
+padre.addEventListener('click', () => console.log('2. Padre (Burbujeo)'));
+
+// Si activamos captura en el padre:
+padre.addEventListener('click', () => console.log('0. Padre (Captura)'), true);`},{titulo:"Control de la Propagación",contenido:"Podemos detener el viaje del evento o anular comportamientos nativos del navegador.",puntosClave:["**stopPropagation()**: Detiene el burbujeo. Los padres no se enterarán del evento.","**preventDefault()**: Detiene la acción por defecto (navegar un link, enviar form, abrir menú contextual).","**Casos de uso**: Evitar scroll al pulsar Espacio, bloquear el click derecho, o validar inputs antes de enviar."],codigo:`// Evitar que la tecla Espacio haga scroll
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') {
+    e.preventDefault();
+    console.log("Scroll bloqueado");
+  }
+});
+
+// Detener propagación en un botón interno
+btn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  console.log("Solo se ejecuta aquí, no en los padres");
+});`},{titulo:"Target vs CurrentTarget",contenido:"Propiedades clave para identificar quién disparó el evento y quién lo está manejando.",puntosClave:["**event.target**: El elemento exacto que recibió el click (el más profundo).","**event.currentTarget**: El elemento que tiene el `addEventListener` (el dueño del listener)."],codigo:`// Delegación de eventos (Eficiencia)
+document.querySelector('ul').addEventListener('click', (e) => {
+  console.log("¿Quién recibió el click?", e.target);
+  console.log("¿Quién maneja el evento?", e.currentTarget); // Siempre será el UL
+});`},{titulo:"Eventos Personalizados y Emisión Programática",contenido:"Podemos crear nuestros propios eventos para desacoplar partes de la aplicación o simular acciones del usuario.",puntosClave:["**CustomEvent**: Permite pasar datos extra en la propiedad `detail`.","**dispatchEvent**: Método para lanzar el evento manualmente.","**Simulación**: Podemos lanzar un `new Event('click')` sobre un botón por código."],codigo:`// 1. Definir y disparar evento custom
+const eventRegistro = new CustomEvent('usuarioRegistrado', {
+  detail: { nombre: 'Alvaro', id: 26 },
+  bubbles: true
+});
+
+document.dispatchEvent(eventRegistro);
 
 // 2. Escuchar el evento
-document.addEventListener('compraRealizada', (e) => {
-  console.log(\`Comprado: \${e.detail.producto}\`);
+document.addEventListener('usuarioRegistrado', (e) => {
+  console.log("Nuevo usuario:", e.detail.nombre);
+});`}]},{id:30,titulo:"Resolución de Ejercicios I",descripcion:"Soluciones prácticas a retos de interacción: Teclado, Ratón y Gestión Dinámica del DOM.",temas:[{titulo:"Reto 1: Galería Numérica (Teclado)",contenido:"Uso de `keydown` para cambiar imágenes según el dígito pulsado. Se utiliza un array de URLs y se actualiza el atributo `src`.",codigo:`const imgs = ["url0.jpg", "url1.jpg", ...];
+const visor = document.querySelector('#visor');
+
+document.addEventListener('keydown', (e) => {
+  const n = parseInt(e.key);
+  if (n >= 0 && n <= 9) {
+    visor.src = imgs[n];
+  } else {
+    visor.src = "placeholder.jpg";
+    console.log("No es un número válido");
+  }
+});`},{titulo:"Reto 2: Caja Movible (Cursores)",contenido:"Uso de `switch` para gestionar las flechas de dirección y modificar el posicionamiento relativo/absoluto.",codigo:`const box = document.getElementById('box');
+let topPos = 0, leftPos = 0;
+
+document.addEventListener('keydown', (e) => {
+  switch(e.key) {
+    case "ArrowUp":    topPos -= 10; break;
+    case "ArrowDown":  topPos += 10; break;
+    case "ArrowLeft":  leftPos -= 10; break;
+    case "ArrowRight": leftPos += 10; break;
+  }
+  box.style.top = topPos + 'px';
+  box.style.left = leftPos + 'px';
+});`},{titulo:"Reto 3: Lista Inteligente (Sort/Delete/Add)",contenido:"Gestión completa de una lista: añadir mediante `prompt`, borrar con botones dinámicos y ordenar alfabéticamente.",puntosClave:["**Borrados**: Acceder al padre con `e.target.parentNode.remove()`.","**Ordenación**: Extraer contenido con `element.textContent`, aplicar `array.sort()` y reconstruir el DOM.","**Persistencia**: Al re-renderizar la lista tras ordenar, es vital volver a asignar los listeners a los nuevos botones."],codigo:`// Lógica para borrar un elemento
+btnBorrar.onclick = (e) => e.target.parentElement.remove();
+
+// Lógica para ordenar
+function ordenar() {
+  const items = Array.from(lista.children).map(li => li.childNodes[0].textContent);
+  items.sort();
+  lista.innerHTML = "";
+  items.forEach(txt => crearNuevoLi(txt));
+}`},{titulo:"Reto 4: Párrafo Dinámico y Caja Loca",contenido:"Captura de teclas global para 'escribir' en un elemento y el uso de `Math.random` para mover cajas.",codigo:`// 1. Escritura en párrafo
+document.addEventListener('keydown', (e) => {
+  const p = document.getElementById('historial');
+  const nuevoNodo = document.createTextNode(e.key);
+  p.prepend(nuevoNodo);
 });
 
-// 3. Despachar (lanzar) el evento
-document.dispatchEvent(eventoCompra);`}]},{id:30,titulo:"Resolución de Ejercicios I",descripcion:"Solución a los primeros retos sobre gestión de eventos: Galería dinámica, Caja movible y Lista ordenada.",temas:[{titulo:"Galería Numérica y Caja Movible",contenido:"Uso de `keydown` para capturar teclas numéricas para cambiar imágenes, y teclas de dirección (flechas) para mover un elemento absoluto modificando `top` y `left`.",codigo:`// Ejemplo movimiento caja
-document.addEventListener('keydown', (e) => {
-  const box = document.getElementById('box');
-  const currentTop = parseInt(box.style.top || 0);
-  
-  if (e.key === 'ArrowDown') {
-    box.style.top = (currentTop + 10) + 'px';
-  }
-});`},{titulo:"Lista Dinámica Ordenable",contenido:"Creación de una 'Todo List' donde se pueden añadir items, borrarlos individualmente y un botón global para ordenar alfabéticamente.",puntosClave:["**Manipulación del DOM**: Crear `li` y botones de borrar dinámicamente.","**Event Delegation**: O asignar listeners a cada botón creado.","**Array.sort()**: Extraer textos, ordenar el array y reconstruir el DOM."]},{titulo:"La Caja Loca",contenido:"Un elemento que 'uye' del ratón usando `mouseover` y posicionamiento aleatorio.",codigo:`box.addEventListener('mouseover', () => {
-  const randomX = Math.random() * (window.innerWidth - 100);
-  const randomY = Math.random() * (window.innerHeight - 100);
-  
-  box.style.left = randomX + 'px';
-  box.style.top = randomY + 'px';
-});`}]},{id:31,titulo:"Resolución de Ejercicios II",descripcion:"Ejercicios avanzados de manipulación e interacción: Eliminador de vocales y carrera de pulsaciones.",temas:[{titulo:"El Eliminador de Vocales",contenido:"Botonera donde cada vocal elimina su presencia en un texto utilizando `replaceAll`. Uso de `dataset` para identificar qué letra eliminar.",codigo:`// HTML: <button data-letter="a">A</button>
-buttons.forEach(btn => {
+// 2. Caja que huye (Mouseover)
+box.addEventListener('mouseover', () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 100);
+  box.style.left = \`\${x}px\`;
+  box.style.top = \`\${y}px\`;
+});`}]},{id:31,titulo:"Resolución de Ejercicios II",descripcion:"Retos de lógica y persistencia: Manipulación de texto masiva y juegos de velocidad.",temas:[{titulo:"Reto 5: Eliminador de Vocales",contenido:"Uso de `dataset` para identificar qué letra borrar y `replaceAll` para limpiar todo el texto de un párrafo.",puntosClave:["**dataset**: Atributos `data-letter` en HTML extraídos con `e.target.dataset.letter`.","**replaceAll**: A diferencia de `replace`, este método de String limpia todas las ocurrencias sin necesidad de Regex.","**Feedback de Usuario**: Deshabilitar el botón pulsado con `e.target.disabled = true`."],codigo:`const p = document.querySelector('#texto');
+const botones = document.querySelectorAll('.vocal-btn');
+
+botones.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    const letter = e.target.dataset.letter;
-    // str.replaceAll(letter, '')
-    // Actualizar textContent
-    e.target.disabled = true; // Deshabilitar botón
+    const letra = e.target.dataset.letter;
+    p.textContent = p.textContent.replaceAll(letra, '');
+    e.target.disabled = true; // El botón queda inactivo
   });
-});`},{titulo:"Carrera de Teclas (A vs Ñ)",contenido:"Juego competitivo donde dos cajas crecen al pulsar teclas específicas. Gana la primera en llegar a 500px.",puntosClave:["**Control de Estado**: Monitorizar el ancho de cada caja (`offsetWidth`).","**RemoveEventListener**: Vital para detener el juego. Requiere usar funciones nombradas, no anónimas.","**Lógica Ganadora**: Comprobar tras cada pulsación si `width >= 500`."],codigo:`const handleKey = (e) => {
-  if (e.key === 'a') growBox(greenBox);
-  if (e.key === 'ñ') growBox(redBox);
-  
-  if (checkWinner()) {
+});`},{titulo:"Reto 6: Carrera de Teclas (A vs Ñ)",contenido:"Juego de competición que pone a prueba la velocidad de pulsación y el control del estado del juego.",puntosClave:["**Medición Real**: Uso de `offsetWidth` para obtener el ancho actual incluyendo bordes.",'**Selección Dinámica**: Uso de selectores de atributo como `[data-key="${e.key}"]` para encontrar la caja asociada.',"**Finalización del Juego**: Es IMPRESCINDIBLE usar una función nombrada para poder hacer `removeEventListener` y detener el juego."],codigo:`const handleKey = (e) => {
+  const box = document.querySelector(\`[data-key="\${e.key}"]\`);
+  if (!box) return;
+
+  const currentWidth = box.offsetWidth;
+  const newWidth = currentWidth + 5;
+  box.style.width = \`\${newWidth}px\`;
+
+  if (newWidth >= 500) {
     document.body.removeEventListener('keydown', handleKey);
+    alert("¡Ganó " + (box.classList.contains('green') ? "Verde" : "Rojo") + "!");
   }
 };
-document.body.addEventListener('keydown', handleKey);`}]},{id:32,titulo:"Resolución de Ejercicios III",descripcion:"Creación de un juego de memoria (parejas) completo con lógica de grid, temporizador y estados.",temas:[{titulo:"El Juego de las Parejas",contenido:"Implementación de un grid 6x5 con 15 parejas de colores aleatorios.",puntosClave:["**Generación de Colores**: Crear 15 colores RGB aleatorios y duplicarlos para tener pares.","**Shuffle**: Algoritmo para barajar el array de colores.","**Lógica de Selección**: Al hacer click, mostrar color. Si hay 2 seleccionados, comparar.","**Timeout**: Si no coinciden, ocultarlos tras un breve retardo.","**Estado Global**: Controlar cuántas parejas se han encontrado para detener el temporizador."],codigo:`// Lógica de comparación
-if (firstCard.dataset.color === secondCard.dataset.color) {
-  // Acierto: Dejar fijas y deshabilitar listener
-  matchesFound++;
-  checkWin();
-} else {
-  // Fallo: Ocultar tras 1 segundo
-  setTimeout(() => {
-    firstCard.style.backgroundColor = 'black';
-    secondCard.style.backgroundColor = 'black';
-  }, 1000);
-}`}]}]},m={1:i,2:t,3:s,4:c,5:l,6:d,7:u};function n(e){return m[e]||null}function p(e,o){const a=n(e);return a&&a.clases.find(r=>r.id===o)||null}function b(e){const o=n(e);return o?o.clases:[]}export{p as a,b as g};
+
+document.body.addEventListener('keydown', handleKey);`}]},{id:32,titulo:"Resolución de Ejercicios III",descripcion:"Desarrollo de un Juego de Memoria (Parejas) paso a paso: Grid dinámico, algoritmos de barajado y cronómetro.",temas:[{titulo:"Arquitectura del Juego",contenido:"Planteamiento de un reto complejo que une generación dinámica de elementos, CSS Grid y lógica de estados.",puntosClave:["**Cuadrícula Dinámica**: Bucle anidado (filas x columnas) para crear 30 cajas (`div`) inyectadas al DOM.","**Generación de Colores**: Crear 15 colores RGB aleatorios (0-255) y duplicarlos en un array de 30.","**Algoritmo Shuffle**: Es crucial barajar el array de colores para que las parejas no estén juntas. (Ej: algoritmo de Fisher-Yates).","**Asignación**: Usar `randomColors.shift()` para extraer un color del array barajado y asignarlo a cada caja."],codigo:`// Generar 15 colores y duplicarlos
+const colores = [];
+for (let i = 0; i < 15; i++) {
+  const c = \`rgb(\${r()},\${g()},\${b()})\`;
+  colores.push(c, c); // Metemos el mismo color dos veces
+}
+shuffle(colores); // Barajamos`},{titulo:"Lógica de Estado y Emparejamiento",contenido:"Cómo gestionar qué cartas están abiertas y qué sucede cuando no coinciden.",puntosClave:["**Estados por Dataset**: `data-open` (abierta momentáneamente) y `data-matched` (ya resuelta).","**Comparación de Pares**: Al abrir la segunda carta, comparar sus `dataset.color`.","**Uso de setTimeout**: Si no coinciden, esperar (ej: 500ms) para que el usuario memorice antes de volver a ocultarlas.","**Cuentas Finales**: Cuando el número de cartas 'matched' sea igual al total, detener el cronómetro."],codigo:`// Lógica del click
+if (cartasAbiertas.length === 2) {
+  const [c1, c2] = cartasAbiertas;
+  if (c1.dataset.color === c2.dataset.color) {
+    c1.dataset.matched = "true";
+    c2.dataset.matched = "true";
+  } else {
+    setTimeout(() => {
+      ocultar(c1, c2);
+    }, 600);
+  }
+}`}]}]},m={titulo:"Almacenamiento y Proyectos con Vite",descripcion:"Domina el almacenamiento en el navegador (Cookies, LocalStorage, SessionStorage) y crea proyectos profesionales con Vite.",icono:"fa-database",clases:[{id:33,titulo:"LocalStorage, SessionStorage y Cookies",descripcion:"Aprende las tres formas de almacenar datos en el navegador: Cookies, LocalStorage y SessionStorage.",temas:[{titulo:"Introducción al Almacenamiento en el Navegador",contenido:"JavaScript permite almacenar datos directamente en el navegador para dar persistencia a las aplicaciones web. Existen tres mecanismos principales, cada uno con sus propias características y casos de uso.",puntosClave:["**Cookies**: Datos que se envían al servidor en cada petición HTTP.","**LocalStorage**: Almacenamiento persistente que sobrevive al cierre del navegador.","**SessionStorage**: Almacenamiento temporal que solo dura mientras la pestaña está abierta.","**Beneficios**: Menos consultas al backend, respuestas más rápidas, experiencia de usuario mejorada."]},{titulo:"Cookies: Fundamentos",contenido:"Las cookies son pequeñas cadenas de datos que se almacenan en el navegador y se envían automáticamente al servidor en cada petición HTTP. Son fundamentales para la autenticación y el tracking.",puntosClave:["**Protocolo HTTP**: Forman parte del estándar HTTP y viajan en las cabeceras de cada petición.","**Set-Cookie**: El servidor establece cookies mediante esta cabecera de respuesta.","**Autenticación**: El caso de uso más común es guardar tokens de sesión para mantener al usuario logueado.","**Pares clave-valor**: Se almacenan como strings con formato `clave=valor` separados por punto y coma."],codigo:`// Acceder a todas las cookies del documento
+console.log(document.cookie); // "pixelRatio=2.5; user=john"
+
+// Establecer una nueva cookie (NO sobreescribe las existentes)
+document.cookie = "usuario=alvaro";
+
+// Las cookies se acumulan, no se reemplazan
+console.log(document.cookie); // "pixelRatio=2.5; user=john; usuario=alvaro"`},{titulo:"Cookies: Configuración y Expiración",contenido:"Las cookies tienen varios parámetros de configuración que controlan su comportamiento, accesibilidad y tiempo de vida.",puntosClave:["**path**: Ruta desde la que es accesible la cookie. Usar `/` para todo el dominio.","**domain**: Dominio para el que es válida la cookie.","**expires**: Fecha exacta de expiración (objeto Date).","**max-age**: Segundos hasta la expiración (más práctico que expires).","**Límites**: Máximo 4KB por cookie y ~20 cookies por dominio."],codigos:[{titulo:"Expiración con expires (fecha)",descripcion:"Establecer una fecha concreta de caducidad usando el objeto Date.",codigo:`// Cookie que expira mañana
+let date = new Date();
+date.setTime(date.getTime() + (24 * 60 * 60 * 1000)); // +24 horas en ms
+
+document.cookie = \`user=john; expires=\${date.toUTCString()}\`;`},{titulo:"Expiración con max-age (segundos)",descripcion:"Forma más práctica: indicar los segundos de vida de la cookie.",codigo:`// Cookie que expira en 1 hora (3600 segundos)
+document.cookie = "user=john; max-age=3600";
+
+// Cookie que expira en 24 horas
+document.cookie = "session=abc123; max-age=86400"; // 24 * 60 * 60
+
+// Eliminar una cookie (max-age negativo)
+document.cookie = "user=john; max-age=-1";`}]},{titulo:"Cookies: Funciones de Utilidad",contenido:"Dado que las cookies se almacenan como un string único, necesitamos funciones auxiliares para trabajar con ellas de forma cómoda.",codigos:[{titulo:"Obtener una cookie por nombre",descripcion:"Función que busca y devuelve el valor de una cookie específica.",codigo:`function getCookie(name) {
+  let matches = document.cookie.match(
+    new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()[]\\/+^])/g, '\\$1') + "=([^;]*)")
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// Uso
+const usuario = getCookie('user'); // "john"`},{titulo:"Establecer una cookie con opciones",descripcion:"Función completa para crear cookies con todas las opciones disponibles.",codigo:`function setCookie(name, value, options = {}) {
+  options = {
+    path: '/',
+    ...options
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let key in options) {
+    cookie += "; " + key + "=" + options[key];
+  }
+
+  document.cookie = cookie;
+}
+
+// Uso: Cookie que expira en 1 hora
+setCookie('nombre', 'bienvenido', { 'max-age': 3600 });`},{titulo:"Eliminar una cookie",descripcion:"Simplemente establecer max-age a un valor negativo.",codigo:`function deleteCookie(name) {
+  setCookie(name, "", { 'max-age': -1 });
+}
+
+// Uso
+deleteCookie('user');`}]},{titulo:"Ver Cookies en DevTools",contenido:"El navegador ofrece una interfaz visual para inspeccionar las cookies almacenadas para cada dominio.",puntosClave:["**Acceso**: Abrir DevTools → Application → Cookies.","**Información visible**: Nombre, valor, dominio, path, fecha de expiración.","**Acciones**: Puedes editar o eliminar cookies manualmente desde esta interfaz.","**Por dominio**: Cada dominio tiene su propio conjunto de cookies aislado."]},{titulo:"LocalStorage y SessionStorage: Introducción",contenido:"Los objetos de almacenamiento web son una alternativa moderna a las cookies. Permiten guardar pares clave-valor directamente en el navegador sin enviarlos al servidor.",puntosClave:["**localStorage**: Persistente. Sobrevive al cierre del navegador.","**sessionStorage**: Temporal. Se borra al cerrar la pestaña/navegador.","**Capacidad**: Hasta 5MB por origen (mucho más que las 4KB de cookies).","**Sin envío**: A diferencia de las cookies, NO se envían al servidor.","**Vinculado al origen**: Aislado por dominio + puerto + protocolo."]},{titulo:"API de Storage: Métodos Principales",contenido:"Tanto localStorage como sessionStorage comparten la misma API, muy intuitiva y fácil de usar.",puntosClave:["**setItem(clave, valor)**: Guarda un par clave-valor.","**getItem(clave)**: Obtiene el valor de una clave.","**removeItem(clave)**: Elimina una clave específica.","**clear()**: Elimina TODOS los datos almacenados.","**key(indice)**: Obtiene la clave en una posición dada.","**length**: Número de elementos almacenados."],codigo:`// Guardar datos
+localStorage.setItem('usuario', 'alvaro');
+localStorage.setItem('tema', 'oscuro');
+
+// Obtener datos
+const user = localStorage.getItem('usuario'); // "alvaro"
+
+// Comprobar cantidad de items
+console.log(localStorage.length); // 2
+
+// Obtener clave por índice
+console.log(localStorage.key(0)); // "usuario"
+
+// Eliminar un item específico
+localStorage.removeItem('tema');
+
+// Eliminar TODO
+localStorage.clear();`},{titulo:"Guardar Objetos y Arrays (JSON)",contenido:"localStorage y sessionStorage solo pueden almacenar strings. Para guardar estructuras complejas, usamos JSON.stringify() y JSON.parse().",puntosClave:["**JSON.stringify(objeto)**: Convierte un objeto/array a string JSON.","**JSON.parse(string)**: Convierte un string JSON a objeto/array.","**Flujo completo**: Objeto → stringify → setItem / getItem → parse → Objeto"],codigo:`// Guardar un OBJETO
+const usuario = { nombre: 'Álvaro', edad: 25, premium: true };
+localStorage.setItem('datos', JSON.stringify(usuario));
+
+// Recuperar y convertir a objeto
+const datosString = localStorage.getItem('datos');
+const datosObjeto = JSON.parse(datosString);
+console.log(datosObjeto.nombre); // "Álvaro"
+
+// Guardar un ARRAY
+const tareas = ['Estudiar JS', 'Hacer ejercicio', 'Leer'];
+localStorage.setItem('misTareas', JSON.stringify(tareas));
+
+// Recuperar array
+const tareasRecuperadas = JSON.parse(localStorage.getItem('misTareas'));
+console.log(tareasRecuperadas[0]); // "Estudiar JS"`},{titulo:"Ver Storage en DevTools",contenido:"Al igual que las cookies, podemos inspeccionar LocalStorage y SessionStorage desde las herramientas de desarrollo.",puntosClave:["**Acceso**: DevTools → Application → Local Storage / Session Storage.","**Compartido entre pestañas**: LocalStorage es accesible desde cualquier pestaña del mismo origen.","**SessionStorage aislado**: Cada pestaña tiene su propio SessionStorage independiente.","**Evento storage**: Se dispara cuando se modifican los datos (útil para sincronizar pestañas)."]},{titulo:"Comparativa: Cookies vs Storage",contenido:"Cada mecanismo tiene sus propios casos de uso ideales.",puntosClave:["**Cookies**: Para autenticación y datos que el servidor necesita en cada petición.","**LocalStorage**: Para preferencias de usuario, caché de datos, estado de la app.","**SessionStorage**: Para datos temporales de una sesión específica (formularios, wizards).","**Seguridad**: Las cookies pueden configurarse como HttpOnly (inaccesibles desde JS) y Secure (solo HTTPS)."]},{titulo:"Ejercicio Práctico: Aviso de Cookies",contenido:"Implementar un banner de cookies funcional que cargue scripts de analítica solo cuando el usuario acepta.",puntosClave:["**Aceptar**: Cargar script de analítica y guardar cookie de 1 mes.","**Rechazar**: No cargar script y guardar cookie de 24 horas (para no volver a preguntar).","**Verificación**: Al cargar la página, comprobar si ya existe la cookie antes de mostrar el banner."],codigo:`// Pseudocódigo del flujo
+function mostrarBannerCookies() {
+  const cookieAceptada = getCookie('cookies_aceptadas');
+  
+  if (cookieAceptada === 'true') {
+    cargarAnalytics();
+    return;
+  }
+  
+  if (cookieAceptada === 'false') {
+    // No mostrar banner ni cargar analytics
+    return;
+  }
+  
+  // Mostrar banner...
+  btnAceptar.onclick = () => {
+    setCookie('cookies_aceptadas', 'true', { 'max-age': 30 * 24 * 60 * 60 }); // 1 mes
+    cargarAnalytics();
+    ocultarBanner();
+  };
+  
+  btnRechazar.onclick = () => {
+    setCookie('cookies_aceptadas', 'false', { 'max-age': 24 * 60 * 60 }); // 24h
+    ocultarBanner();
+  };
+}`}]},{id:34,titulo:"Primer Proyecto con Vite",descripcion:"Aprende a estructurar un proyecto real con Vite, clases ES6, módulos y programación orientada a objetos.",temas:[{titulo:"Configuración Inicial con Vite",contenido:"Vite es un bundler moderno que permite crear proyectos estructurados con hot reload instantáneo y soporte nativo para ES Modules.",puntosClave:["**npm create vite@latest**: Comando para iniciar un nuevo proyecto.","**Vanilla JS**: Seleccionar JavaScript sin frameworks para proyectos puros.","**Estructura limpia**: Vite crea una estructura base que nosotros personalizaremos.","**npm run dev**: Arranca el servidor de desarrollo con HMR (Hot Module Replacement)."],codigo:`# Crear proyecto con Vite
+npm create vite@latest nombre-proyecto
+
+# Seleccionar: Vanilla -> JavaScript
+
+# Instalar dependencias
+cd nombre-proyecto
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev`},{titulo:"Estructura del Proyecto",contenido:"Organizamos el código en carpetas lógicas para mantener el proyecto escalable y mantenible.",puntosClave:["**src/**: Carpeta principal del código fuente.","**src/js/**: Scripts de JavaScript.","**src/sass/**: Estilos con preprocesador SASS.","**src/js/class/**: Clases del proyecto (Game, Box, Timer...).","**src/js/utils/**: Funciones de utilidad reutilizables."],codigo:`proyecto/
+├── index.html
+├── package.json
+├── vite.config.js
+└── src/
+    ├── js/
+    │   ├── main.js          # Punto de entrada
+    │   ├── class/           # Clases
+    │   │   ├── Game.js
+    │   │   └── Box.js
+    │   └── utils/           # Utilidades
+    │       └── utils.js
+    └── sass/
+        ├── main.scss
+        └── components/
+            └── _game.scss`},{titulo:"Añadir Soporte SASS",contenido:"Vite soporta SASS de forma nativa, solo necesitamos instalar el preprocesador como dependencia.",codigo:`# Instalar SASS como dependencia
+npm install sass --save-dev
+
+# En main.js, importar estilos SASS
+import './sass/main.scss';
+
+# Vite compilará automáticamente SASS a CSS`},{titulo:"Modelado con Clases: Game",contenido:"La clase Game encapsula toda la lógica del juego: tablero, cajas, eventos y estado.",puntosClave:["**Constructor**: Recibe filas, columnas e ID del elemento contenedor.","**Propiedades privadas (#)**: Para encapsular datos internos.","**Métodos**: createRandomColors(), createBoxes(), paintBoxes().","**export default**: Exportar la clase para usarla en otros módulos."],codigo:`// src/js/class/Game.js
+import Box from './Box.js';
+import { shuffleArray } from '../utils/utils.js';
+
+export default class Game {
+  #rows;
+  #cols;
+  #boxes = [];
+  element;
+
+  constructor(rows, cols, idElement = 'game') {
+    this.#rows = rows;
+    this.#cols = cols;
+    this.element = document.getElementById(idElement);
+    
+    this.createBoxes();
+    this.paintBoxes();
+  }
+
+  get rows() { return this.#rows; }
+  get cols() { return this.#cols; }
+
+  createRandomColors() {
+    const colors = [];
+    for (let i = 0; i < (this.#rows * this.#cols) / 2; i++) {
+      const color = \`rgb(\${Math.random()*255|0}, \${Math.random()*255|0}, \${Math.random()*255|0})\`;
+      colors.push(color, color); // Par de colores iguales
+    }
+    return shuffleArray(colors);
+  }
+
+  createBoxes() {
+    const randomColors = this.createRandomColors();
+    for (let r = 0; r < this.#rows; r++) {
+      for (let c = 0; c < this.#cols; c++) {
+        const color = randomColors.shift();
+        const newBox = new Box(r, c, color);
+        this.#boxes.push(newBox);
+      }
+    }
+  }
+}`},{titulo:"Modelado con Clases: Box",contenido:"La clase Box representa cada casilla del juego con su estado y comportamiento.",codigo:`// src/js/class/Box.js
+export default class Box {
+  #col;
+  #row;
+  #color;
+  #free = true;
+  #open = false;
+  #element;
+
+  constructor(row, col, color, free = true, open = false) {
+    this.#row = row;
+    this.#col = col;
+    this.#color = color;
+    this.#free = free;
+    this.#open = open;
+  }
+
+  // Getters para acceder a propiedades privadas
+  get col() { return this.#col; }
+  get row() { return this.#row; }
+  get color() { return this.#color; }
+  get free() { return this.#free; }
+  get open() { return this.#open; }
+
+  // Setters para modificar el estado
+  set element(el) { this.#element = el; }
+  set free(value) { this.#free = value; }
+  set open(value) { this.#open = value; }
+
+  // Añadir evento click a la casilla
+  addEventClick() {
+    if (this.#element) {
+      this.#element.addEventListener('click', () => {
+        if (!this.#open) {
+          this.#element.style.backgroundColor = this.#color;
+          this.#open = true;
+        }
+      });
+    }
+  }
+}`},{titulo:"Funciones Estáticas",contenido:"Los métodos estáticos se pueden llamar sin instanciar la clase. Útiles para funciones auxiliares.",puntosClave:["**static**: Palabra clave para definir métodos estáticos.","**Clase.metodo()**: Se llama directamente sobre la clase, no sobre instancias.","**Ejemplo real**: Math.random() es un método estático de la clase Math."],codigo:`// Método estático para pedir filas y columnas
+static getRowsCols() {
+  let rows = parseInt(prompt('Número de filas:'));
+  let cols = parseInt(prompt('Número de columnas:'));
+  
+  // Validar que el total sea par (para parejas)
+  while ((rows * cols) % 2 !== 0) {
+    alert('El número de cartas debe ser par');
+    rows = parseInt(prompt('Número de filas:'));
+    cols = parseInt(prompt('Número de columnas:'));
+  }
+  
+  return { rows, cols };
+}
+
+// Uso (sin instanciar)
+const data = Game.getRowsCols();
+const game = new Game(data.rows, data.cols);`},{titulo:"CSS Dinámico con JavaScript",contenido:"Podemos modificar las propiedades CSS del grid dinámicamente según los datos del usuario.",codigo:`// Establecer grid-template dinámicamente
+setCSSBoxTemplate() {
+  const boxContainer = document.getElementById('box-container');
+  
+  // Grid de N columnas
+  boxContainer.style.gridTemplateColumns = \`repeat(\${this.#cols}, 1fr)\`;
+  // Grid de M filas
+  boxContainer.style.gridTemplateRows = \`repeat(\${this.#rows}, 1fr)\`;
+}
+
+// Resultado: grid adaptado a las filas/columnas elegidas`}]},{id:35,titulo:"Finalizando el Proyecto con Vite",descripcion:"Completa el juego de parejas con detección de coincidencias, propagación de eventos y persistencia en LocalStorage.",temas:[{titulo:"Validación de Entrada",contenido:"Antes de crear el juego, validamos que el número total de casillas sea par para poder formar parejas.",codigo:`static getRowsCols() {
+  let rows = parseInt(prompt('Número de filas:'));
+  let cols = parseInt(prompt('Número de columnas:'));
+  
+  // Bucle hasta obtener un número válido
+  while ((rows * cols) % 2 !== 0) {
+    alert('El número de cartas debe ser par. Vuelva a introducir los datos.');
+    rows = parseInt(prompt('Número de filas:'));
+    cols = parseInt(prompt('Número de columnas:'));
+  }
+  
+  // Guardar en localStorage para persistencia
+  localStorage.setItem('rows', rows);
+  localStorage.setItem('cols', cols);
+  
+  return { rows, cols };
+}`},{titulo:"Propagación de Eventos (Event Bubbling)",contenido:"Los eventos se propagan de hijo a padre. Esto permite manejar clicks en las casillas desde el contenedor padre.",puntosClave:["**Bubbling**: El click en una Box también se dispara en Game (su padre).","**e.target**: El elemento exacto que recibió el click.","**e.currentTarget**: El elemento que tiene el addEventListener.","**Delegación**: Manejar eventos de muchos hijos desde un solo padre."],codigo:`// En el constructor de Game, escuchamos clicks en el contenedor
+this.element.addEventListener('click', (e) => {
+  console.log('Click detectado en el contenedor padre');
+  this.checkOpenBoxes(); // Comprobar parejas tras cada click
+});
+
+// El click en una Box se propaga automáticamente hacia arriba
+// Primero se ejecuta el handler de Box, luego el de Game`},{titulo:"Comprobación de Parejas",contenido:"Implementamos la lógica para detectar cuando hay dos casillas abiertas y verificar si son pareja.",codigo:`checkOpenBoxes() {
+  // Filtrar casillas que están abiertas Y libres (no emparejadas aún)
+  const openBoxes = this.#boxes.filter(box => box.open && box.free);
+  
+  if (openBoxes.length === 2) {
+    const [box1, box2] = openBoxes;
+    
+    if (box1.color === box2.color) {
+      // ¡Es pareja! Marcar como no libres (fijas)
+      box1.free = false;
+      box2.free = false;
+      this.boxesToLocalStorage(); // Guardar estado
+    } else {
+      // No coinciden: ocultar después de un delay
+      setTimeout(() => {
+        box1.resetColor();
+        box2.resetColor();
+      }, 600);
+    }
+  }
+}`},{titulo:"Resetear Casillas",contenido:"Método en Box para volver al estado cerrado cuando no hay coincidencia.",codigo:`// En Box.js
+resetColor() {
+  this.#element.style.backgroundColor = 'black';
+  this.#open = false;
+}
+
+// Evitar re-clicks en casillas ya abiertas
+addEventClick() {
+  this.#element.addEventListener('click', () => {
+    if (!this.#open) { // Solo si está cerrada
+      this.#element.style.backgroundColor = this.#color;
+      this.#open = true;
+    }
+  });
+}`},{titulo:"Persistencia con LocalStorage",contenido:"Guardamos el estado del juego para que persista al recargar la página.",puntosClave:["**Guardar filas/columnas**: Al iniciar, para no volver a preguntar.","**Guardar estado de boxes**: Qué casillas están abiertas/cerradas.","**JSON.stringify**: Convertir objetos a string para localStorage.","**JSON.parse**: Recuperar objetos desde localStorage."],codigo:`// Guardar estado de todas las boxes
+boxesToLocalStorage() {
+  const boxesData = this.#boxes.map(box => ({
+    row: box.row,
+    col: box.col,
+    color: box.color,
+    free: box.free,
+    open: box.open
+  }));
+  
+  localStorage.setItem('boxes', JSON.stringify(boxesData));
+}
+
+// Comprobar si hay datos guardados al crear el juego
+createBoxes() {
+  const savedBoxes = localStorage.getItem('boxes');
+  
+  if (savedBoxes !== null) {
+    // Recuperar estado guardado
+    const boxesData = JSON.parse(savedBoxes);
+    boxesData.forEach(data => {
+      const box = new Box(data.row, data.col, data.color, data.free, data.open);
+      this.#boxes.push(box);
+    });
+  } else {
+    // Crear desde cero
+    this.createFreshBoxes();
+  }
+}`},{titulo:"Botón Reiniciar",contenido:"Función estática para limpiar localStorage y reiniciar el juego desde cero.",codigo:`// Método estático en Game
+static resetGame() {
+  localStorage.removeItem('rows');
+  localStorage.removeItem('cols');
+  localStorage.removeItem('boxes');
+  localStorage.removeItem('timer');
+  
+  location.reload(); // Recargar página
+}
+
+// En main.js
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => {
+  Game.resetGame();
+});`},{titulo:"Recuperar Estado Visual",contenido:"Al pintar las boxes, mostrar el color si ya estaban abiertas o emparejadas.",codigo:`paintBoxes() {
+  this.#boxes.forEach(box => {
+    const div = document.createElement('div');
+    div.classList.add('box');
+    
+    // Si la box estaba abierta o emparejada, mostrar su color
+    if (!box.free || box.open) {
+      div.style.backgroundColor = box.color;
+    }
+    
+    box.element = div;
+    box.addEventClick();
+    this.boxContainer.appendChild(div);
+  });
+}`}]},{id:36,titulo:"Guardando el Juego en LocalStorage",descripcion:"Implementa persistencia completa del estado del juego, incluyendo un cronómetro y detección de victoria.",temas:[{titulo:"Problema: Objetos con Funcionalidad",contenido:"Los objetos de clases con métodos no se pueden guardar directamente en localStorage. Necesitamos extraer solo los datos.",puntosClave:["**JSON.stringify** solo guarda propiedades, no métodos.","**Objetos literales**: Crear objetos simples con solo los datos necesarios.","**Reconstruir**: Al recuperar, crear nuevas instancias de las clases con los datos."],codigo:`// ❌ INCORRECTO: Guardar instancia de clase directamente
+localStorage.setItem('boxes', JSON.stringify(this.#boxes));
+// Solo guarda las propiedades, pierde los métodos
+
+// ✅ CORRECTO: Extraer solo los datos necesarios
+boxesToLocalStorage() {
+  const boxesData = this.#boxes.map(box => ({
+    row: box.row,
+    col: box.col,
+    color: box.color,
+    free: box.free,
+    open: box.open
+  }));
+  
+  localStorage.setItem('boxes', JSON.stringify(boxesData));
+}`},{titulo:"Reconstruir Boxes desde LocalStorage",contenido:"Al cargar la página, verificamos si hay datos guardados y recreamos las instancias de Box.",codigo:`createBoxes() {
+  this.#boxes = []; // Inicializar array vacío
+  
+  const savedBoxes = localStorage.getItem('boxes');
+  
+  if (savedBoxes !== null) {
+    // Hay datos guardados: reconstruir
+    const boxesData = JSON.parse(savedBoxes);
+    boxesData.forEach(data => {
+      // Crear nueva instancia con los datos guardados
+      const newBox = new Box(
+        data.row, 
+        data.col, 
+        data.color, 
+        data.free, 
+        data.open
+      );
+      this.#boxes.push(newBox);
+    });
+  } else {
+    // No hay datos: crear juego nuevo
+    const randomColors = this.createRandomColors();
+    // ... crear boxes normalmente
+  }
+  
+  this.boxesToLocalStorage(); // Guardar después de crear
+}`},{titulo:"Actualizar LocalStorage en Cada Acción",contenido:"Cada vez que cambia el estado del juego, guardamos los cambios.",codigo:`checkOpenBoxes() {
+  const openBoxes = this.#boxes.filter(box => box.open && box.free);
+  
+  if (openBoxes.length === 2) {
+    if (openBoxes[0].color === openBoxes[1].color) {
+      // Pareja encontrada
+      openBoxes[0].free = false;
+      openBoxes[1].free = false;
+      this.boxesToLocalStorage(); // ✅ Guardar estado actualizado
+    } else {
+      // No coinciden
+      setTimeout(() => {
+        openBoxes[0].resetColor();
+        openBoxes[1].resetColor();
+        this.boxesToLocalStorage(); // ✅ Guardar estado actualizado
+      }, 600);
+    }
+  } else {
+    this.boxesToLocalStorage(); // ✅ Guardar caja abierta individualmente
+  }
+}`},{titulo:"Clase Timer: Cronómetro del Juego",contenido:"Encapsulamos la lógica del cronómetro en una clase reutilizable.",codigo:`// src/js/class/Timer.js
+export default class Timer {
+  #ms = 0;
+  #sec = 0;
+  #min = 0;
+  #intervalId;
+  #element;
+
+  constructor(idElement = 'timer', ms = 0, sec = 0, min = 0) {
+    this.#element = document.getElementById(idElement);
+    this.#ms = ms;
+    this.#sec = sec;
+    this.#min = min;
+  }
+
+  start() {
+    this.#intervalId = setInterval(() => {
+      this.#ms++;
+      if (this.#ms >= 100) {
+        this.#ms = 0;
+        this.#sec++;
+      }
+      if (this.#sec >= 60) {
+        this.#sec = 0;
+        this.#min++;
+      }
+      this.updateDisplay();
+      this.saveToLocalStorage();
+    }, 10);
+  }
+
+  stop() {
+    clearInterval(this.#intervalId);
+  }
+
+  updateDisplay() {
+    const pad = (n) => n.toString().padStart(2, '0');
+    this.#element.textContent = 
+      \`\${pad(this.#min)}:\${pad(this.#sec)}:\${pad(this.#ms)}\`;
+  }
+
+  saveToLocalStorage() {
+    // Guardar cada 2 segundos para optimizar rendimiento
+    if (this.#sec % 2 === 0 && this.#ms === 0) {
+      const timerData = {
+        ms: this.#ms,
+        sec: this.#sec,
+        min: this.#min
+      };
+      localStorage.setItem('timer', JSON.stringify(timerData));
+    }
+  }
+}`},{titulo:"Recuperar Timer desde LocalStorage",contenido:"Al iniciar el juego, verificamos si hay un tiempo guardado para continuar desde ahí.",codigo:`constructor(idElement = 'timer', ms = 0, sec = 0, min = 0) {
+  this.#element = document.getElementById(idElement);
+  
+  // Intentar recuperar tiempo guardado
+  const savedTimer = localStorage.getItem('timer');
+  
+  if (savedTimer !== null) {
+    const timerData = JSON.parse(savedTimer);
+    this.#ms = parseInt(timerData.ms) || 0;
+    this.#sec = parseInt(timerData.sec) || 0;
+    this.#min = parseInt(timerData.min) || 0;
+  } else {
+    this.#ms = ms;
+    this.#sec = sec;
+    this.#min = min;
+  }
+}`},{titulo:"Optimización: No Guardar Cada Milisegundo",contenido:"Guardar en localStorage con demasiada frecuencia afecta el rendimiento. Limitamos las escrituras.",puntosClave:["**Problema**: Guardar cada 10ms satura localStorage y puede causar conflictos.","**Solución**: Guardar solo cada N segundos usando operador módulo.","**Borrado**: Al reiniciar, el guardado frecuente impedía borrar correctamente."],codigo:`saveToLocalStorage() {
+  // Solo guardar cuando los segundos son múltiplo de 2 Y milisegundos = 0
+  if (this.#sec % 2 === 0 && this.#ms === 0) {
+    const timerData = {
+      ms: this.#ms,
+      sec: this.#sec,
+      min: this.#min
+    };
+    localStorage.setItem('timer', JSON.stringify(timerData));
+  }
+}
+
+// Resultado: Máximo ±2 segundos de diferencia al recargar
+// Mucho mejor rendimiento y sin conflictos al resetear`},{titulo:"Detectar Victoria",contenido:"Cuando todas las casillas están emparejadas, el juego termina y se detiene el cronómetro.",codigo:`checkFinishGame() {
+  // Filtrar casillas que aún están 'free' (sin emparejar)
+  const freeBoxes = this.#boxes.filter(box => box.free);
+  
+  if (freeBoxes.length === 0) {
+    // ¡Todas emparejadas! Juego terminado
+    this.#timer.stop();
+    
+    // Pequeño delay para ver la última pareja
+    setTimeout(() => {
+      alert('¡Juego finalizado!');
+    }, 400);
+  }
+}
+
+// Llamar después de cada comprobación de parejas
+checkOpenBoxes() {
+  // ... lógica de parejas ...
+  
+  this.checkFinishGame(); // Verificar si ganó
+}`},{titulo:"Estructura Final del Proyecto",contenido:"Resumen de la arquitectura completa del juego de parejas con Vite.",puntosClave:["**Game.js**: Clase principal. Tablero, lógica de parejas, localStorage.","**Box.js**: Cada casilla. Estado, color, eventos.","**Timer.js**: Cronómetro. Tiempo, persistencia, display.","**utils.js**: Funciones auxiliares (shuffleArray).","**main.js**: Punto de entrada. Inicializa Game, botón reset.","**Separación de responsabilidades**: Cada clase hace UNA cosa bien."],codigo:`// main.js - Limpio y conciso
+import Game from './class/Game.js';
+
+// Botón reiniciar
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => Game.resetGame());
+
+// Crear juego (automáticamente recupera de localStorage si existe)
+const data = Game.getRowsCols();
+const game = new Game(data.rows, data.cols);
+
+// ¡Todo lo demás está encapsulado en las clases!`}]}]},p={1:t,2:i,3:s,4:c,5:l,6:d,7:u,8:m};function n(e){return p[e]||null}function g(e,o){const a=n(e);return a&&a.clases.find(r=>r.id===o)||null}function b(e){const o=n(e);return o?o.clases:[]}export{g as a,b as g};
