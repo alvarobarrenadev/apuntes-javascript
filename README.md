@@ -32,8 +32,7 @@ Actualmente el proyecto abarca los siguientes módulos:
 - **Módulo 6:** Manipulación del DOM (Selectores, Creación de elementos, Atributos, Eventos...)
 - **Módulo 7:** Gestión de Eventos y Asincronía
 - **Módulo 8:** Almacenamiento y Proyectos con Vite (Cookies, LocalStorage, SessionStorage, Vite)
-
-> *Nota: El contenido se actualiza y expande continuamente conforme avanza el curso.*
+- **Módulo 9:** Asincronía y Promesas (Promesas, async/await, fetch)
 
 ---
 

@@ -9,6 +9,7 @@ import { modulo5Data } from './modulo-5.js';
 import { modulo6Data } from './modulo-6.js';
 import { modulo7Data } from './modulo-7.js';
 import { modulo8Data } from './modulo-8.js';
+import { modulo9Data } from './modulo-9.js';
 
 /**
  * Objeto que contiene todos los módulos del curso
@@ -23,6 +24,7 @@ export const modulos = {
   6: modulo6Data,
   7: modulo7Data,
   8: modulo8Data,
+  9: modulo9Data,
 };
 
 /**

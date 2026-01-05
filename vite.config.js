@@ -69,6 +69,11 @@ export default defineConfig(({ command }) => ({
         modulo8clase34: resolve(__dirname, "src/pages/modulo-8/clase-34.html"),
         modulo8clase35: resolve(__dirname, "src/pages/modulo-8/clase-35.html"),
         modulo8clase36: resolve(__dirname, "src/pages/modulo-8/clase-36.html"),
+
+        // Módulo 9: Asincronía y Promesas
+        modulo9: resolve(__dirname, "src/pages/modulo-9/index.html"),
+        modulo9clase37: resolve(__dirname, "src/pages/modulo-9/clase-37.html"),
+        modulo9clase38: resolve(__dirname, "src/pages/modulo-9/clase-38.html"),
     },
     },
   },

@@ -58,8 +58,9 @@ export const modulesData = [
   },
   {
     title: "Asincronía",
-    desc: "Event Loop, Callbacks, Promesas y Async/Await.",
-    icon: "fa-stopwatch"
+    desc: "Promesas, ejecución asíncrona y funciones de carrera.",
+    icon: "fa-clock",
+    link: `${BASE}src/pages/modulo-9/`
   },
   {
     title: "Fetch API",
