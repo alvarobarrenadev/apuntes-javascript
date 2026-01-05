@@ -1,4 +1,4 @@
-const t={titulo:"Conceptos Básicos",descripcion:"Fundamentos, variables, tipos de datos y operadores esenciales de JavaScript.",icono:"fa-bolt",clases:[{id:1,titulo:"Introducción a JavaScript",descripcion:"Descubre qué es JavaScript, sus características únicas, cómo ejecutarlo y la historia de ECMAScript.",temas:[{titulo:"¿Qué es JavaScript?",contenido:'JavaScript es el tercer pilar fundamental del desarrollo web, junto con HTML y CSS. Mientras HTML estructura la información y CSS la estiliza, JavaScript actúa como el "cerebro" que permite manipular y controlar todo lo que hemos construido previamente.',puntosClave:["Es el responsable de controlar toda la interactividad del usuario en la web","Es el único lenguaje de programación que funciona nativamente en los navegadores","Es un lenguaje de programación completo (Turing completo)","Fue desarrollado por Brendan Eich de Netscape en 1995"]},{titulo:"Características del lenguaje",contenido:"JavaScript tiene características únicas que lo diferencian de otros lenguajes de programación.",caracteristicas:[{nombre:"Interpretado",descripcion:"No necesita compilación, el navegador lo ejecuta directamente"},{nombre:"Tipado dinámico",descripcion:"Una variable puede cambiar de tipo en tiempo de ejecución. El tipo está asociado al valor, no a la variable"},{nombre:"Objetual",descripcion:"Casi todo en JavaScript son objetos, incluyendo arrays y funciones"},{nombre:"Funciones de primera clase",descripcion:"Las funciones son objetos que tienen sus propias propiedades y métodos"}]},{titulo:"Cómo ejecutar JavaScript",contenido:"Existen cuatro formas principales de ejecutar código JavaScript:",metodos:[{nombre:"Consola del navegador",descripcion:"Abre el inspector de elementos (F12) y ve a la pestaña Console. Puedes escribir código directamente.",ejemplo:"console.log('¡Hola Mundo!');"},{nombre:"Etiqueta &lt;script&gt; inline",descripcion:"Escribe código JavaScript directamente dentro de una etiqueta &lt;script&gt; en tu HTML.",ejemplo:`<script>
+const t={titulo:"Conceptos Básicos",descripcion:"Fundamentos, variables, tipos de datos y operadores esenciales de JavaScript.",icono:"fa-bolt",clases:[{id:1,titulo:"Introducción a JavaScript",descripcion:"Descubre qué es JavaScript, sus características únicas, cómo ejecutarlo y la historia de ECMAScript.",temas:[{titulo:"¿Qué es JavaScript?",contenido:'JavaScript es el tercer pilar fundamental del desarrollo web, junto con HTML y CSS. Mientras HTML estructura la información y CSS la estiliza, JavaScript actúa como el "cerebro" que permite manipular y controlar todo lo que hemos construido previamente.',puntosClave:["Es el responsable de controlar toda la interactividad del usuario en la web","Es el único lenguaje de programación que funciona nativamente en los navegadores","Es un lenguaje de programación completo (Turing completo)","Fue desarrollado por Brendan Eich de Netscape en 1995"]},{titulo:"Características del lenguaje",contenido:"JavaScript tiene características únicas que lo diferencian de otros lenguajes de programación.",caracteristicas:[{nombre:"Interpretado",descripcion:"No necesita compilación, el navegador lo ejecuta directamente"},{nombre:"Tipado dinámico",descripcion:"Una variable puede cambiar de tipo en tiempo de ejecución. El tipo está asociado al valor, no a la variable"},{nombre:"Objetual (Arrays asociativos)",descripcion:"Casi todo en JavaScript son objetos. Los objetos funcionan como arrays asociativos (hash maps) donde las claves son strings"},{nombre:"Funciones de primera clase",descripcion:"Las funciones son objetos que tienen sus propias propiedades y métodos. Pueden ser pasadas como argumentos, devueltas o asignadas a variables"},{nombre:"Función eval()",descripcion:"Capacidad de evaluar string como código en tiempo de ejecución. (Nota: ¡Peligroso y no recomendado por seguridad!)"}]},{titulo:"Cómo ejecutar JavaScript",contenido:"Existen cuatro formas principales de ejecutar código JavaScript:",metodos:[{nombre:"Consola del navegador",descripcion:"Abre el inspector de elementos (F12) y ve a la pestaña Console. Puedes escribir código directamente.",ejemplo:"console.log('¡Hola Mundo!');"},{nombre:"Etiqueta &lt;script&gt; inline",descripcion:"Escribe código JavaScript directamente dentro de una etiqueta &lt;script&gt; en tu HTML.",ejemplo:`<script>
   console.log('Desde HTML');
 <\/script>`},{nombre:"Archivo externo",descripcion:"Crea un archivo .js y enlázalo con &lt;script src='archivo.js'&gt;&lt;/script&gt;",ejemplo:"<script src='script.js'><\/script>"},{nombre:"Node.js",descripcion:"Ejecuta archivos JavaScript desde la terminal con el comando node.",ejemplo:"node script.js"}]},{titulo:"Ubicación del script",contenido:"La posición de la etiqueta &lt;script&gt; afecta cuándo se ejecuta el código:",posiciones:[{lugar:"En el &lt;head&gt;",comportamiento:"Se ejecuta ANTES de que se pinte el HTML. El DOM no está disponible.",solucion:"Usar el atributo defer para esperar a que cargue la página"},{lugar:"En el &lt;body&gt;",comportamiento:"Se ejecuta mientras se dibuja la página"},{lugar:"Antes de &lt;/body&gt;",comportamiento:"Se ejecuta DESPUÉS de pintar todo el HTML. El DOM está completamente disponible."}],codigoEjemplo:`<!-- Con defer: espera a que cargue toda la página -->
 <script src="script.js" defer><\/script>`},{titulo:"Console: tu mejor amigo",contenido:"El objeto console proporciona métodos para depurar y mostrar información:",metodos:[{nombre:"console.log()",descripcion:"Imprime información general",color:"default"},{nombre:"console.info()",descripcion:"Imprime información (con icono)",color:"blue"},{nombre:"console.warn()",descripcion:"Muestra advertencias (amarillo)",color:"yellow"},{nombre:"console.error()",descripcion:"Muestra errores (rojo)",color:"red"},{nombre:"console.clear()",descripcion:"Limpia la consola",color:"gray"}]},{titulo:"Entornos de ejecución",contenido:"JavaScript puede ejecutarse en diferentes entornos, y dependiendo de dónde se ejecute, tendrás acceso a diferentes objetos y APIs:",caracteristicas:[{nombre:"Frontend (Navegador)",descripcion:"Tienes acceso al objeto window, document (DOM), y puedes manipular la página web"},{nombre:"Backend (Node.js)",descripcion:"Tienes acceso al sistema de archivos, redes, pero NO al DOM ni a window"}],nota:"Los scripts pueden interactuar con el mundo exterior de forma diferente según el entorno. En frontend manipulas el DOM, en backend accedes a archivos."},{titulo:"ECMAScript: La evolución del lenguaje",contenido:"JavaScript se basa en el estándar ECMAScript. A lo largo de los años, se han añadido nuevas características:",versiones:[{anio:"1997",version:"ES1",novedades:"Primera edición del estándar"},{anio:"2009",version:"ES5",novedades:"strict mode, JSON, métodos de Array"},{anio:"2015",version:"ES6/ES2015",novedades:"let/const, clases, arrow functions, promises, modules",destacado:!0},{anio:"2016",version:"ES2016",novedades:"Array.includes(), operador **"},{anio:"2017",version:"ES2017",novedades:"async/await, Object.entries()"},{anio:"2020",version:"ES2020",novedades:"Nullish coalescing (??), optional chaining (?.)"}],nota:"ES6 (2015) fue un cambio revolucionario. Las versiones modernas añaden mejoras cada año."}]},{id:2,titulo:"Variables y Tipos de Datos",descripcion:"Aprende a declarar variables con let y const, y domina los tipos primitivos (string, number, boolean...).",temas:[{titulo:"¿Qué es una variable?",contenido:"Una variable es una zona de memoria RAM a la que le asignamos un nombre para poder hacer referencia a ella posteriormente. Es como decirle al sistema: 'necesito espacio para guardar datos, y quiero llamarlo así'.",puntosClave:["Usar nombres descriptivos (no 'a', 'b', 'x')","Evitar ambigüedades","Evitar palabras reservadas del lenguaje","No usar tildes ni caracteres especiales","Usar camelCase para nombrar variables"]},{titulo:"Declaración de variables",contenido:"JavaScript ofrece tres formas de declarar variables, cada una con un comportamiento diferente:",tipos:[{palabra:"var",descripcion:"Forma antigua. Tiene scope de función y permite redeclaración. NO RECOMENDADO.",ejemplo:"var nombre = 'JavaScript';",icono:"fa-triangle-exclamation",color:"warning"},{palabra:"let",descripcion:"Forma moderna. Tiene scope de bloque y permite reasignación pero no redeclaración.",ejemplo:`let contador = 0;
@@ -8,7 +8,7 @@ console.log(a++); // Imprime 5,  luego a = 6
 console.log(++a); // Incrementa, luego imprime 7`},{titulo:"Operadores de Comparación",contenido:"Comparan valores y devuelven un booleano (true/false):",operadores:[{simbolo:"==",nombre:"Igualdad (valor)",descripcion:"Compara valores, NO tipos. Hace coerción.",ejemplo:'5 == "5" // true'},{simbolo:"===",nombre:"Igualdad estricta",descripcion:"Compara valor Y tipo. RECOMENDADO.",ejemplo:'5 === "5" // false',destacado:!0},{simbolo:"!=",nombre:"Desigualdad",descripcion:"Distinto valor (con coerción)",ejemplo:'5 != "6" // true'},{simbolo:"!==",nombre:"Desigualdad estricta",descripcion:"Distinto valor O tipo",ejemplo:'5 !== "5" // true',destacado:!0},{simbolo:">",nombre:"Mayor que",ejemplo:"10 > 5 // true"},{simbolo:">=",nombre:"Mayor o igual",ejemplo:"5 >= 5 // true"},{simbolo:"<",nombre:"Menor que",ejemplo:"3 < 8 // true"},{simbolo:"<=",nombre:"Menor o igual",ejemplo:"4 <= 4 // true"}],alerta:"SIEMPRE usa === y !== para evitar comportamientos inesperados por coerción de tipos."},{titulo:"Operadores Lógicos",contenido:"Combinan expresiones booleanas:",operadores:[{simbolo:"&&",nombre:"AND (Y lógico)",regla:"Devuelve true si AMBOS son true",tablaVerdad:[{a:"true",b:"true",resultado:"true"},{a:"true",b:"false",resultado:"false"},{a:"false",b:"true",resultado:"false"},{a:"false",b:"false",resultado:"false"}],comportamientoJS:"Con no-booleanos: devuelve B si ambos son truthy, sino devuelve A"},{simbolo:"||",nombre:"OR (O lógico)",regla:"Devuelve true si AL MENOS UNO es true",tablaVerdad:[{a:"true",b:"true",resultado:"true"},{a:"true",b:"false",resultado:"true"},{a:"false",b:"true",resultado:"true"},{a:"false",b:"false",resultado:"false"}],comportamientoJS:"Con no-booleanos: devuelve A si es truthy, sino devuelve B"},{simbolo:"!",nombre:"NOT (Negación)",regla:"Invierte el valor booleano",ejemplos:["!true // false","!false // true","!0 // true","!'' // true"]}]},{titulo:"Operador Ternario",contenido:"Una forma abreviada de escribir un if-else en una sola línea:",sintaxis:"condición ? valorSiTrue : valorSiFalse",ejemplos:[{descripcion:"Determinar mayoría de edad",codigo:`const edad = 20;
 const mensaje = edad >= 18 ? 'Mayor de edad' : 'Menor de edad';
 // mensaje = 'Mayor de edad'`},{descripcion:"Asignar rol según nombre",codigo:`const name = 'Admin';
-const rol = name === 'Admin' ? 'Administrador' : 'Usuario';`}]},{titulo:"Operador Nullish Coalescing (??)",contenido:"Devuelve el operando derecho solo cuando el izquierdo es null o undefined (ES2020):",sintaxis:"a ?? b",comparacion:[{expresion:"null ?? 'default'",resultadoNullish:"'default'",resultadoOr:"'default'"},{expresion:"undefined ?? 'default'",resultadoNullish:"'default'",resultadoOr:"'default'"},{expresion:"0 ?? 'default'",resultadoNullish:"0",resultadoOr:"'default'",diferente:!0},{expresion:"'' ?? 'default'",resultadoNullish:"''",resultadoOr:"'default'",diferente:!0},{expresion:"false ?? 'default'",resultadoNullish:"false",resultadoOr:"'default'",diferente:!0}],nota:"A diferencia de ||, el operador ?? NO considera 0, '' o false como valores 'nullish'."},{titulo:"Concepto: Truthy y Falsy",contenido:"En JavaScript, cualquier valor puede evaluarse como booleano. Esto es fundamental para entender los operadores lógicos.",puntosClave:["Valores Falsy: Se evalúan como false.","Valores Truthy: Se evalúan como true (todo lo que no es falsy)."],caracteristicas:[{nombre:"Valores Falsy (6)",descripcion:'false, 0, "" (string vacío), null, undefined, NaN'},{nombre:"Valores Truthy",descripcion:'Todo lo demás. Ej: "hola", 42, [], {}, function(){}'}],nota:"OJO: [] (array vacío) y {} (objeto vacío) son TRUTHY, a diferencia de otros lenguajes."},{titulo:"Comportamiento especial de && y ||",contenido:"Cuando usamos && y || con valores NO booleanos, JavaScript tiene un comportamiento especial que se usa mucho en React:",reglas:[{operador:"&&",regla:"Si A es truthy → devuelve B. Si A es falsy → devuelve A.",ejemplos:[{codigo:"10 && 20",resultado:"20",explicacion:"10 es truthy, devuelve B"},{codigo:"0 && 'hola'",resultado:"0",explicacion:"0 es falsy, devuelve A"},{codigo:"'texto' && 'otro'",resultado:"'otro'",explicacion:"Ambos truthy, devuelve B"},{codigo:"null && 'algo'",resultado:"null",explicacion:"null es falsy, devuelve A"}]},{operador:"||",regla:"Si A es truthy → devuelve A. Si A es falsy → devuelve B.",ejemplos:[{codigo:"10 || 20",resultado:"10",explicacion:"10 es truthy, devuelve A"},{codigo:"0 || 'default'",resultado:"'default'",explicacion:"0 es falsy, devuelve B"},{codigo:"'' || 'texto'",resultado:"'texto'",explicacion:"'' es falsy, devuelve B"},{codigo:"'hola' || 'otro'",resultado:"'hola'",explicacion:"'hola' es truthy, devuelve A"}]}],nota:"Estos patrones se usan mucho en React para renderizado condicional: {isLoading && &lt;Spinner /&gt;}"},{titulo:"Operador de Asignación Nula (??=)",contenido:"Asigna un valor a una variable SOLO si esta es null o undefined (ES2020):",sintaxis:"x ??= valor",equivalencia:"Es equivalente a: if (x === null || x === undefined) { x = valor; }",ejemplos:[{codigo:`let x = null;
+const rol = name === 'Admin' ? 'Administrador' : 'Usuario';`}]},{titulo:"Operador Nullish Coalescing (??)",contenido:"Devuelve el operando derecho solo cuando el izquierdo es null o undefined (ES2020):",sintaxis:"a ?? b",comparacion:[{expresion:"null ?? 'default'",resultadoNullish:"'default'",resultadoOr:"'default'"},{expresion:"undefined ?? 'default'",resultadoNullish:"'default'",resultadoOr:"'default'"},{expresion:"0 ?? 'default'",resultadoNullish:"0",resultadoOr:"'default'",diferente:!0},{expresion:"'' ?? 'default'",resultadoNullish:"''",resultadoOr:"'default'",diferente:!0},{expresion:"false ?? 'default'",resultadoNullish:"false",resultadoOr:"'default'",diferente:!0}],nota:"A diferencia de ||, el operador ?? NO considera 0, '' o false como valores 'nullish'."},{titulo:"Concepto: Truthy y Falsy",contenido:"En JavaScript, cualquier valor puede evaluarse como booleano. Esto es fundamental para entender los operadores lógicos.",puntosClave:["Valores Falsy: Se evalúan como false.","Valores Truthy: Se evalúan como true (todo lo que no es falsy)."],caracteristicas:[{nombre:"Valores Falsy (6)",descripcion:'false, 0, "" (string vacío), null, undefined, NaN'},{nombre:"Valores Truthy",descripcion:'Todo lo demás. Ej: "hola", 42, [], {}, function(){}'}],nota:"OJO: [] (array vacío) y {} (objeto vacío) son TRUTHY, a diferencia de otros lenguajes."},{titulo:"Comportamiento especial de && y ||",contenido:"Cuando usamos && y || con valores NO booleanos, JavaScript tiene un comportamiento especial que se usa mucho en React:",reglas:[{operador:"&&",regla:"Si A es truthy → devuelve B. Si A es falsy → devuelve A.",ejemplos:[{codigo:"10 && 20",resultado:"20",explicacion:"10 es truthy, devuelve B"},{codigo:"0 && 'hola'",resultado:"0",explicacion:"0 es falsy, devuelve A"},{codigo:"'texto' && 'otro'",resultado:"'otro'",explicacion:"Ambos truthy, devuelve B"},{codigo:"null && 'algo'",resultado:"null",explicacion:"null es falsy, devuelve A"}]},{operador:"||",regla:"Si A es truthy → devuelve A. Si A es falsy → devuelve B.",ejemplos:[{codigo:"10 || 20",resultado:"10",explicacion:"10 es truthy, devuelve A"},{codigo:"0 || 'default'",resultado:"'default'",explicacion:"0 es falsy, devuelve B"},{codigo:"'' || 'texto'",resultado:"'texto'",explicacion:"'' es falsy, devuelve B"},{codigo:"'hola' || 'otro'",resultado:"'hola'",explicacion:"'hola' es truthy, devuelve A"}]}],nota:"Estos patrones se usan mucho en React para renderizado condicional: {isLoading && &lt;Spinner /&gt;}"},{titulo:"Operadores Bitwise (Binarios)",contenido:"Operan a nivel de bits. Poco frecuentes en desarrollo web alto nivel, pero útiles en casos específicos (permisos, optimización).",operadores:[{simbolo:"&",nombre:"AND",ejemplo:"5 & 1 // 1"},{simbolo:"|",nombre:"OR",ejemplo:"5 | 1 // 5"},{simbolo:"~",nombre:"NOT",ejemplo:"~5 // -6"},{simbolo:"^",nombre:"XOR",ejemplo:"5 ^ 1 // 4"},{simbolo:"<<",nombre:"Left Shift",ejemplo:"5 << 1 // 10"},{simbolo:">>",nombre:"Right Shift",ejemplo:"5 >> 1 // 2"}]},{titulo:"Operador de Asignación Nula (??=)",contenido:"Asigna un valor a una variable SOLO si esta es null o undefined (ES2020):",sintaxis:"x ??= valor",equivalencia:"Es equivalente a: if (x === null || x === undefined) { x = valor; }",ejemplos:[{codigo:`let x = null;
 x ??= 50;
 // x = 50`,explicacion:"x era null, se asigna 50"},{codigo:`let y = 10;
 y ??= 50;
@@ -462,7 +462,7 @@ console.log(nombres[5]); // undefined (hueco vacío)
 // nombres = ['Jose', 'Luis', <8 empty items>, 'María']`},{titulo:"Recorrer Arrays con for y for...of",contenido:"Existen varias formas de iterar sobre los elementos de un array.",metodosIteracion:[{metodo:"for clásico",descripcion:"Control total sobre el índice. Útil cuando necesitas el índice.",codigo:"const nums = [10, 20, 30];\nfor (let i = 0; i < nums.length; i++) {\n  console.log(`Posición ${i}: ${nums[i]}`);\n}"},{metodo:"for...of",descripcion:"Más limpio cuando solo necesitas los valores, no los índices.",codigo:`const nombres = ['Ana', 'Luis', 'Eva'];
 for (const nombre of nombres) {
   console.log(nombre);
-}`}],nota:"Cuando el array es muy grande, es más eficiente guardar `length` en una variable antes del loop para evitar recalcularlo en cada iteración."},{titulo:"¿Qué es un Objeto?",contenido:"Un objeto es una estructura de datos que almacena pares **clave-valor**. A diferencia de los arrays, las claves son strings (o Symbols) en lugar de números.",puntosClave:["Sirven para modelar entidades del mundo real con propiedades","En JavaScript NO es necesario definir una clase para crear un objeto","También son tipos por referencia","Las claves se escriben sin comillas, los valores según su tipo"],codigo:`// Declaración de un objeto literal
+}`}],nota:"Cuando el array es muy grande, es más eficiente guardar `length` en una variable antes del loop para evitar recalcularlo en cada iteración."},{titulo:"¿Qué es un Objeto?",contenido:"Un objeto es una estructura de datos que almacena pares **clave-valor**. A diferencia de los arrays, las claves son strings (o Symbols) en lugar de números.",puntosClave:["Sirven para modelar entidades del mundo real con propiedades","En JavaScript NO es necesario definir una clase para crear un objeto","También son tipos por referencia","Las claves se escriben sin comillas, los valores según su tipo","**delete** elimina la clave del objeto. Asignar **null** la mantiene con valor null."],codigo:`// Declaración de un objeto literal
 const persona = {
   firstName: 'Bienvenido',
   lastName: 'Saez',
@@ -617,7 +617,7 @@ colores.includes('azul'); // false`}]},{titulo:"Buscar en Arrays de Objetos",con
 
 const usuario = usuarios.find(u => u.id === 2);
 // { id: 2, nombre: 'Luis' }`},{metodo:"findIndex()",descripcion:"Devuelve el **índice** del primer elemento que cumple la condición, o -1.",codigo:`const idx = usuarios.findIndex(u => u.nombre === 'Ana');
-// 0`}],nota:"Ambos métodos detienen la búsqueda en cuanto encuentran una coincidencia (eficiente)."},{titulo:"Spread Operator (...)",contenido:"El operador spread `...` expande los elementos de un array (o propiedades de un objeto) individualmente.",metodosArray:[{metodo:"Copiar arrays",descripcion:"Crea una copia superficial de forma concisa.",codigo:`const original = [1, 2, 3];
+// 0`}],nota:"Ambos métodos detienen la búsqueda en cuanto encuentran una coincidencia (eficiente).",alerta:"`indexOf()` NO funciona con objetos porque compara referencias de memoria, no contenido. Usa `find()` o `findIndex()` para buscar objetos por propiedades."},{titulo:"Spread Operator (...)",contenido:"El operador spread `...` expande los elementos de un array (o propiedades de un objeto) individualmente.",metodosArray:[{metodo:"Copiar arrays",descripcion:"Crea una copia superficial de forma concisa.",codigo:`const original = [1, 2, 3];
 const copia = [...original];`},{metodo:"Concatenar arrays",descripcion:"Combina múltiples arrays en uno nuevo.",codigo:`const a = [1, 2];
 const b = [3, 4];
 const juntos = [...a, ...b]; // [1, 2, 3, 4]`},{metodo:"Insertar elementos",descripcion:"Añade elementos en cualquier posición.",codigo:`const nums = [1, 4, 5];
@@ -979,7 +979,29 @@ const perro = Object.create(animal);
 perro.hacerRuido = function() { console.log("Guau!"); };
 
 perro.hacerRuido(); // "Guau!" (Propio)
-animal.hacerRuido(); // "Sonido genérico" (Original)`}]},{id:16,titulo:"Clases en JavaScript",descripcion:"Aprende la sintaxis moderna (ES6) para crear clases, constructores, métodos, encapsulamiento y herencia.",temas:[{titulo:"¿Qué son las Clases en JS?",contenido:"Introducidas en ES6 (2015), son una mejora sintáctica sobre los prototipos. Por debajo siguen usando prototipos, pero ofrecen una sintaxis más clara y familiar para programadores de otros lenguajes (Java, C#, Python).",codigo:`class Usuario {
+animal.hacerRuido(); // "Sonido genérico" (Original)`},{titulo:"Ejemplo: Sobrescribir toString()",contenido:"Todos los objetos heredan `toString()` de `Object.prototype`, pero podemos sobrescribirlo para personalizar cómo se imprime nuestro objeto.",codigo:`const persona = { nombre: "sin nombre", profesion: "sin profesión" };
+
+const alumno = Object.create(persona);
+alumno.nombre = "Juan";
+alumno.edad = 25;
+
+// Por defecto, toString devuelve "[object Object]"
+console.log(alumno.toString()); // "[object Object]"
+
+// Sobrescribimos toString para alumno
+alumno.toString = function() {
+  return \`Hola, mi nombre es \${this.nombre} y tengo \${this.edad} años\`;
+};
+
+console.log(alumno.toString()); // "Hola, mi nombre es Juan y tengo 25 años"
+console.log(persona.toString()); // "[object Object]" (no afectado)`},{titulo:"Ver el Prototipo de Object",contenido:"Puedes inspeccionar todos los métodos que heredan los objetos desde `Object.prototype`.",codigo:`// Ver todos los métodos de Object.prototype
+console.log(Object.prototype);
+// constructor, toString, valueOf, hasOwnProperty, isPrototypeOf, etc.
+
+// Cadena completa: alumno -> persona -> Object.prototype -> null
+console.log(alumno.__proto__);                    // persona
+console.log(alumno.__proto__.__proto__);          // Object.prototype
+console.log(alumno.__proto__.__proto__.__proto__); // null (fin de la cadena)`}]},{id:16,titulo:"Clases en JavaScript",descripcion:"Aprende la sintaxis moderna (ES6) para crear clases, constructores, métodos, encapsulamiento y herencia.",temas:[{titulo:"¿Qué son las Clases en JS?",contenido:"Introducidas en ES6 (2015), son una mejora sintáctica sobre los prototipos. Por debajo siguen usando prototipos, pero ofrecen una sintaxis más clara y familiar para programadores de otros lenguajes (Java, C#, Python).",codigo:`class Usuario {
   constructor(nombre) {
     this.nombre = nombre;
   }
@@ -1034,7 +1056,7 @@ u.edad = 30; // ✅ Llama al setter`},{titulo:"Métodos Estáticos",contenido:"S
 
 console.log(Utilidades.sumar(5, 10)); // 15
 // const u = new Utilidades();
-// u.sumar(1, 2); // ❌ Error, no existe en la instancia`},{titulo:"Herencia con `extends`",contenido:"Permite crear una clase que hereda propiedades y métodos de otra. Se usa la palabra clave `super` para llamar al constructor o métodos del padre.",codigo:`class Animal {
+// u.sumar(1, 2); // ❌ Error, no existe en la instancia`},{titulo:"Herencia con `extends`",contenido:"Permite crear una clase que hereda propiedades y métodos de otra. Se usa la palabra clave `super` para llamar al constructor o métodos del padre.",puntosClave:["**extends**: Indica que una clase hereda de otra.","**super()**: Llama al constructor del padre. Es **obligatorio** antes de usar `this` en el constructor hijo.","**super.metodo()**: Permite llamar a un método del padre desde el hijo.","El hijo hereda todos los métodos y propiedades del padre automáticamente."],codigo:`class Animal {
   constructor(nombre) { this.nombre = nombre; }
   comer() { console.log("Comiendo..."); }
 }
@@ -1049,8 +1071,33 @@ class Perro extends Animal {
 }
 
 const p = new Perro('Toby', 'Mastín');
-p.comer(); // Heredado
-p.ladrar(); // Propio`}]},{id:17,titulo:"Ejercicios Prácticos I",descripcion:"Practica lo aprendido creando sistemas reales: Calculadora, Automóvil y Televisor.",temas:[{titulo:"Manejo de Errores (Try / Catch)",contenido:"Antes de realizar los ejercicios, es fundamental aprender a manejar situaciones inesperadas (como dividir por cero o recibir texto inválido) para evitar que el programa se detenga. Usamos `try`, `catch` y `throw`.",puntosClave:["`throw new Error('msg')`: Detiene la ejecución y lanza un error manualmente.","`try { ... }`: Bloque de código donde intentamos ejecutar algo 'peligroso'.","`catch (err) { ... }`: Bloque que captura el error si ocurre en el `try`.","`finally`: Bloque que se ejecuta siempre (opcional)."],codigo:`function dividir(a, b) {
+p.comer(); // Heredado del padre
+p.ladrar(); // Propio de Perro`},{titulo:"Sobrescribir Métodos (Override)",contenido:"El hijo puede redefinir un método del padre para personalizarlo. El método del hijo 'tapa' al del padre solo para la instancia hija.",codigo:`class Persona {
+  saludar() {
+    console.log(\`Hola, soy \${this.nombre}\`);
+  }
+}
+
+class Alumno extends Persona {
+  constructor(nombre, curso) {
+    super(nombre);
+    this.curso = curso;
+  }
+
+  // Override: misma firma que el padre
+  saludar() {
+    console.log(\`Hola, soy \${this.nombre} y soy alumno de \${this.curso}\`);
+  }
+}
+
+const p = new Persona('Juan');
+const a = new Alumno('María', '1º Bachillerato');
+
+p.saludar(); // "Hola, soy Juan"
+a.saludar(); // "Hola, soy María y soy alumno de 1º Bachillerato"`},{titulo:"Nota: Propiedades Privadas en Chrome DevTools",contenido:"Google Chrome permite ver propiedades privadas (#) en la consola del navegador para facilitar el debugging. Sin embargo, **en tu código** no podrás acceder a ellas desde fuera de la clase.",alerta:"No te confundas: que Chrome te muestre `#saldo` en la consola no significa que sea accesible. En el código real dará error."}]},{id:17,titulo:"Ejercicios Prácticos I",descripcion:"Practica lo aprendido creando sistemas reales: Calculadora, Automóvil y Televisor.",temas:[{titulo:"Manejo de Errores (Try / Catch)",contenido:"Antes de realizar los ejercicios, es fundamental aprender a manejar situaciones inesperadas (como dividir por cero o recibir texto inválido) para evitar que el programa se detenga. Usamos `try`, `catch` y `throw`.",puntosClave:["`throw new Error('msg')`: Detiene la ejecución y lanza un error manualmente.","`try { ... }`: Bloque de código donde intentamos ejecutar algo 'peligroso'.","`catch (err) { ... }`: Bloque que captura el error si ocurre en el `try`. El objeto `err` tiene `name` y `message`.","`finally`: Bloque que se ejecuta siempre (opcional), haya error o no.","`isNaN(valor)`: Devuelve `true` si el valor NO es un número. Útil para validar inputs.","`console.error(msg)`: Muestra el mensaje en rojo en la consola (para errores)."],codigo:`function dividir(a, b) {
+  if (isNaN(a) || isNaN(b)) {
+    throw new Error("Debe introducir un número válido");
+  }
   if (b === 0) throw new Error("No se puede dividir por 0");
   return a / b;
 }
@@ -1059,6 +1106,8 @@ try {
   dividir(10, 0);
 } catch (error) {
   console.error("Error capturado:", error.message);
+  // error.name => "Error"
+  // error.message => "No se puede dividir por 0"
 } finally {
   console.log("Operación terminada");
 }`},{titulo:"Ejercicio 1: Calculadora",contenido:"Crea una clase `Calculadora` con métodos para sumar, restar, multiplicar y dividir. Maneja errores como la división por cero o inputs no numéricos.",codigo:`class Calculadora {
@@ -1209,7 +1258,7 @@ try {
       return acc + \`\${index + 1}. \${nota}\\n\`;
     }, \`=== \${this.titulo} ===\\n\`);
   }
-}`},{titulo:"Ejercicio 5: Billetera Virtual",contenido:"El ejercicio final consiste en modelar una Billetera (Wallet) que contenga Movimientos. Practicaremos la composición de clases (una clase usando otra).",codigo:`class Movimiento {
+}`},{titulo:"Conceptos Clave: splice() y reduce()",contenido:"El ejercicio del Anotador usa estos métodos importantes:",puntosClave:["**splice(index, 1)**: Elimina 1 elemento en la posición `index`. Modifica el array original.","**reduce((acc, item, index) => {...}, valorInicial)**: El tercer parámetro de la callback es el índice actual.","Usa el índice para numerar elementos en listas (ej: `${index + 1}. ${nota}`)."]},{titulo:"Ejercicio 5: Billetera Virtual",contenido:"El ejercicio final consiste en modelar una Billetera (Wallet) que contenga Movimientos. Practicaremos la **composición de clases** (una clase usando otra).",puntosClave:["**Composición**: La clase `Wallet` contiene un array de objetos `Movimiento`.","**new Date(año, mes, día)**: Crea fechas. ¡El mes empieza en 0! (Enero = 0, Febrero = 1...).","**getMonth()**: Devuelve el mes de una fecha (0-11).","**Encadenamiento**: Puedes hacer `array.filter(...).reduce(...)` para filtrar y luego calcular."],codigo:`class Movimiento {
   constructor(descripcion, cantidad, fecha, tipo, categoria) {
     this.descripcion = descripcion;
     this.cantidad = cantidad;
@@ -1250,16 +1299,62 @@ class Wallet {
           : total - op.cantidad;
       }, 0);
   }
-}`}]}]},l={titulo:"Módulos ES6 y Tooling",descripcion:"Organización de código con Import/Export, gestión de dependencias y bundlers como Vite.",icono:"fa-box-open",clases:[{id:19,titulo:"Módulos en ECMAScript 6 y Vite",descripcion:"Aprende a modularizar tu código, la sintaxis de import/export y cómo configurar un entorno de desarrollo profesional con Vite.",temas:[{titulo:"¿Qué son los Módulos?",contenido:"A medida que nuestras aplicaciones crecen, tener todo el código en un solo archivo o en múltiples scripts globales se vuelve inmanejable. Los módulos nos permiten dividir el código en archivos separados, reutilizables y con su propio ámbito (scope), evitando la contaminación del espacio global.",puntosClave:["Encapsulamiento: Las variables no son globales por defecto.","Reutilización: Exporta una vez, importa en múltiples lugares.","Dependencias explícitas: `import` define claramente qué necesita cada archivo."]},{titulo:"Tipos de Exportación",contenido:"Para que una variable, función o clase esté disponible para otros archivos, debemos exportarla. Existen dos tipos principales de exportación.",tiposDeclaracion:[{nombre:"Named Export (Exportación Nombrada)",descripcion:"Exporta múltiples valores con sus nombres. Al importar, debes usar los mismos nombres entre llaves `{}`.",codigo:`// utils.js
+}`},{titulo:"Uso de la Wallet",contenido:"Ejemplo de cómo crear movimientos y agregarlos a la billetera.",codigo:`// Crear billetera
+const cartera = new Wallet();
+
+// Crear movimientos (año, mes, día) - ¡Marzo es mes 2!
+const nomina = new Movimiento('Nómina', 3000, new Date(2024, 1, 1), 'ganancia', 'trabajo');
+const compra = new Movimiento('Supermercado', 150, new Date(2024, 1, 5), 'gasto', 'comida');
+
+// Agregar a la billetera
+cartera.agregarMovimiento(nomina);
+cartera.agregarMovimiento(compra);
+
+console.log(cartera.monto); // 2850
+
+// Filtrar gastos de febrero (mes 1)
+const gastosFeb = cartera.obtenerGastosPorMes(1);`}]}]},l={titulo:"Módulos ES6 y Tooling",descripcion:"Organización de código con Import/Export, gestión de dependencias y bundlers como Vite.",icono:"fa-box-open",clases:[{id:19,titulo:"Módulos en ECMAScript 6 y Vite",descripcion:"Aprende a modularizar tu código, la sintaxis de import/export y cómo configurar un entorno de desarrollo profesional con Vite.",temas:[{titulo:"¿Qué son los Módulos?",contenido:"A medida que nuestras aplicaciones crecen, tener todo el código en un solo archivo o en múltiples scripts globales se vuelve inmanejable. Los módulos nos permiten dividir el código en archivos separados, reutilizables y con su propio ámbito (scope), evitando la contaminación del espacio global.",puntosClave:["**Encapsulamiento**: Las variables no son globales por defecto, solo se expone lo que exportas.","**Reutilización**: Exporta una vez, importa en múltiples lugares.","**Dependencias explícitas**: `import` define claramente qué necesita cada archivo.","**Sin contaminación global**: Cada módulo tiene su propio scope, evitando conflictos de nombres."]},{titulo:"El Problema sin Módulos",contenido:"Antes de los módulos, si querías usar código de varios archivos, tenías que importar cada uno con etiquetas `<script>` en el HTML. Todo quedaba en el contexto global y cualquier parte de la aplicación podía acceder a cualquier variable.",puntosClave:["**Múltiples scripts**: Necesitabas tantas etiquetas `<script>` como archivos JS tuvieras.","**Orden importa**: Los scripts debían cargarse en orden correcto de dependencias.","**Contexto global**: Todas las variables eran accesibles desde cualquier lugar.","**Colisiones de nombres**: Fácil sobrescribir variables accidentalmente."],codigo:`<!-- Antes: múltiples scripts en orden de dependencia -->
+<script src="movimiento.js"><\/script>
+<script src="wallet.js"><\/script>
+<script src="main.js"><\/script>
+<!-- Todo en contexto global, cualquiera accede a todo -->`},{titulo:"Tipos de Exportación",contenido:"Para que una variable, función o clase esté disponible para otros archivos, debemos exportarla. Existen dos tipos principales de exportación.",tiposDeclaracion:[{nombre:"Named Export (Exportación Nombrada)",descripcion:"Exporta múltiples valores con sus nombres. Al importar, debes usar los mismos nombres entre llaves `{}`.",codigo:`// utils.js
 export const pi = 3.1416;
 export function sumar(a, b) { return a + b; }
 
-// También al final del archivo:
-// export { pi, sumar };`},{nombre:"Default Export (Exportación por Defecto)",descripcion:"Solo un `export default` por archivo. Útil para exportar lo 'principal' del módulo (una clase, un componente). Al importar, puedes darle cualquier nombre y no usar llaves.",codigo:`// user.js
+// También al final del archivo (alternativa):
+const pi = 3.1416;
+function sumar(a, b) { return a + b; }
+export { pi, sumar };`},{nombre:"Default Export (Exportación por Defecto)",descripcion:"Solo un `export default` por archivo. Útil para exportar lo 'principal' del módulo (una clase, un componente). Al importar, puedes darle cualquier nombre y no usar llaves.",codigo:`// user.js
 export default class User { ... }
 
 // O al final:
-// export default User;`}]},{titulo:"Modos de Importación",contenido:"Trae funcionalidades de otros módulos al archivo actual.",codigo:`// Importar Named Exports
+class User { ... }
+export default User;`}]},{titulo:"Combinar Named y Default Export",contenido:"Puedes usar ambos tipos de exportación en el mismo archivo. El `export default` será lo principal, y los `named exports` serán utilidades adicionales.",codigo:`// modulo.js
+const MI_CONSTANTE = 42;
+let variablePrivada = 'no exportada'; // No se puede importar
+
+function miFuncion() {
+  console.log('Desde mi función');
+}
+
+// Export default para lo principal
+export default miFuncion;
+
+// Named export para elementos adicionales
+export { MI_CONSTANTE };
+
+// La variablePrivada NO está exportada, 
+// por lo tanto NO puede ser importada desde otro archivo`},{titulo:"Alias con 'as'",contenido:"Puedes renombrar elementos al exportar o al importar para evitar conflictos de nombres o mejorar legibilidad.",codigo:`// Al exportar con alias
+function saludar() { console.log('Hola'); }
+function despedir() { console.log('Adiós'); }
+export { saludar as hello, despedir as bye };
+
+// Al importar con alias
+import { hello as greet, bye as farewell } from './utils.js';
+
+// Útil cuando dos módulos exportan algo con el mismo nombre
+import { Usuario as UsuarioAuth } from './auth.js';
+import { Usuario as UsuarioDB } from './database.js';`},{titulo:"Modos de Importación",contenido:"Trae funcionalidades de otros módulos al archivo actual.",codigo:`// Importar Named Exports
 import { pi, sumar } from './utils.js';
 
 // Importar Default Export (nombre arbitrario)
@@ -1270,9 +1365,42 @@ import { sumar as add } from './utils.js';
 
 // Importar TODO como un objeto
 import * as Utils from './utils.js';
-console.log(Utils.pi);`},{titulo:"El Atributo `type='module'`",contenido:"Para usar módulos nativos en el navegador (sin bundler), debes agregar `type='module'` a tu etiqueta script.",codigo:'<script type="module" src="./main.js"><\/script>',alerta:"Los módulos requieren ejecutarse en un **servidor web** (http://) debido a políticas de seguridad CORS. No funcionarán abriendo el archivo directamente (file://)."},{titulo:"Vite: Entorno de Desarrollo",contenido:"Para evitar configuraciones complejas y problemas de CORS, usamos **Vite**, un bundler moderno y ultra-rápido.",pasos:[{paso:"1. Instalar Node.js",descripcion:"Recomendado usar **nvm** (Node Version Manager) para gestionar versiones. Crear archivo `.nvmrc` con la versión (ej. `v20.10.0`)."},{paso:"2. Crear Proyecto",descripcion:"Ejecutar `npm create vite@latest` en la terminal.",codigo:`npm create vite@latest mi-proyecto
-# Seleccionar: Vanilla (JS) -> JavaScript`},{paso:"3. Instalar Dependencias",descripcion:"Entrar a la carpeta e instalar.",codigo:`cd mi-proyecto
-npm install`},{paso:"4. Iniciar Servidor",descripcion:"Arrancar el entorno de desarrollo.",codigo:"npm run dev"}],nota:"Vite se encarga de servir tus módulos, recargar la página automáticamente (HMR) y optimizar el código para producción."}]}]},d={titulo:"Manipulación del DOM",descripcion:"Domina el Document Object Model (DOM) para crear interfaces web dinámicas e interactivas.",icono:"fa-code",clases:[{id:20,titulo:"Selectores del DOM",descripcion:"Aprende a seleccionar elementos del DOM utilizando métodos tradicionales y modernos.",temas:[{titulo:"¿Qué es un Selector?",contenido:"Un selector nos permite identificar y obtener elementos del DOM (Document Object Model) para poder manipularlos. Existen selectores tradicionales y modernos (similares a CSS)."},{titulo:"Selectores Tradicionales (GetElement)",contenido:"Métodos específicos optimizados para seleccionar por ID, clase, etiqueta o nombre. Son más rápidos que los modernos pero menos flexibles.",puntosClave:["`document.getElementById('id')`: Devuelve un **único elemento** `HTMLElement` o `null` si no existe.","`document.getElementsByClassName('clase')`: Devuelve una `HTMLCollection` (array-like) **en vivo**.","`document.getElementsByTagName('tag')`: Devuelve una `HTMLCollection` **en vivo** con todos los elementos de ese tipo.","`document.getElementsByName('name')`: Devuelve una `NodeList` **en vivo** (especial) con elementos que tengan ese atributo `name`."]},{titulo:"Selectores Modernos (Query Selector)",contenido:"Permiten usar sintaxis de selectores CSS completa. Son un poco más lentos pero infinitamente más flexibles. La diferencia de rendimiento es imperceptible en la mayoría de aplicaciones.",puntosClave:["`document.querySelector('selector')`: Devuelve el **primer elemento** que coincida o `null`.","`document.querySelectorAll('selector')`: Devuelve una `NodeList` **estática** con **todos** los elementos que coincidan. **Siempre** devuelve una NodeList, aunque sea vacía o solo encuentre uno."],codigo:`// Selecciona el primer elemento que coincida
+console.log(Utils.pi);
+Utils.sumar(2, 3);`},{titulo:"Exportar un Objeto Personalizado",contenido:"Puedes crear un objeto específicamente para exportar, agrupando varias funcionalidades bajo un mismo namespace.",codigo:`// utils.js
+function funcionA() { ... }
+function funcionB() { ... }
+const constante = 100;
+
+// Objeto personalizado para exportar
+const MisUtils = {
+  funcionA,
+  funcionB,
+  constante
+};
+
+export default MisUtils;
+
+// En otro archivo:
+import MisUtils from './utils.js';
+MisUtils.funcionA();
+console.log(MisUtils.constante);`},{titulo:"El Atributo `type='module'`",contenido:"Para usar módulos nativos en el navegador (sin bundler), debes agregar `type='module'` a tu etiqueta script.",codigo:'<script type="module" src="./main.js"><\/script>',alerta:"Los módulos requieren ejecutarse en un **servidor web** (http://) debido a políticas de seguridad CORS. No funcionarán abriendo el archivo directamente (file://). **Live Server no cumple con CORS**, por eso necesitas Vite u otro bundler."},{titulo:"Errores Comunes",contenido:"Problemas típicos al trabajar con módulos y cómo solucionarlos.",puntosClave:["**SyntaxError: Unexpected token 'export'**: Falta `type='module'` en el script.","**CORS Error**: Estás abriendo el archivo con file://. Necesitas un servidor HTTP.","**Live Server no funciona**: Live Server no es compatible con CORS para módulos. Usa Vite.","**Módulo no encontrado**: Revisa la ruta del import (./relativa o absoluta).","**Cannot use import statement outside a module**: El script no está marcado como módulo."]},{titulo:"Vite: Entorno de Desarrollo",contenido:"Para evitar configuraciones complejas y problemas de CORS, usamos **Vite**, un bundler moderno y ultra-rápido.",pasos:[{paso:"1. Instalar Node.js con NVM",descripcion:"Recomendado usar **nvm** (Node Version Manager) para gestionar versiones.",codigo:`# Instalar una versión de Node
+nvm install 20.10
+
+# Usar esa versión
+nvm use 20.10
+
+# Crear archivo .nvmrc para recordar la versión
+node -v > .nvmrc`},{paso:"2. Crear Proyecto",descripcion:"Ejecutar `npm create vite@latest` en la terminal.",codigo:`npm create vite@latest mi-proyecto
+# Seleccionar: Vanilla -> JavaScript`},{paso:"3. Instalar Dependencias",descripcion:"Entrar a la carpeta e instalar.",codigo:`cd mi-proyecto
+npm install`},{paso:"4. Iniciar Servidor",descripcion:"Arrancar el entorno de desarrollo.",codigo:"npm run dev"}],nota:"Vite se encarga de servir tus módulos, recargar la página automáticamente (HMR) y optimizar el código para producción."},{titulo:"El Archivo .nvmrc",contenido:"Buena práctica: crear un archivo `.nvmrc` en la raíz del proyecto con la versión de Node que usas. Así, al volver al proyecto, solo ejecutas `nvm use` y automáticamente usará la versión correcta.",codigo:`# Crear el archivo con la versión actual
+node -v > .nvmrc
+
+# Contenido del archivo .nvmrc:
+v20.10.0
+
+# Al volver al proyecto:
+nvm use
+# Lee .nvmrc y usa esa versión automáticamente`}]}]},d={titulo:"Manipulación del DOM",descripcion:"Domina el Document Object Model (DOM) para crear interfaces web dinámicas e interactivas.",icono:"fa-code",clases:[{id:20,titulo:"Selectores del DOM",descripcion:"Aprende a seleccionar elementos del DOM utilizando métodos tradicionales y modernos.",temas:[{titulo:"¿Qué es un Selector?",contenido:"Un selector nos permite identificar y obtener elementos del DOM (Document Object Model) para poder manipularlos. Existen selectores tradicionales y modernos (similares a CSS)."},{titulo:"Selectores Tradicionales (GetElement)",contenido:"Métodos específicos optimizados para seleccionar por ID, clase, etiqueta o nombre. Son más rápidos que los modernos pero menos flexibles.",puntosClave:["`document.getElementById('id')`: Devuelve un **único elemento** `HTMLElement` o `null` si no existe.","`document.getElementsByClassName('clase')`: Devuelve una `HTMLCollection` (array-like) **en vivo**.","`document.getElementsByTagName('tag')`: Devuelve una `HTMLCollection` **en vivo** con todos los elementos de ese tipo.","`document.getElementsByName('name')`: Devuelve una `NodeList` **en vivo** (especial) con elementos que tengan ese atributo `name`."]},{titulo:"Selectores Modernos (Query Selector)",contenido:"Permiten usar sintaxis de selectores CSS completa. Son un poco más lentos pero infinitamente más flexibles. La diferencia de rendimiento es imperceptible en la mayoría de aplicaciones.",puntosClave:["`document.querySelector('selector')`: Devuelve el **primer elemento** que coincida o `null`.","`document.querySelectorAll('selector')`: Devuelve una `NodeList` **estática** con **todos** los elementos que coincidan. **Siempre** devuelve una NodeList, aunque sea vacía o solo encuentre uno."],codigo:`// Selecciona el primer elemento que coincida
 const elemento = document.querySelector('.mi-clase p:first-child');
 
 // Selecciona TODOS los elementos que coincidan
@@ -1299,7 +1427,7 @@ arrayFromCollection.map(p => p.textContent);`}]},{id:21,titulo:"Creación de Ele
 1. Element Node: <div> (padre)
 2. Text Node: "Salto de línea + espacios" (entre div y Hola)
 3. Text Node: "Hola Mundo"
-4. Text Node: "Salto de línea" (después de Hola)`},{titulo:"Tipos de Nodos",contenido:"El DOM tiene diferentes tipos de nodos. Los más comunes son Elementos (etiquetas) y Nodos de Texto.",puntosClave:["**Element Node**: Etiquetas HTML (`div`, `p`, `span`).","**Text Node**: Contenido textual dentro de las etiquetas.","**Comment Node**: Comentarios HTML."]},{titulo:"Creación de Nodos",contenido:"Métodos para instanciar nuevos nodos en memoria (aún no visibles en el DOM).",codigo:`// Crear un elemento HTML (Element Node)
+4. Text Node: "Salto de línea" (después de Hola)`},{titulo:"Tipos de Nodos",contenido:"El DOM tiene diferentes tipos de nodos. Los más comunes son Elementos (etiquetas) y Nodos de Texto.",puntosClave:["**Element Node**: Etiquetas HTML (`div`, `p`, `span`).","**Text Node**: Contenido textual dentro de las etiquetas.","**Comment Node**: Comentarios HTML."]},{titulo:"Creación de Nodos",contenido:"Métodos para instanciar nuevos nodos en memoria (aún no visibles en el DOM).",puntosClave:["**createElement(tag)**: Crea un elemento HTML (div, p, span...). Devuelve un HTMLElement.","**createTextNode(texto)**: Crea un nodo de tipo texto. No es una etiqueta, es contenido.","**createComment(texto)**: Crea un nodo de tipo comentario HTML.","**createDocumentFragment()**: Crea un contenedor temporal para construir estructuras complejas sin afectar al DOM."],codigo:`// Crear un elemento HTML (Element Node)
 const div = document.createElement('div');
 
 // Crear un nodo de texto (Text Node)
@@ -1311,7 +1439,17 @@ const comentario = document.createComment('Esto es un comentario');
 // Fragmento de Documento (Mejora rendimiento)
 // Permite agregar múltiples elementos en memoria y luego insertarlos de una vez
 // Evita múltiples 'reflows' y 'repaints' del navegador, mejorando la velocidad
-const fragment = document.createDocumentFragment();`},{titulo:"Clonar Nodos",contenido:"Podemos duplicar nodos existentes con `cloneNode`. Es importante entender la copia superficial vs profunda.",codigo:`const original = document.getElementById('mi-div');
+const fragment = document.createDocumentFragment();`},{titulo:"DocumentFragment para Rendimiento",contenido:"Cuando necesitas crear estructuras complejas (listas, tablas con muchos elementos), cada operación en el DOM tiene un coste. El DocumentFragment permite construir todo en memoria y añadirlo de una sola vez.",puntosClave:["**Sin modificar el DOM**: Todas las operaciones en el fragment no afectan al documento real.","**Una sola inserción**: Al hacer appendChild del fragment, se insertan todos los elementos de golpe.","**Mejor rendimiento**: Reduce los reflows y repaints del navegador.","**El fragment desaparece**: Al insertar, solo se añaden sus hijos, el fragment queda vacío."],codigo:`// Crear una lista de 100 elementos de forma eficiente
+const fragment = document.createDocumentFragment();
+
+for (let i = 1; i <= 100; i++) {
+  const li = document.createElement('li');
+  li.textContent = \`Elemento \${i}\`;
+  fragment.appendChild(li); // Añadimos al fragment, no al DOM
+}
+
+// Una única operación en el DOM real
+document.getElementById('mi-lista').appendChild(fragment);`},{titulo:"Clonar Nodos",contenido:"Podemos duplicar nodos existentes con `cloneNode`. Es importante entender la copia superficial vs profunda.",codigo:`const original = document.getElementById('mi-div');
 
 // false (default): Clona solo el nodo (sin hijos ni texto)
 const copiaSimple = original.cloneNode(false);
@@ -1360,23 +1498,28 @@ input.disabled = false;
 input.removeAttribute('disabled');
 
 // BIEN: Usar toggleAttribute
-input.toggleAttribute('disabled', false); // Fuerza a quitarlo`}]},{id:23,titulo:"API classList y dataset",descripcion:"Formas modernas y eficientes de manejar clases CSS y datos personalizados.",temas:[{titulo:"classList vs className",contenido:"`className` maneja todo el string de clases (ineficiente para modificar una sola). `classList` ofrece una API potente (`DOMTokenList`).",codigo:`const div = document.querySelector('div');
+input.toggleAttribute('disabled', false); // Fuerza a quitarlo`}]},{id:23,titulo:"API classList y dataset",descripcion:"Formas modernas y eficientes de manejar clases CSS y datos personalizados.",temas:[{titulo:"classList vs className",contenido:"`className` maneja todo el string de clases (ineficiente para modificar una sola). `classList` ofrece una API potente (`DOMTokenList`).",puntosClave:["**className**: Sobreescribe todas las clases al asignar. Necesitas concatenar para añadir.","**classList**: API moderna con métodos para añadir, quitar, alternar clases sin afectar otras.","**classList.length**: Devuelve el número de clases del elemento.","**classList.item(n)**: Devuelve la clase en la posición n (como un array).","**classList.value**: Devuelve el string completo de clases (equivalente a className)."],codigo:`const div = document.querySelector('div');
 
-// Añadir
+// Añadir una o varias clases
 div.classList.add('activa', 'visible');
 
-// Eliminar
-div.classList.remove('oculta');
+// Eliminar una o varias clases
+div.classList.remove('oculta', 'inactiva');
 
 // Alternar (Toggle)
 div.classList.toggle('seleccionada'); // Si está la quita, si no, la pone
-div.classList.toggle('seleccionada', true); // Fuerza a ponerla
+div.classList.toggle('seleccionada', true); // Fuerza a ponerla (segundo param)
 
-// Comprobar
+// Comprobar si tiene una clase
 if (div.classList.contains('activa')) { ... }
 
-// Reemplazar
-div.classList.replace('vieja-clase', 'nueva-clase');`},{titulo:"Data Attributes (dataset)",contenido:"Permite almacenar datos personalizados en elementos HTML usando atributos `data-*`. Útil para lógica JS invisible al usuario.",codigo:`<!-- HTML -->
+// Reemplazar una clase por otra
+div.classList.replace('vieja-clase', 'nueva-clase');
+
+// Propiedades útiles
+console.log(div.classList.length); // Número de clases
+console.log(div.classList.item(0)); // Primera clase
+console.log(div.classList[0]); // También funciona como array`},{titulo:"Data Attributes (dataset)",contenido:"Permite almacenar datos personalizados en elementos HTML usando atributos `data-*`. Útil para lógica JS invisible al usuario.",codigo:`<!-- HTML -->
 <div id="user" data-user-id="123" data-role-admin="true" data-peso-kilogramo="80"></div>`},{titulo:"Uso de dataset en JS",contenido:"Se accede mediante la propiedad `dataset`. Las claves se convierten automáticamente de kebab-case a **camelCase**.",puntosClave:["`data-user-id` -> `dataset.userId`","`data-peso-kilogramo` -> `dataset.pesoKilogramo`","Para eliminar un data attribute, usa `removeAttribute('data-nombre')` (Setear a string vacío o null no lo elimina del HTML)."],codigo:`const user = document.getElementById('user');
 
 // Leer
@@ -1408,7 +1551,7 @@ div.insertAdjacentElement('afterend', el);    // Después de cerrar etiqueta
 div.insertAdjacentHTML('beforeend', '<p>Hola</p>');
 
 // Insertar Texto
-div.insertAdjacentText('afterbegin', 'Texto');`},{titulo:"Navegación: Nodos vs Elementos",contenido:"Es vital distinguir si navegamos por nodos (incluye texto/espacios) o elementos (solo etiquetas).",puntosClave:["**Hijos**: `childNodes` (Nodos, incluye saltos de línea) vs `children` (Solo Elementos).","**Primero**: `firstChild` vs `firstElementChild`.","**Último**: `lastChild` vs `lastElementChild`.","**Hermanos**: `nextSibling` vs `nextElementSibling`.","**Padre**: `parentNode` vs `parentElement`."],codigo:`// El espacio entre <div> y <p> en tu editor es un TextNode #text
+div.insertAdjacentText('afterbegin', 'Texto');`},{titulo:"Navegación: Nodos vs Elementos",contenido:"Es vital distinguir si navegamos por nodos (incluye texto/espacios) o elementos (solo etiquetas).",puntosClave:["**Hijos**: `childNodes` (Nodos, incluye saltos de línea) vs `children` (Solo Elementos).","**Primero**: `firstChild` vs `firstElementChild`.","**Último**: `lastChild` vs `lastElementChild`.","**Hermanos**: `nextSibling` vs `nextElementSibling`.","**Padre**: `parentNode` vs `parentElement`.","**¡Cuidado!**: Los saltos de línea y espacios en tu código HTML son nodos de texto (#text). `childNodes` puede devolver más elementos de los esperados."],codigo:`// El espacio entre <div> y <p> en tu editor es un TextNode #text
 // <div>
 //   <p>...</p>
 // </div>
@@ -2346,4 +2489,4 @@ resetBtn.addEventListener('click', () => Game.resetGame());
 const data = Game.getRowsCols();
 const game = new Game(data.rows, data.cols);
 
-// ¡Todo lo demás está encapsulado en las clases!`}]}]},p={1:t,2:i,3:s,4:c,5:l,6:d,7:u,8:m};function n(e){return p[e]||null}function g(e,o){const a=n(e);return a&&a.clases.find(r=>r.id===o)||null}function b(e){const o=n(e);return o?o.clases:[]}export{g as a,b as g};
+// ¡Todo lo demás está encapsulado en las clases!`}]}]},p={1:t,2:i,3:s,4:c,5:l,6:d,7:u,8:m};function n(e){return p[e]||null}function b(e,o){const a=n(e);return a&&a.clases.find(r=>r.id===o)||null}function g(e){const o=n(e);return o?o.clases:[]}export{b as a,g};
