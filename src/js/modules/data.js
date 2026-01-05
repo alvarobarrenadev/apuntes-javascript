@@ -26,13 +26,15 @@ export const modulesData = [
     title: "Arrays y Objetos",
     desc: "Estructuras de datos, métodos de iteración y algoritmos.",
     icon: "fa-layer-group",
-    count: 7
+    count: 7,
+    link: `${BASE}src/pages/modulo-3/`
   },
   {
     title: "POO y Prototipos",
     desc: "Modelo de objetos, herencia prototípica y clases ES6.",
     icon: "fa-cube",
-    count: 4
+    count: 4,
+    link: `${BASE}src/pages/modulo-4/`
   },
   {
     title: "Módulos ES6",
