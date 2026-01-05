@@ -112,6 +112,38 @@ perro.hacerRuido = function() { console.log("Guau!"); };
 
 perro.hacerRuido(); // "Guau!" (Propio)
 animal.hacerRuido(); // "Sonido genérico" (Original)`
+        },
+        {
+          titulo: "Ejemplo: Sobrescribir toString()",
+          contenido: "Todos los objetos heredan `toString()` de `Object.prototype`, pero podemos sobrescribirlo para personalizar cómo se imprime nuestro objeto.",
+          codigo: `const persona = { nombre: "sin nombre", profesion: "sin profesión" };
+
+const alumno = Object.create(persona);
+alumno.nombre = "Juan";
+alumno.edad = 25;
+
+// Por defecto, toString devuelve "[object Object]"
+console.log(alumno.toString()); // "[object Object]"
+
+// Sobrescribimos toString para alumno
+alumno.toString = function() {
+  return \`Hola, mi nombre es \${this.nombre} y tengo \${this.edad} años\`;
+};
+
+console.log(alumno.toString()); // "Hola, mi nombre es Juan y tengo 25 años"
+console.log(persona.toString()); // "[object Object]" (no afectado)`
+        },
+        {
+          titulo: "Ver el Prototipo de Object",
+          contenido: "Puedes inspeccionar todos los métodos que heredan los objetos desde `Object.prototype`.",
+          codigo: `// Ver todos los métodos de Object.prototype
+console.log(Object.prototype);
+// constructor, toString, valueOf, hasOwnProperty, isPrototypeOf, etc.
+
+// Cadena completa: alumno -> persona -> Object.prototype -> null
+console.log(alumno.__proto__);                    // persona
+console.log(alumno.__proto__.__proto__);          // Object.prototype
+console.log(alumno.__proto__.__proto__.__proto__); // null (fin de la cadena)`
         }
       ]
     },
@@ -216,6 +248,12 @@ console.log(Utilidades.sumar(5, 10)); // 15
         {
           titulo: "Herencia con `extends`",
           contenido: "Permite crear una clase que hereda propiedades y métodos de otra. Se usa la palabra clave `super` para llamar al constructor o métodos del padre.",
+          puntosClave: [
+            "**extends**: Indica que una clase hereda de otra.",
+            "**super()**: Llama al constructor del padre. Es **obligatorio** antes de usar `this` en el constructor hijo.",
+            "**super.metodo()**: Permite llamar a un método del padre desde el hijo.",
+            "El hijo hereda todos los métodos y propiedades del padre automáticamente."
+          ],
           codigo: `class Animal {
   constructor(nombre) { this.nombre = nombre; }
   comer() { console.log("Comiendo..."); }
@@ -231,8 +269,40 @@ class Perro extends Animal {
 }
 
 const p = new Perro('Toby', 'Mastín');
-p.comer(); // Heredado
-p.ladrar(); // Propio`
+p.comer(); // Heredado del padre
+p.ladrar(); // Propio de Perro`
+        },
+        {
+          titulo: "Sobrescribir Métodos (Override)",
+          contenido: "El hijo puede redefinir un método del padre para personalizarlo. El método del hijo 'tapa' al del padre solo para la instancia hija.",
+          codigo: `class Persona {
+  saludar() {
+    console.log(\`Hola, soy \${this.nombre}\`);
+  }
+}
+
+class Alumno extends Persona {
+  constructor(nombre, curso) {
+    super(nombre);
+    this.curso = curso;
+  }
+
+  // Override: misma firma que el padre
+  saludar() {
+    console.log(\`Hola, soy \${this.nombre} y soy alumno de \${this.curso}\`);
+  }
+}
+
+const p = new Persona('Juan');
+const a = new Alumno('María', '1º Bachillerato');
+
+p.saludar(); // "Hola, soy Juan"
+a.saludar(); // "Hola, soy María y soy alumno de 1º Bachillerato"`
+        },
+        {
+          titulo: "Nota: Propiedades Privadas en Chrome DevTools",
+          contenido: "Google Chrome permite ver propiedades privadas (#) en la consola del navegador para facilitar el debugging. Sin embargo, **en tu código** no podrás acceder a ellas desde fuera de la clase.",
+          alerta: "No te confundas: que Chrome te muestre `#saldo` en la consola no significa que sea accesible. En el código real dará error."
         }
       ]
     },
@@ -251,10 +321,15 @@ p.ladrar(); // Propio`
           puntosClave: [
             "`throw new Error('msg')`: Detiene la ejecución y lanza un error manualmente.",
             "`try { ... }`: Bloque de código donde intentamos ejecutar algo 'peligroso'.",
-            "`catch (err) { ... }`: Bloque que captura el error si ocurre en el `try`.",
-            "`finally`: Bloque que se ejecuta siempre (opcional)."
+            "`catch (err) { ... }`: Bloque que captura el error si ocurre en el `try`. El objeto `err` tiene `name` y `message`.",
+            "`finally`: Bloque que se ejecuta siempre (opcional), haya error o no.",
+            "`isNaN(valor)`: Devuelve `true` si el valor NO es un número. Útil para validar inputs.",
+            "`console.error(msg)`: Muestra el mensaje en rojo en la consola (para errores)."
           ],
           codigo: `function dividir(a, b) {
+  if (isNaN(a) || isNaN(b)) {
+    throw new Error("Debe introducir un número válido");
+  }
   if (b === 0) throw new Error("No se puede dividir por 0");
   return a / b;
 }
@@ -263,6 +338,8 @@ try {
   dividir(10, 0);
 } catch (error) {
   console.error("Error capturado:", error.message);
+  // error.name => "Error"
+  // error.message => "No se puede dividir por 0"
 } finally {
   console.log("Operación terminada");
 }`
@@ -447,8 +524,23 @@ try {
 }`
         },
         {
+          titulo: "Conceptos Clave: splice() y reduce()",
+          contenido: "El ejercicio del Anotador usa estos métodos importantes:",
+          puntosClave: [
+            "**splice(index, 1)**: Elimina 1 elemento en la posición `index`. Modifica el array original.",
+            "**reduce((acc, item, index) => {...}, valorInicial)**: El tercer parámetro de la callback es el índice actual.",
+            "Usa el índice para numerar elementos en listas (ej: `${index + 1}. ${nota}`)."
+          ]
+        },
+        {
           titulo: "Ejercicio 5: Billetera Virtual",
-          contenido: "El ejercicio final consiste en modelar una Billetera (Wallet) que contenga Movimientos. Practicaremos la composición de clases (una clase usando otra).",
+          contenido: "El ejercicio final consiste en modelar una Billetera (Wallet) que contenga Movimientos. Practicaremos la **composición de clases** (una clase usando otra).",
+          puntosClave: [
+            "**Composición**: La clase `Wallet` contiene un array de objetos `Movimiento`.",
+            "**new Date(año, mes, día)**: Crea fechas. ¡El mes empieza en 0! (Enero = 0, Febrero = 1...).",
+            "**getMonth()**: Devuelve el mes de una fecha (0-11).",
+            "**Encadenamiento**: Puedes hacer `array.filter(...).reduce(...)` para filtrar y luego calcular."
+          ],
           codigo: `class Movimiento {
   constructor(descripcion, cantidad, fecha, tipo, categoria) {
     this.descripcion = descripcion;
@@ -491,6 +583,25 @@ class Wallet {
       }, 0);
   }
 }`
+        },
+        {
+          titulo: "Uso de la Wallet",
+          contenido: "Ejemplo de cómo crear movimientos y agregarlos a la billetera.",
+          codigo: `// Crear billetera
+const cartera = new Wallet();
+
+// Crear movimientos (año, mes, día) - ¡Marzo es mes 2!
+const nomina = new Movimiento('Nómina', 3000, new Date(2024, 1, 1), 'ganancia', 'trabajo');
+const compra = new Movimiento('Supermercado', 150, new Date(2024, 1, 5), 'gasto', 'comida');
+
+// Agregar a la billetera
+cartera.agregarMovimiento(nomina);
+cartera.agregarMovimiento(compra);
+
+console.log(cartera.monto); // 2850
+
+// Filtrar gastos de febrero (mes 1)
+const gastosFeb = cartera.obtenerGastosPorMes(1);`
         }
       ]
     }

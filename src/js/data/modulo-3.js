@@ -122,7 +122,8 @@ for (const nombre of nombres) {
             "Sirven para modelar entidades del mundo real con propiedades",
             "En JavaScript NO es necesario definir una clase para crear un objeto",
             "También son tipos por referencia",
-            "Las claves se escriben sin comillas, los valores según su tipo"
+            "Las claves se escriben sin comillas, los valores según su tipo",
+            "**delete** elimina la clave del objeto. Asignar **null** la mantiene con valor null."
           ],
           codigo: `// Declaración de un objeto literal
 const persona = {
@@ -595,7 +596,8 @@ const usuario = usuarios.find(u => u.id === 2);
 // 0`
             }
           ],
-          nota: "Ambos métodos detienen la búsqueda en cuanto encuentran una coincidencia (eficiente)."
+          nota: "Ambos métodos detienen la búsqueda en cuanto encuentran una coincidencia (eficiente).",
+          alerta: "`indexOf()` NO funciona con objetos porque compara referencias de memoria, no contenido. Usa `find()` o `findIndex()` para buscar objetos por propiedades."
         },
         {
           titulo: "Spread Operator (...)",

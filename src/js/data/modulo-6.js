@@ -100,6 +100,12 @@ arrayFromCollection.map(p => p.textContent);`
         {
           titulo: "Creación de Nodos",
           contenido: "Métodos para instanciar nuevos nodos en memoria (aún no visibles en el DOM).",
+          puntosClave: [
+            "**createElement(tag)**: Crea un elemento HTML (div, p, span...). Devuelve un HTMLElement.",
+            "**createTextNode(texto)**: Crea un nodo de tipo texto. No es una etiqueta, es contenido.",
+            "**createComment(texto)**: Crea un nodo de tipo comentario HTML.",
+            "**createDocumentFragment()**: Crea un contenedor temporal para construir estructuras complejas sin afectar al DOM."
+          ],
           codigo: `// Crear un elemento HTML (Element Node)
 const div = document.createElement('div');
 
@@ -113,6 +119,27 @@ const comentario = document.createComment('Esto es un comentario');
 // Permite agregar múltiples elementos en memoria y luego insertarlos de una vez
 // Evita múltiples 'reflows' y 'repaints' del navegador, mejorando la velocidad
 const fragment = document.createDocumentFragment();`
+        },
+        {
+          titulo: "DocumentFragment para Rendimiento",
+          contenido: "Cuando necesitas crear estructuras complejas (listas, tablas con muchos elementos), cada operación en el DOM tiene un coste. El DocumentFragment permite construir todo en memoria y añadirlo de una sola vez.",
+          puntosClave: [
+            "**Sin modificar el DOM**: Todas las operaciones en el fragment no afectan al documento real.",
+            "**Una sola inserción**: Al hacer appendChild del fragment, se insertan todos los elementos de golpe.",
+            "**Mejor rendimiento**: Reduce los reflows y repaints del navegador.",
+            "**El fragment desaparece**: Al insertar, solo se añaden sus hijos, el fragment queda vacío."
+          ],
+          codigo: `// Crear una lista de 100 elementos de forma eficiente
+const fragment = document.createDocumentFragment();
+
+for (let i = 1; i <= 100; i++) {
+  const li = document.createElement('li');
+  li.textContent = \`Elemento \${i}\`;
+  fragment.appendChild(li); // Añadimos al fragment, no al DOM
+}
+
+// Una única operación en el DOM real
+document.getElementById('mi-lista').appendChild(fragment);`
         },
         {
           titulo: "Clonar Nodos",
@@ -230,23 +257,35 @@ input.toggleAttribute('disabled', false); // Fuerza a quitarlo`
         {
           titulo: "classList vs className",
           contenido: "`className` maneja todo el string de clases (ineficiente para modificar una sola). `classList` ofrece una API potente (`DOMTokenList`).",
+          puntosClave: [
+            "**className**: Sobreescribe todas las clases al asignar. Necesitas concatenar para añadir.",
+            "**classList**: API moderna con métodos para añadir, quitar, alternar clases sin afectar otras.",
+            "**classList.length**: Devuelve el número de clases del elemento.",
+            "**classList.item(n)**: Devuelve la clase en la posición n (como un array).",
+            "**classList.value**: Devuelve el string completo de clases (equivalente a className)."
+          ],
           codigo: `const div = document.querySelector('div');
 
-// Añadir
+// Añadir una o varias clases
 div.classList.add('activa', 'visible');
 
-// Eliminar
-div.classList.remove('oculta');
+// Eliminar una o varias clases
+div.classList.remove('oculta', 'inactiva');
 
 // Alternar (Toggle)
 div.classList.toggle('seleccionada'); // Si está la quita, si no, la pone
-div.classList.toggle('seleccionada', true); // Fuerza a ponerla
+div.classList.toggle('seleccionada', true); // Fuerza a ponerla (segundo param)
 
-// Comprobar
+// Comprobar si tiene una clase
 if (div.classList.contains('activa')) { ... }
 
-// Reemplazar
-div.classList.replace('vieja-clase', 'nueva-clase');`
+// Reemplazar una clase por otra
+div.classList.replace('vieja-clase', 'nueva-clase');
+
+// Propiedades útiles
+console.log(div.classList.length); // Número de clases
+console.log(div.classList.item(0)); // Primera clase
+console.log(div.classList[0]); // También funciona como array`
         },
         {
           titulo: "Data Attributes (dataset)",
@@ -336,7 +375,8 @@ div.insertAdjacentText('afterbegin', 'Texto');`
             "**Primero**: `firstChild` vs `firstElementChild`.",
             "**Último**: `lastChild` vs `lastElementChild`.",
             "**Hermanos**: `nextSibling` vs `nextElementSibling`.",
-            "**Padre**: `parentNode` vs `parentElement`."
+            "**Padre**: `parentNode` vs `parentElement`.",
+            "**¡Cuidado!**: Los saltos de línea y espacios en tu código HTML son nodos de texto (#text). `childNodes` puede devolver más elementos de los esperados."
           ],
           codigo: `// El espacio entre <div> y <p> en tu editor es un TextNode #text
 // <div>

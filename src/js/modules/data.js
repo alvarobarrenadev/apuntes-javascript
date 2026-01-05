@@ -53,7 +53,8 @@ export const modulesData = [
   {
     title: "Storage",
     desc: "Persistencia de datos: LocalStorage, Session y Cookies.",
-    icon: "fa-database"
+    icon: "fa-database",
+    link: `${BASE}src/pages/modulo-8/`
   },
   {
     title: "Asincronía",

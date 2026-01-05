@@ -33,12 +33,16 @@ export const modulo1Data = {
               descripcion: "Una variable puede cambiar de tipo en tiempo de ejecución. El tipo está asociado al valor, no a la variable"
             },
             {
-              nombre: "Objetual",
-              descripcion: "Casi todo en JavaScript son objetos, incluyendo arrays y funciones"
+              nombre: "Objetual (Arrays asociativos)",
+              descripcion: "Casi todo en JavaScript son objetos. Los objetos funcionan como arrays asociativos (hash maps) donde las claves son strings"
             },
             {
               nombre: "Funciones de primera clase",
-              descripcion: "Las funciones son objetos que tienen sus propias propiedades y métodos"
+              descripcion: "Las funciones son objetos que tienen sus propias propiedades y métodos. Pueden ser pasadas como argumentos, devueltas o asignadas a variables"
+            },
+            {
+              nombre: "Función eval()",
+              descripcion: "Capacidad de evaluar string como código en tiempo de ejecución. (Nota: ¡Peligroso y no recomendado por seguridad!)"
             }
           ]
         },
@@ -446,6 +450,18 @@ const rol = name === 'Admin' ? 'Administrador' : 'Usuario';`
             }
           ],
           nota: "Estos patrones se usan mucho en React para renderizado condicional: {isLoading && &lt;Spinner /&gt;}"
+        },
+        {
+          titulo: "Operadores Bitwise (Binarios)",
+          contenido: "Operan a nivel de bits. Poco frecuentes en desarrollo web alto nivel, pero útiles en casos específicos (permisos, optimización).",
+          operadores: [
+            { simbolo: "&", nombre: "AND", ejemplo: "5 & 1 // 1" },
+            { simbolo: "|", nombre: "OR", ejemplo: "5 | 1 // 5" },
+            { simbolo: "~", nombre: "NOT", ejemplo: "~5 // -6" },
+            { simbolo: "^", nombre: "XOR", ejemplo: "5 ^ 1 // 4" },
+            { simbolo: "<<", nombre: "Left Shift", ejemplo: "5 << 1 // 10" },
+            { simbolo: ">>", nombre: "Right Shift", ejemplo: "5 >> 1 // 2" }
+          ]
         },
         {
           titulo: "Operador de Asignación Nula (??=)",
