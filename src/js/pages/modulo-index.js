@@ -5,9 +5,13 @@ import '@/sass/main.scss';
 import { initTheme } from '../modules/theme.js';
 import { getModulo, getClasesDelModulo } from '../data/index.js';
 import { initFooter } from '../modules/footer.js';
+import { initSearch } from '../modules/search.js';
 
 // Inicializar tema
 initTheme();
+
+// Inicializar search
+initSearch();
 
 // Inicializar footer
 initFooter();

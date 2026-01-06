@@ -5,10 +5,14 @@ import '@/sass/main.scss';
 import { initTheme } from '../modules/theme.js';
 import { renderClase } from '../modules/renderer.js';
 import { initFooter } from '../modules/footer.js';
+import { initSearch } from '../modules/search.js';
 import { getClasesDelModulo } from '../data/index.js';
 
 // Inicializar tema
 initTheme();
+
+// Inicializar search
+initSearch();
 
 // Inicializar footer
 initFooter();

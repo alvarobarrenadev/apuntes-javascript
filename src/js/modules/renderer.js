@@ -37,7 +37,7 @@ export function renderClase(moduloId, claseId) {
  */
 function renderTema(tema, index) {
   return `
-    <section class="tema-block">
+    <section class="tema-block" id="t${index}">
       <div class="tema-header">
         <span class="tema-number">${index + 1}</span>
         <h3>${formatText(tema.titulo)}</h3>
