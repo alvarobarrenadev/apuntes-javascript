@@ -9,6 +9,7 @@ import { initSearch } from '../modules/search.js';
 import { initCopyCode } from '../modules/copyCode.js';
 import { initFlashcards } from '../modules/flashcards.js';
 import { initTOC } from '../modules/toc.js';
+import { initShortcuts } from '../modules/shortcuts.js';
 import { getClasesDelModulo, getClase } from '../data/index.js';
 
 // Inicializar tema
@@ -19,6 +20,9 @@ initSearch();
 
 // Inicializar footer
 initFooter();
+
+// Inicializar atajos de teclado
+initShortcuts();
 
 // Leer configuración desde el HTML
 const main = document.querySelector('main');
