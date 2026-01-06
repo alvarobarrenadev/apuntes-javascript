@@ -5,22 +5,11 @@
 .toc-container {
   position: fixed;
   z-index: 100;
-
-  // Desktop: sidebar derecha
-  @media (min-width: 1200px) {
-    top: 120px;
-    right: 24px;
-    width: 280px;
-  }
-
-  // Tablet/Móvil: botón flotante
-  @media (max-width: 1199px) {
-    bottom: 24px;
-    right: 24px;
-  }
+  bottom: 24px;
+  right: 24px;
 }
 
-// Botón toggle (siempre visible en mobile, oculto en desktop grande)
+// Botón toggle
 .toc-toggle {
   display: flex;
   align-items: center;
@@ -44,11 +33,6 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 30px var(--accent-glow);
   }
-
-  // Desktop grande: ocultar toggle, mostrar panel directamente
-  @media (min-width: 1200px) {
-    display: none;
-  }
 }
 
 .toc-toggle-label {
@@ -65,34 +49,34 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 
-  // Desktop: siempre visible
-  @media (min-width: 1200px) {
-    display: block;
-    max-height: calc(100vh - 160px);
+  // Posicionamiento flotante (común para todo)
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 280px;
+  max-height: 400px; // Altura máxima razonable
+
+  // Animaciones de entrada/salida
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.2s ease;
+
+  .toc-container.open & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
   }
 
-  // Mobile/Tablet: oculto por defecto
-  @media (max-width: 1199px) {
-    position: absolute;
-    bottom: 60px;
-    right: 0;
-    width: 280px;
-    max-height: 400px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px) scale(0.95);
-    transition: all 0.2s ease;
-
-    .toc-container.open & {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) scale(1);
-    }
-  }
-
+  // Ajuste para pantallas muy pequeñas
   @media (max-width: 480px) {
     width: calc(100vw - 48px);
     max-width: 320px;
+  }
+
+  // Aumentar altura máxima en pantallas grandes si hay espacio
+  @media (min-height: 800px) {
+    max-height: 60vh;
   }
 }
 
@@ -118,9 +102,9 @@
   }
 }
 
-// Botón cerrar (solo mobile)
+// Botón cerrar
 .toc-close {
-  display: none;
+  display: flex; // Visible siempre ahora que es un popup
   width: 28px;
   height: 28px;
   align-items: center;
@@ -135,10 +119,6 @@
   &:hover {
     background: rgba(239, 68, 68, 0.15);
     color: #ef4444;
-  }
-
-  @media (max-width: 1199px) {
-    display: flex;
   }
 }
 
@@ -231,21 +211,4 @@
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-// Indicador de progreso (línea vertical)
-.toc-list::before {
-  content: '';
-  position: absolute;
-  left: 28px;
-  top: 60px;
-  bottom: 16px;
-  width: 2px;
-  background: var(--border-subtle);
-  border-radius: 1px;
-  z-index: -1;
-
-  @media (max-width: 1199px) {
-    display: none;
-  }
 }

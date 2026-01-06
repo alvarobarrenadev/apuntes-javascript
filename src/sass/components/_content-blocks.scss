@@ -55,12 +55,16 @@
 
     >span {
       flex: 1;
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: anywhere;
 
       // Asegurar que los elementos formateados sean inline
       strong,
       code,
       .inline-code {
         display: inline;
+        white-space: normal; // Allow code to wrap
       }
     }
   }

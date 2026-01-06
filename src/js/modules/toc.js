@@ -128,10 +128,8 @@ function setupEventListeners() {
   // Cerrar al hacer clic en un link (móvil)
   document.querySelectorAll('.toc-item').forEach(item => {
     item.addEventListener('click', (e) => {
-      // Solo cerrar en móvil
-      if (window.innerWidth < 1200) {
-        container?.classList.remove('open');
-      }
+      // Cerrar siempre al hacer clic (ya es desplegable en todas las resoluciones)
+      container?.classList.remove('open');
 
       // Smooth scroll
       e.preventDefault();
@@ -146,10 +144,9 @@ function setupEventListeners() {
     });
   });
 
-  // Cerrar al hacer clic fuera (móvil)
+  // Cerrar al hacer clic fuera
   document.addEventListener('click', (e) => {
-    if (window.innerWidth < 1200 && 
-        container?.classList.contains('open') &&
+    if (container?.classList.contains('open') &&
         !container.contains(e.target)) {
       container.classList.remove('open');
     }
