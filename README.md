@@ -40,7 +40,16 @@ Navegación rápida dentro de clases extensas.
 - **Smooth Scroll:** Desplazamiento suave al saltar entre secciones de la clase.
 
 ### Búsqueda Global
-Buscador integrado (Ctrl+K) para encontrar rápidamente cualquier concepto, método o clase dentro de todo el curso.
+Buscador integrado (`Ctrl+K`) para encontrar rápidamente cualquier concepto, método o clase dentro de todo el curso.
+
+### Atajos de Teclado
+Sistema de navegación rápida para mejorar la productividad:
+- **`?`**: Ver todos los atajos disponibles.
+- **`→` / `←`**: Navegación entre clases (Siguiente/Anterior).
+- **`H`**: Ir al Inicio (Home).
+- **`T`**: Alternar Tema (Claro/Oscuro).
+- **`Q`**: Iniciar Quiz/Flashcards.
+- **`Esc`**: Cerrar modales (Buscador, Ayuda).
 
 ---
 
@@ -123,6 +132,14 @@ Para generar los archivos estáticos optimizados:
 npm run build
 ```
 
+### 5. Despliegue (GitHub Pages)
+
+Para desplegar automáticamente en `gh-pages`:
+
+```bash
+npm run deploy
+```
+
 ---
 
 ## Estructura del Proyecto
@@ -131,6 +148,9 @@ npm run build
 apuntes-javascript/
 ├── index.html              # Landing page
 ├── vite.config.js          # Configuración de Vite
+├── public/
+│   ├── sw.js               # Service Worker (PWA)
+│   └── site.webmanifest    # Manifiesto
 ├── src/
 │   ├── js/                
 │   │   ├── data/           # Base de datos de apuntes (JSON-like)
@@ -140,8 +160,10 @@ apuntes-javascript/
 │   │   │   ├── flashcards.js   # Lógica del Quiz
 │   │   │   ├── footer.js       # Renderizado del footer
 │   │   │   ├── home-cards.js   # Tarjetas de la home
+│   │   │   ├── pwa.js          # Gestión PWA (Service Worker)
 │   │   │   ├── renderer.js     # Renderizado dinámico
 │   │   │   ├── search.js       # Buscador
+│   │   │   ├── shortcuts.js    # Atajos de teclado
 │   │   │   ├── theme.js        # Gestor de temas
 │   │   │   └── toc.js          # Tabla de Contenidos
 │   │   └── pages/          # Controladores por página
