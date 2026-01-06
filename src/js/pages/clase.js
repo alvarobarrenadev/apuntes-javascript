@@ -6,6 +6,7 @@ import { initTheme } from '../modules/theme.js';
 import { renderClase } from '../modules/renderer.js';
 import { initFooter } from '../modules/footer.js';
 import { initSearch } from '../modules/search.js';
+import { initCopyCode } from '../modules/copyCode.js';
 import { getClasesDelModulo } from '../data/index.js';
 
 // Inicializar tema
@@ -24,6 +25,9 @@ const claseId = parseInt(main?.dataset.clase || '1', 10);
 
 // Renderizar la clase correspondiente
 renderClase(moduloId, claseId);
+
+// Inicializar botones de copiar código (después de renderizar)
+initCopyCode();
 
 // Lógica de navegación (Anterior / Siguiente)
 setupNavigation(moduloId, claseId);
