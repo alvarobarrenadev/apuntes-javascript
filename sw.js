@@ -1,5 +1,5 @@
-const CACHE_NAME = 'js-apuntes-v1';
-const ASSETS_CACHE = 'js-assets-v1';
+const CACHE_NAME = 'js-apuntes-v2';
+const ASSETS_CACHE = 'js-assets-v2';
 
 // Recursos estáticos conocidos que queremos precachear (mínimo esencial)
 const PRECACHE_URLS = [
