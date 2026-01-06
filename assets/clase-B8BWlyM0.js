@@ -1121,7 +1121,7 @@ ${o.codigoEjemplo}`,back:`Ejemplo de: ${o.titulo}`,source:o.titulo}),o.caracteri
     <nav class="toc-container" id="tocContainer">
       <button class="toc-toggle" id="tocToggle" title="Tabla de contenidos">
         <i class="fa-solid fa-list"></i>
-        <span class="toc-toggle-label">Contenidos</span>
+        <span class="toc-toggle-label">Contenido</span>
       </button>
       
       <div class="toc-panel" id="tocPanel">
