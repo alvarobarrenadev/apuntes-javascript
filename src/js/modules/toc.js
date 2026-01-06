@@ -36,7 +36,7 @@ function injectTOCHTML(claseData) {
     <nav class="toc-container" id="tocContainer">
       <button class="toc-toggle" id="tocToggle" title="Tabla de contenidos">
         <i class="fa-solid fa-list"></i>
-        <span class="toc-toggle-label">Contenidos</span>
+        <span class="toc-toggle-label">Contenido</span>
       </button>
       
       <div class="toc-panel" id="tocPanel">
