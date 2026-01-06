@@ -74,6 +74,25 @@ Stack moderno y ligero, priorizando el rendimiento y la mantenibilidad:
 
 ---
 
+## Instalación de la App (PWA)
+
+Esta web es una **Progressive Web App (PWA)**, lo que significa que puedes instalarla en tu ordenador o móvil como si fuera una aplicación nativa y usarla **sin conexión a internet**.
+
+### En PC (Chrome / Edge)
+1.  Busca el icono de instalación (una pantalla con una flecha hacia abajo) en la barra de direcciones, a la derecha.
+2.  Haz clic en **"Instalar Apuntes JavaScript"**.
+3.  La app se abrirá en una ventana independiente.
+
+### En Móvil (Android - Chrome)
+1.  Abre el menú del navegador (los tres puntos verticales).
+2.  Selecciona **"Instalar aplicación"** o **"Añadir a pantalla de inicio"**.
+
+### En Móvil (iOS - Safari)
+1.  Pulsa el botón **Compartir** (cuadrado con flecha hacia arriba).
+2.  Busca y selecciona **"Añadir a la pantalla de inicio"**.
+
+---
+
 ## Inicio Rápido
 
 ### 1. Prerrequisitos

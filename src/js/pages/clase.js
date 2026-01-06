@@ -10,10 +10,14 @@ import { initCopyCode } from '../modules/copyCode.js';
 import { initFlashcards } from '../modules/flashcards.js';
 import { initTOC } from '../modules/toc.js';
 import { initShortcuts } from '../modules/shortcuts.js';
+import { initPWA } from '../modules/pwa.js';
 import { getClasesDelModulo, getClase } from '../data/index.js';
 
 // Inicializar tema
 initTheme();
+
+// Inicializar PWA
+initPWA();
 
 // Inicializar search
 initSearch();
