@@ -7,7 +7,8 @@ import { renderClase } from '../modules/renderer.js';
 import { initFooter } from '../modules/footer.js';
 import { initSearch } from '../modules/search.js';
 import { initCopyCode } from '../modules/copyCode.js';
-import { getClasesDelModulo } from '../data/index.js';
+import { initFlashcards } from '../modules/flashcards.js';
+import { getClasesDelModulo, getClase } from '../data/index.js';
 
 // Inicializar tema
 initTheme();
@@ -28,6 +29,10 @@ renderClase(moduloId, claseId);
 
 // Inicializar botones de copiar código (después de renderizar)
 initCopyCode();
+
+// Inicializar modo quiz/flashcards
+const claseData = getClase(moduloId, claseId);
+initFlashcards(moduloId, claseId, claseData);
 
 // Lógica de navegación (Anterior / Siguiente)
 setupNavigation(moduloId, claseId);
