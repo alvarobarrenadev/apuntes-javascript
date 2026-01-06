@@ -4,14 +4,21 @@
 import Swal from 'sweetalert2';
 
 /**
- * Limpia el texto de formato markdown
+ * Limpia el texto de formato markdown y lo convierte a HTML simple
  */
 function cleanText(text) {
   if (!text) return '';
-  return text
-    .replace(/`([^`]+)`/g, '$1')
-    .replace(/\*\*([^*]+)\*\*/g, '$1')
-    .replace(/\*([^*]+)\*/g, '$1')
+  
+  // Escapar HTML básico primero
+  let clean = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  return clean
+    .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .trim();
 }
 
@@ -49,6 +56,36 @@ function extractFlashcards(claseData) {
   
   claseData.temas.forEach((tema) => {
     
+    // ========== PUNTOS CLAVE (Prioridad Alta) ==========
+    if (tema.puntosClave && Array.isArray(tema.puntosClave) && tema.puntosClave.length > 0) {
+      // Elegir hasta 2 puntos clave aleatorios para no saturar si hay muchos
+      const selectedPoints = tema.puntosClave.slice(0, 2); 
+      selectedPoints.forEach(punto => {
+        cards.push({
+          front: `Concepto clave sobre: ${tema.titulo}`,
+          back: cleanText(punto),
+          source: tema.titulo
+        });
+      });
+    } else if (tema.contenido && tema.contenido.length < 300) {
+      // ========== CONTENIDO GENERAL (Fallback) ==========
+      // Si no hay puntos clave y el contenido es breve, usarlo como definición
+      cards.push({
+        front: `Explica brevemente: ${tema.titulo}`,
+        back: cleanText(tema.contenido),
+        source: tema.titulo
+      });
+    }
+
+    // ========== CÓDIGO DE EJEMPLO ==========
+    if (tema.codigoEjemplo) {
+       cards.push({
+          front: `¿Qué hace el siguiente código?\n\n${tema.codigoEjemplo}`,
+          back: `Ejemplo de: ${tema.titulo}`,
+          source: tema.titulo
+       });
+    }
+
     // ========== CARACTERÍSTICAS (nombre + descripción) ==========
     if (tema.caracteristicas && Array.isArray(tema.caracteristicas)) {
       tema.caracteristicas.forEach(c => {
@@ -558,10 +595,10 @@ function showCard(index) {
   document.getElementById('flashcardActions')?.classList.remove('visible');
   isFlipped = false;
   
-  // Actualizar contenido
+  // Actualizar contenido usando HTML para permitir formato
   document.getElementById('cardSource').textContent = card.source;
-  document.getElementById('cardFront').textContent = card.front;
-  document.getElementById('cardBack').textContent = card.back;
+  document.getElementById('cardFront').innerHTML = card.front.replace(/\n/g, '<br>');
+  document.getElementById('cardBack').innerHTML = card.back.replace(/\n/g, '<br>');
   
   // Actualizar estado de botones de navegación
   updateNavButtons();
