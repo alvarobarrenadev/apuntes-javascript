@@ -1,4 +1,4 @@
-import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./index-29JaQ9e6.js";function g(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const c=f(s,o);if(!c){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
+import{c as h,i as u,a as f,b,g}from"./search-Db4_SxFZ.js";function j(s,o){const i=document.getElementById("lessonContainer");if(!i)return;const c=h(s,o);if(!c){i.innerHTML='<p class="error">Clase no encontrada</p>';return}i.innerHTML=`
     <article class="class-card">
       <div class="class-card-header">
         <div class="class-number">${c.id}</div>
@@ -8,11 +8,11 @@ import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./inde
       </div>
       
       <div class="class-content">
-        ${c.temas.map((d,t)=>j(d,t)).join("")}
+        ${c.temas.map((d,t)=>m(d,t)).join("")}
       </div>
     </article>
-  `}function j(s,o){return`
-    <section class="tema-block">
+  `}function m(s,o){return`
+    <section class="tema-block" id="t${o}">
       <div class="tema-header">
         <span class="tema-number">${o+1}</span>
         <h3>${a(s.titulo)}</h3>
@@ -20,9 +20,9 @@ import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./inde
       
       <p class="tema-intro">${a(s.contenido)}</p>
       
-      ${m(s)}
+      ${x(s)}
     </section>
-  `}function m(s){let o="";if(s.puntosClave&&(o+=`
+  `}function x(s){let o="";if(s.puntosClave&&(o+=`
       <div class="info-box puntos-clave">
         <div class="info-box-header">
           <i class="fa-solid fa-key"></i>
@@ -143,7 +143,7 @@ import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./inde
           </tbody>
         </table>
       </div>
-    `),s.operadores&&(o+=x(s)),s.ejemplos&&s.titulo.includes("Ternario")&&(o+=`
+    `),s.operadores&&(o+=y(s)),s.ejemplos&&s.titulo.includes("Ternario")&&(o+=`
       <div class="syntax-highlight">
         <code>${s.sintaxis}</code>
       </div>
@@ -888,7 +888,7 @@ import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./inde
         <i class="fa-solid fa-lightbulb"></i>
         <span>${a(s.recomendacion)}</span>
       </div>
-    `),o}function x(s){const o=s.operadores;return o[0].simbolo&&!o[0].variantes&&!o[0].tablaVerdad?`
+    `),o}function y(s){const o=s.operadores;return o[0].simbolo&&!o[0].variantes&&!o[0].tablaVerdad?`
       <div class="table-container">
         <table class="data-table operators-table">
           <thead>
@@ -970,4 +970,4 @@ import{i as h,a as u}from"./footer-BfRR1JS6.js";import{a as f,g as b}from"./inde
           </div>
         `).join("")}
       </div>
-    `:""}function a(s){if(!s)return"";let o=e(s);return o=o.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>"),o=o.replace(/`(.*?)`/g,'<code class="inline-code">$1</code>'),o}function e(s){const o=document.createElement("div");return o.textContent=s,o.innerHTML}h();u();const p=document.querySelector("main"),v=parseInt(p?.dataset.modulo||"1",10),$=parseInt(p?.dataset.clase||"1",10);g(v,$);y(v,$);function y(s,o){const i=b(s);if(!i||i.length===0)return;const c=i.findIndex(l=>l.id===o);if(c===-1)return;const d=i[c-1],t=i[c+1],r=document.querySelector(".lesson-nav-prev"),n=document.querySelector(".lesson-nav-next");if(r&&d){const l=document.createElement("a");l.className="lesson-nav-prev",l.href=`./clase-${d.id}.html`,l.innerHTML='<i class="fa-solid fa-arrow-left"></i> Anterior',r.replaceWith(l)}if(n&&t){const l=document.createElement("a");l.className="lesson-nav-next",l.href=`./clase-${t.id}.html`,l.innerHTML='Siguiente <i class="fa-solid fa-arrow-right"></i>',n.replaceWith(l)}}
+    `:""}function a(s){if(!s)return"";let o=e(s);return o=o.replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>"),o=o.replace(/`(.*?)`/g,'<code class="inline-code">$1</code>'),o}function e(s){const o=document.createElement("div");return o.textContent=s,o.innerHTML}u();f();b();const p=document.querySelector("main"),v=parseInt(p?.dataset.modulo||"1",10),$=parseInt(p?.dataset.clase||"1",10);j(v,$);C(v,$);function C(s,o){const i=g(s);if(!i||i.length===0)return;const c=i.findIndex(l=>l.id===o);if(c===-1)return;const d=i[c-1],t=i[c+1],r=document.querySelector(".lesson-nav-prev"),n=document.querySelector(".lesson-nav-next");if(r&&d){const l=document.createElement("a");l.className="lesson-nav-prev",l.href=`./clase-${d.id}.html`,l.innerHTML='<i class="fa-solid fa-arrow-left"></i> Anterior',r.replaceWith(l)}if(n&&t){const l=document.createElement("a");l.className="lesson-nav-next",l.href=`./clase-${t.id}.html`,l.innerHTML='Siguiente <i class="fa-solid fa-arrow-right"></i>',n.replaceWith(l)}}
