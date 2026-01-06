@@ -6,7 +6,9 @@ const PRECACHE_URLS = [
   './',
   'index.html',
   'favicon/favicon.ico',
-  'site.webmanifest'
+  'site.webmanifest',
+  'favicon/web-app-manifest-192x192.png',
+  'favicon/web-app-manifest-512x512.png'
 ];
 
 // Instalación: Precachear recursos críticos

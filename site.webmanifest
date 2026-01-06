@@ -1,7 +1,7 @@
 {
   "name": "Apuntes JavaScript",
-  "short_name": "JS Apuntes",
-  "description": "Apuntes interactivos de JavaScript - ConquerBlocks",
+  "short_name": "Apuntes JS",
+  "description": "Apuntes interactivos y estructurados de JavaScript del máster Conquer Blocks.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -10,25 +10,25 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./favicon/web-app-manifest-192x192.png",
+      "src": "favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./favicon/web-app-manifest-192x192.png",
+      "src": "favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./favicon/web-app-manifest-512x512.png",
+      "src": "favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./favicon/web-app-manifest-512x512.png",
+      "src": "favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
