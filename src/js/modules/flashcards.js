@@ -22,6 +22,15 @@ function cleanText(text) {
     .trim();
 }
 
+/**
+ * Formatea el título del tema para usarlo en una frase
+ * Elimina signos de interrogación/exclamación iniciales/finales
+ */
+function formatTopicTitle(title) {
+  if (!title) return '';
+  return title.replace(/^[¿¡]+|[?!]+$/g, '').trim();
+}
+
 let currentFlashcards = [];
 let currentIndex = 0;
 let score = { correct: 0, incorrect: 0, total: 0 };
@@ -58,20 +67,22 @@ function extractFlashcards(claseData) {
     
     // ========== PUNTOS CLAVE (Prioridad Alta) ==========
     if (tema.puntosClave && Array.isArray(tema.puntosClave) && tema.puntosClave.length > 0) {
-      // Elegir hasta 2 puntos clave aleatorios para no saturar si hay muchos
+      // Elegir hasta 2 puntos clave aleatorios
       const selectedPoints = tema.puntosClave.slice(0, 2); 
       selectedPoints.forEach(punto => {
         cards.push({
-          front: `Concepto clave sobre: ${tema.titulo}`,
+          front: `Punto importante sobre: ${formatTopicTitle(tema.titulo)}`,
           back: cleanText(punto),
           source: tema.titulo
         });
       });
-    } else if (tema.contenido && tema.contenido.length < 300) {
-      // ========== CONTENIDO GENERAL (Fallback) ==========
-      // Si no hay puntos clave y el contenido es breve, usarlo como definición
+    }
+
+    // ========== CONTENIDO GENERAL (Definición/Resumen) ==========
+    if (tema.contenido && tema.contenido.length < 300) {
+      // Usar contenido como definición si es breve
       cards.push({
-        front: `Explica brevemente: ${tema.titulo}`,
+        front: `Explica brevemente: ${formatTopicTitle(tema.titulo)}`,
         back: cleanText(tema.contenido),
         source: tema.titulo
       });
@@ -79,9 +90,15 @@ function extractFlashcards(claseData) {
 
     // ========== CÓDIGO DE EJEMPLO ==========
     if (tema.codigoEjemplo) {
+       // Escapar HTML para que se vea el código
+       const codigoEscapado = tema.codigoEjemplo
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;");
+         
        cards.push({
-          front: `¿Qué hace el siguiente código?\n\n${tema.codigoEjemplo}`,
-          back: `Ejemplo de: ${tema.titulo}`,
+          front: `¿Qué concepto ilustra este código?\n\n<div class="code-block-wrapper"><pre>${codigoEscapado}</pre></div>`,
+          back: `${tema.titulo}`,
           source: tema.titulo
        });
     }

@@ -74,19 +74,19 @@ export const modulo1Data = {
         },
         {
           titulo: "Ubicación del script",
-          contenido: "La posición de la etiqueta &lt;script&gt; afecta cuándo se ejecuta el código:",
+          contenido: "La posición de la etiqueta <script> afecta cuándo se ejecuta el código:",
           posiciones: [
             {
-              lugar: "En el &lt;head&gt;",
+              lugar: "En el <head>",
               comportamiento: "Se ejecuta ANTES de que se pinte el HTML. El DOM no está disponible.",
               solucion: "Usar el atributo defer para esperar a que cargue la página"
             },
             {
-              lugar: "En el &lt;body&gt;",
+              lugar: "En el <body>",
               comportamiento: "Se ejecuta mientras se dibuja la página"
             },
             {
-              lugar: "Antes de &lt;/body&gt;",
+              lugar: "Antes de </body>",
               comportamiento: "Se ejecuta DESPUÉS de pintar todo el HTML. El DOM está completamente disponible."
             }
           ],
