@@ -1,12 +1,12 @@
-const CACHE_NAME = 'js-apuntes-v2';
-const ASSETS_CACHE = 'js-assets-v2';
+const CACHE_NAME = 'js-apuntes-v4';
+const ASSETS_CACHE = 'js-assets-v4';
 
 // Recursos estáticos conocidos que queremos precachear (mínimo esencial)
 const PRECACHE_URLS = [
   './',
-  './index.html',
-  './favicon/favicon.ico',
-  './favicon/site.webmanifest'
+  'index.html',
+  'favicon/favicon.ico',
+  'site.webmanifest'
 ];
 
 // Instalación: Precachear recursos críticos
