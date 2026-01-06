@@ -1,7 +1,7 @@
 {
   "name": "Apuntes JavaScript",
-  "short_name": "JS Apuntes",
-  "description": "Apuntes interactivos de JavaScript - ConquerBlocks",
+  "short_name": "Apuntes JS",
+  "description": "Apuntes interactivos y estructurados de JavaScript del máster Conquer Blocks.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
